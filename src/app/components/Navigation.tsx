@@ -61,7 +61,7 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
         </div>
  
         <ul className="hidden lg:flex list-none gap-6 xl:gap-8 items-center">
-          {['reel', 'philosophy', 'studio', 'thinking', 'about', 'connect'].map((item) => (
+          {['reel', 'philosophy', 'studio', 'services', 'thinking', 'about', 'connect'].map((item) => (
             <li key={item} className="flex items-center">
               <a
                 href={`#${item}`}
@@ -83,7 +83,7 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
       {mobileMenuOpen && (
         <div className="fixed top-[60px] left-0 right-0 z-[999] bg-[rgba(0,0,0,0.95)] backdrop-blur-md lg:hidden">
           <ul className="flex flex-col list-none">
-            {['reel', 'philosophy', 'studio', 'thinking', 'about', 'connect'].map((item) => (
+            {['reel', 'philosophy', 'studio', 'services', 'thinking', 'about', 'connect'].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item}`}

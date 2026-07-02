@@ -3,15 +3,15 @@ export function MurmurationBg() {
   // Sizes and opacities vary slightly so it reads as organic, not mechanical.
   const dots = Array.from({ length: 18 }, (_, i) => ({
     id: i,
-    size: 2 + (i % 4) * 0.8,
+    size: 3 + (i % 4) * 1.5,
     delay: (i * 0.45) % 6,
-    duration: 14 + (i % 5) * 2.5,
+    duration: 16 + (i % 5) * 3,
     startX: 5 + (i * 5.3) % 90,
     startY: 10 + (i * 7.1) % 70,
   }));
 
   return (
-    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden" aria-hidden="true">
+    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden z-0" aria-hidden="true">
       {dots.map((d) => (
         <div
           key={d.id}
@@ -21,8 +21,8 @@ export function MurmurationBg() {
             top: `${d.startY}%`,
             width: `${d.size}px`,
             height: `${d.size}px`,
-            backgroundColor: 'var(--text-muted)',
-            opacity: 0.35,
+            backgroundColor: d.id % 2 === 0 ? 'var(--accent)' : 'var(--text-muted)',
+            opacity: 0.45,
             animation: `murmur-drift-${d.id % 3} ${d.duration}s ease-in-out ${d.delay}s infinite`,
           }}
         />

@@ -42,128 +42,96 @@ export function ReelSection() {
   }, [shouldLoad]);
 
   return (
-    <section ref={sectionRef} className="px-6 md:px-16 py-8 md:py-16" style={{ backgroundColor: 'var(--dark-bg)' }} id="reel">
-      <span
-        className="block text-[13px] uppercase font-light tracking-[0.16em] reveal"
-        style={{
-          fontFamily: 'var(--font-family-mono)',
-          fontWeight: 400,
-          color: 'var(--dark-text-secondary)',
-        }}
-      >
-        REEL
-      </span>
-      <p className="text-[16px] italic mt-2 mb-8 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)' }}>
-        see for yourself
-      </p>
-
-      <div
-        className="relative aspect-video flex items-center justify-center reveal overflow-hidden border"
-        style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'var(--border)' }}
-      >
-        {/* Background Video */}
-        <video
-          ref={videoRef1}
-          autoPlay
-          loop
-          muted
-          playsInline
-          src={shouldLoad ? reelVideo1 : undefined}
-          preload={shouldLoad ? "auto" : "none"}
-          className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-lighten"
-          style={{
-            filter: 'saturate(0.6) contrast(1.1) brightness(0.75)',
-          }}
-        />
-
-        {/* Contrast vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80 pointer-events-none" />
-
-        <div className="text-center z-10 relative">
-          <p
-            className="text-[clamp(26px,4vw,54px)] font-normal italic leading-[1.2] tracking-[-0.01em]"
-            style={{
-              fontFamily: 'var(--font-family-serif)',
-              color: 'var(--dark-text)',
-            }}
+    <section ref={sectionRef} className="px-6 md:px-16 py-16 md:py-24" style={{ backgroundColor: 'var(--dark-bg)' }} id="reel">
+      <div className="max-w-[1150px] mx-auto">
+        {/* First Reel Block - 20% smaller size (max-w-[920px]) */}
+        <div className="reveal mb-16 md:mb-20 max-w-[920px] mx-auto">
+          <div
+            className="relative w-full aspect-video overflow-hidden border p-1"
+            style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'var(--border)' }}
           >
-            Twenty years.
-            <br />
-            One edit.
-          </p>
-          <p
-            className="text-[12px] font-light tracking-[0.14em] mt-5"
-            style={{
-              fontFamily: 'var(--font-family-mono)',
-              fontWeight: 400,
-              color: 'var(--dark-text-secondary)',
-            }}
-          >
-            assembling · 2026
-          </p>
+            <video
+              ref={videoRef1}
+              autoPlay
+              loop
+              muted
+              playsInline
+              src={shouldLoad ? reelVideo1 : undefined}
+              preload={shouldLoad ? "auto" : "none"}
+              className="w-full h-full object-cover"
+              style={{
+                filter: 'saturate(0.55)',
+              }}
+            />
+            {/* Minimal overlay title */}
+            <div className="absolute bottom-6 left-6 z-10 text-white select-none">
+              <p
+                className="text-[20px] sm:text-[26px] font-normal leading-[1.2] tracking-[-0.01em] mb-1"
+                style={{
+                  fontFamily: 'var(--font-family-serif)',
+                  color: 'var(--dark-text)',
+                  textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                }}
+              >
+                Twenty years. One edit.
+              </p>
+              <span
+                className="text-[11px] font-light tracking-[0.12em]"
+                style={{
+                  fontFamily: 'var(--font-family-mono)',
+                  color: 'var(--dark-text-secondary)',
+                  textShadow: '0 1px 4px rgba(0,0,0,0.4)',
+                }}
+              >
+                assembling · 2026
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div
-        className="h-[0.5px] my-12 reveal"
-        style={{ backgroundColor: 'var(--border)' }}
-      />
-
-      <div className="mb-6 reveal">
-        <span
-          className="text-[12px] font-light tracking-[0.14em]"
-          style={{
-            fontFamily: 'var(--font-family-mono)',
-            fontWeight: 400,
-            color: 'var(--dark-text-secondary)',
-          }}
-        >
-          written &middot; directed &middot; generated
-        </span>
-      </div>
-
-      <div
-        className="relative aspect-video flex items-center justify-center reveal overflow-hidden border"
-        style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'var(--border)' }}
-      >
-        {/* Background Video */}
-        <video
-          ref={videoRef2}
-          autoPlay
-          loop
-          muted
-          playsInline
-          src={shouldLoad ? reelVideo2 : undefined}
-          preload={shouldLoad ? "auto" : "none"}
-          className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-lighten"
-          style={{
-            filter: 'saturate(0.6) contrast(1.1) brightness(0.75)',
-          }}
-        />
-
-        {/* Contrast vignette */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/80 pointer-events-none" />
-
-        <div className="text-center z-10 relative">
-          <p
-            className="text-[clamp(20px,3vw,38px)] font-normal italic leading-[1.2]"
-            style={{
-              fontFamily: 'var(--font-family-serif)',
-              color: 'var(--dark-text)',
-            }}
+        {/* Second Reel Block - Same size (max-w-[920px]) */}
+        <div className="reveal max-w-[920px] mx-auto">
+          <div
+            className="relative w-full aspect-video overflow-hidden border p-1"
+            style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'var(--border)' }}
           >
-            Without a crew.
-          </p>
-          <p
-            className="text-[12px] font-light tracking-[0.14em] mt-5"
-            style={{
-              fontFamily: 'var(--font-family-mono)',
-              fontWeight: 400,
-              color: 'var(--dark-text-secondary)',
-            }}
-          >
-            assembling · 2026
-          </p>
+            <video
+              ref={videoRef2}
+              autoPlay
+              loop
+              muted
+              playsInline
+              src={shouldLoad ? reelVideo2 : undefined}
+              preload={shouldLoad ? "auto" : "none"}
+              className="w-full h-full object-cover"
+              style={{
+                filter: 'saturate(0.55)',
+              }}
+            />
+            {/* Minimal overlay title */}
+            <div className="absolute bottom-6 left-6 z-10 text-white select-none">
+              <p
+                className="text-[20px] sm:text-[26px] font-normal leading-[1.2] tracking-[-0.01em] mb-1"
+                style={{
+                  fontFamily: 'var(--font-family-serif)',
+                  color: 'var(--dark-text)',
+                  textShadow: '0 2px 8px rgba(0,0,0,0.4)',
+                }}
+              >
+                Without a crew.
+              </p>
+              <span
+                className="text-[11px] font-light tracking-[0.12em]"
+                style={{
+                  fontFamily: 'var(--font-family-mono)',
+                  color: 'var(--dark-text-secondary)',
+                  textShadow: '0 1px 4px rgba(0,0,0,0.4)',
+                }}
+              >
+                assembling · 2026
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

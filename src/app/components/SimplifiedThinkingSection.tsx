@@ -178,12 +178,9 @@ export function SimplifiedThinkingSection() {
       />
 
       <div className="relative z-10 max-w-[960px] mx-auto px-6 sm:px-10 lg:px-12">
-        <span className="block text-[13px] uppercase font-light tracking-[0.16em] reveal" style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--dark-text-secondary)' }}>
-          THINKING
+        <span className="block text-[13px] uppercase font-light tracking-[0.16em] reveal mb-12" style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--dark-text-secondary)' }}>
+          THE LENS
         </span>
-        <p className="text-[16px] italic mt-2 mb-8 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)' }}>
-          still arguing with myself
-        </p>
 
         {/* 2x2 Grid with high-end cards to split textual heaviness */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6">

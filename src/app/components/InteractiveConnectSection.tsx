@@ -184,11 +184,11 @@ export function InteractiveConnectSection() {
     <section className="py-16 sm:py-20 lg:py-24" id="connect" style={{ backgroundColor: 'var(--bg)' }}>
       <div className="max-w-[900px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="mb-12">
-          <span className="block text-[13px] uppercase font-light tracking-[0.16em] reveal" style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}>
-            CONNECT
-          </span>
-          <p className="text-[16px] italic mt-2 mb-8 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}>
-            say the thing
+          <p
+            className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[68px] italic leading-[1.15] tracking-[-0.02em] mb-8 reveal"
+            style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)', fontWeight: 'normal' }}
+          >
+            Say the thing.
           </p>
           <p className="text-[17px] sm:text-[18px] text-text-secondary leading-[1.75] max-w-[600px] mb-4 reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
             Serious enquiries only. Strategy, writing, and film.

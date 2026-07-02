@@ -276,23 +276,6 @@ export function WorkSection() {
                   <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
                 </div>
               </div>
-
-              {/* Technical slate labels top-right */}
-              <div className="absolute top-6 right-6 z-20 text-white/70 select-none text-right text-[9px] tracking-[0.16em] leading-relaxed font-mono hidden sm:block">
-                <span className="block font-medium uppercase text-[var(--dark-text-secondary)]">REC ● 24 FPS</span>
-                <span className="block opacity-75">SND: DUAL // SHUTTER: 180°</span>
-                <span className="block opacity-75">LENS: ANAMORPHIC 50MM</span>
-              </div>
-
-              {/* Film Slate Overlay */}
-              <div className="absolute bottom-6 left-6 z-20 text-white select-none">
-                <span className="block text-[9px] uppercase tracking-[0.22em] text-white/90 mb-1" style={{ fontFamily: 'var(--font-family-mono)', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
-                  KEY STILL // THE LAST MESSAGE
-                </span>
-                <span className="block text-[15px] sm:text-[17px] italic leading-tight" style={{ fontFamily: 'var(--font-family-serif)', textShadow: '0 1.5px 3px rgba(0,0,0,0.9)' }}>
-                  "What if the reply came?"
-                </span>
-              </div>
             </div>
 
             {/* Sub-image technical labels */}
@@ -448,6 +431,11 @@ export function WorkSection() {
           {/* Left Column: Atmospheric Movie Still Frame */}
           <div className="relative group w-full">
             <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] border p-1.5" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
+              {/* Subtle Viewfinder corner brackets */}
+              <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/40 pointer-events-none z-20" />
+              <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/40 pointer-events-none z-20" />
+              <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/40 pointer-events-none z-20" />
+              <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/40 pointer-events-none z-20" />
               
               {/* High-resolution micro-mesh grain overlay for cinematic aesthetic */}
               <div
@@ -480,14 +468,11 @@ export function WorkSection() {
                 }}
               />
 
-              {/* Film Slate Overlay */}
-              <div className="absolute bottom-6 left-6 z-20 text-white select-none">
-                <span className="block text-[9px] uppercase tracking-[0.22em] text-white/90 mb-1" style={{ fontFamily: 'var(--font-family-mono)', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
-                  KEY STILL // MAATI KONA CHI?
-                </span>
-                <span className="block text-[15px] sm:text-[17px] italic leading-tight" style={{ fontFamily: 'var(--font-family-serif)', textShadow: '0 1.5px 3px rgba(0,0,0,0.9)' }}>
-                  "Who decides what gets to grow, and what gets cut?"
-                </span>
+              {/* Center reticle */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 z-10">
+                <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center">
+                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+                </div>
               </div>
             </div>
 
