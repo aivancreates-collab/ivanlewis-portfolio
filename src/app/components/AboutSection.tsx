@@ -13,26 +13,34 @@ export function AboutSection() {
  
       <div className="relative z-10 max-w-[1150px] mx-auto px-6 sm:px-12">
         <p
-          className="text-[18px] sm:text-[22px] md:text-[28px] lg:text-[34px] italic leading-[1.2] tracking-[-0.01em] mb-12 sm:mb-16 reveal"
-          style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)', fontWeight: 'normal' }}
+          className="text-[11px] uppercase tracking-[0.22em] mb-12 sm:mb-16 reveal font-medium"
+          style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--dark-text-secondary)' }}
         >
-          Not what I do. <span className="font-semibold not-italic text-white">Why?</span>
+          Not what I do. <span className="text-white font-semibold">Why.</span>
         </p>
 
         {/* The massive Philosophy-like text block */}
         <div className="reveal mb-16 sm:mb-24">
           <p 
-            className="text-[30px] sm:text-[44px] md:text-[58px] lg:text-[64px] italic leading-[1.15] tracking-[-0.02em] text-white max-w-[1000px] mb-8" 
+            className="text-[20px] sm:text-[26px] md:text-[32px] lg:text-[36px] italic leading-[1.35] tracking-[-0.02em] text-white/95 max-w-[850px] mb-8 font-light" 
             style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
           >
-            We are drowning in execution. What we lack is the discipline to ask what we are actually building, and <span className="font-semibold not-italic">why it deserves to exist.</span>
+            The question has always been the same. Not what to make, but <span className="font-semibold not-italic">why this</span>, why now, why will anyone care a year from now. Everything else gets figured out when the <span className="font-semibold not-italic">why</span> gets answered honestly.
           </p>
-          <p 
-            className="text-[14px] sm:text-[18px] md:text-[21px] lg:text-[25px] italic leading-[1.2] tracking-[-0.01em] text-[var(--dark-text-secondary)] max-w-none sm:whitespace-nowrap" 
-            style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
-          >
-            I write, direct, and consult on projects that still begin with the question.
-          </p>
+          <div className="flex flex-col gap-6 max-w-[700px]">
+            <p 
+              className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.65] tracking-[-0.01em] text-white/60 font-light" 
+              style={{ fontFamily: 'var(--font-family-serif)' }}
+            >
+              The work moves across film, writing, brand, and strategy. The problem underneath is always the same. Something needs a <span className="font-semibold not-italic text-white">reason to exist</span> beyond the obvious. That's where I come in.
+            </p>
+            <p 
+              className="text-[14px] sm:text-[16px] md:text-[18px] leading-[1.65] tracking-[-0.01em] text-[var(--dark-text-secondary)] font-medium italic border-l-2 border-[var(--accent)]/30 pl-4 mt-2" 
+              style={{ fontFamily: 'var(--font-family-serif)' }}
+            >
+              I write, direct, and consult on projects that still begin with the question.
+            </p>
+          </div>
         </div>
 
         {/* Lower layout with Image and Links to keep it grounded */}
@@ -122,6 +130,15 @@ export function AboutSection() {
                 style={{ color: 'var(--dark-text-secondary)' }}
               >
                 Substack
+              </a>
+              <a
+                href="https://letterboxd.com/NomadicLion/"
+                target="_blank"
+                rel="noopener"
+                className="no-underline transition-colors duration-300 hover:text-white border-b border-white/20 hover:border-white pb-1 py-2 inline-flex items-center"
+                style={{ color: 'var(--dark-text-secondary)' }}
+              >
+                Letterboxd
               </a>
             </div>
           </div>

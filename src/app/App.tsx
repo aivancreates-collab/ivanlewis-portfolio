@@ -165,6 +165,15 @@ export default function App() {
             Substack
           </a>
           <a
+            href="https://letterboxd.com/NomadicLion/"
+            target="_blank"
+            rel="noopener"
+            className="no-underline transition-colors duration-300 hover:text-[var(--text)]"
+            style={{ color: 'var(--text-muted)' }}
+          >
+            Letterboxd
+          </a>
+          <a
             href="https://www.are.na/ivan-lewis"
             target="_blank"
             rel="noopener"

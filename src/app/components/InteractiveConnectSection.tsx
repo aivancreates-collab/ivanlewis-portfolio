@@ -185,10 +185,10 @@ export function InteractiveConnectSection() {
       <div className="max-w-[900px] mx-auto px-6 sm:px-10 lg:px-12">
         <div className="mb-12">
           <p
-            className="text-[36px] sm:text-[48px] md:text-[60px] lg:text-[68px] italic leading-[1.15] tracking-[-0.02em] mb-8 reveal"
+            className="text-[26px] sm:text-[34px] md:text-[42px] lg:text-[48px] italic leading-[1.25] tracking-[-0.02em] mb-8 reveal max-w-[720px]"
             style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)', fontWeight: 'normal' }}
           >
-            Say the thing.
+            The best projects start with <span className="font-semibold not-italic">one honest question</span>. If you have one, <span className="font-semibold not-italic text-[var(--accent)]">send it.</span>
           </p>
           <p className="text-[17px] sm:text-[18px] text-text-secondary leading-[1.75] max-w-[600px] mb-4 reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
             Serious enquiries only. Strategy, writing, and film.
