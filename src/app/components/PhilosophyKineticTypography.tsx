@@ -67,7 +67,7 @@ export function PhilosophyKineticTypography() {
     { text: "saying,", highlighted: true },
     { text: "something", highlighted: true },
     { text: "worth", highlighted: true },
-    { text: "seeing", highlighted: true },
+    { text: "seeing,", highlighted: true },
     { text: "is", highlighted: false },
     { text: "still", highlighted: false },
     { text: "ours.", highlighted: false }
