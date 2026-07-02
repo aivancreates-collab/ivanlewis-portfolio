@@ -12,7 +12,7 @@ export function PhilosophySection() {
             className="text-[36px] sm:text-[52px] md:text-[68px] lg:text-[76px] italic leading-[1.15] tracking-[-0.02em] text-text max-w-[950px]" 
             style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
           >
-            We use intelligence to accelerate execution. We rely on the <span className="font-semibold not-italic">human question</span> to know why it should exist.
+            The brush became a machine. But the burden of having <span className="font-semibold not-italic">something worth saying</span>, <span className="font-semibold not-italic">something worth seeing</span> is still ours.
           </p>
         </div>
       </div>

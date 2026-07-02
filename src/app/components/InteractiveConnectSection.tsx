@@ -194,7 +194,7 @@ export function InteractiveConnectSection() {
             Serious enquiries only. Strategy, writing, and film.
           </p>
           <span className="block text-[10px] uppercase tracking-[0.15em] mb-8 font-medium reveal" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-            Select a track below to initiate the connection.
+            Choose a path below to begin our dialogue.
           </span>
         </div>
 

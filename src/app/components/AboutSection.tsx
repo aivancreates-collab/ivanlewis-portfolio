@@ -25,13 +25,13 @@ export function AboutSection() {
             className="text-[30px] sm:text-[44px] md:text-[58px] lg:text-[64px] italic leading-[1.15] tracking-[-0.02em] text-white max-w-[1000px] mb-8" 
             style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
           >
-            We are drowning in execution. What we lack is the discipline to ask what we are actually building, and <span className="font-semibold not-italic">why it should exist.</span>
+            We are drowning in execution. What we lack is the discipline to ask what we are actually building, and <span className="font-semibold not-italic">why it deserves to exist.</span>
           </p>
           <p 
             className="text-[14px] sm:text-[18px] md:text-[21px] lg:text-[25px] italic leading-[1.2] tracking-[-0.01em] text-[var(--dark-text-secondary)] max-w-none sm:whitespace-nowrap" 
             style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
           >
-            I write, direct, and consult on projects that preserve that distinction.
+            I write, direct, and consult on projects that still begin with the question.
           </p>
         </div>
 

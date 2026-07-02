@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 
-interface Node {
+interface Particle {
   x: number;
   y: number;
   vx: number;
   vy: number;
   radius: number;
-  baseRadius: number;
-  pulseSpeed: number;
-  pulsePhase: number;
+  maxSpeed: number;
+  maxForce: number;
+  angle: number;
+  targetAngle: number;
+  formationTargetIndex: number; // Index of the target point in the curated formation
 }
 
 export function PhilosophyBg() {
@@ -26,7 +28,6 @@ export function PhilosophyBg() {
     let width = (canvas.width = canvas.offsetWidth);
     let height = (canvas.height = canvas.offsetHeight);
 
-    // Responsive resize handler
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = canvas.offsetWidth;
@@ -36,30 +37,37 @@ export function PhilosophyBg() {
     const resizeObserver = new ResizeObserver(handleResize);
     resizeObserver.observe(canvas);
 
-    // Generate nodes representing "execution / logic nodes"
-    // Keep density balanced to avoid cluttering (highly aesthetic spacing)
-    const nodeCount = Math.min(32, Math.floor((width * height) / 35000) + 12);
-    const nodes: Node[] = [];
+    // High particle density of ultra-fine micro dots to simulate a flock/fluid stream
+    const particleCount = 380;
+    const particles: Particle[] = [];
 
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
+    for (let i = 0; i < particleCount; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = 1.0 + Math.random() * 2.0;
+      particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        // Extremely slow, poetic drift
-        vx: (Math.random() - 0.5) * 0.22,
-        vy: (Math.random() - 0.5) * 0.22,
-        baseRadius: 1 + Math.random() * 2,
-        radius: 1,
-        pulseSpeed: 0.01 + Math.random() * 0.02,
-        pulsePhase: Math.random() * Math.PI * 2,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        radius: 0.6 + Math.random() * 0.7, // Ultra-fine micro-dots
+        maxSpeed: 2.5 + Math.random() * 1.5,
+        maxForce: 0.08 + Math.random() * 0.06,
+        angle: angle,
+        targetAngle: angle,
+        formationTargetIndex: i % 180, // Distribute evenly across formation slots
       });
     }
 
-    // Human focus parameters - "The Human Question"
-    // Automatically floats in a smooth, continuous infinity loop (Lissajous curve)
-    // when mouse is not active, creating an organic, autonomous breathing motion
-    let lissajousTime = 0;
-    const humanLocus = { x: width / 2, y: height / 2, radius: 180, targetRadius: 180 };
+    // Pre-calculate target points on concentric curated rings (The "Formed Structure")
+    // This creates the visual effect of a high-precision geometric instrument/constellation
+    const ringCount = 3;
+    const pointsPerRing = 60;
+    const ringRadii = [45, 90, 135];
+    const targetPoints: { x: number; y: number; ringIndex: number }[] = [];
+
+    // Continuous float of the human locus representing autonomous inquiry
+    let time = 0;
+    const humanLocus = { x: width / 2, y: height / 2, radius: 220, targetRadius: 220 };
 
     const handleMouseMove = (e: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
@@ -77,30 +85,40 @@ export function PhilosophyBg() {
     window.addEventListener('mousemove', handleMouseMove);
     canvas.addEventListener('mouseleave', handleMouseLeave);
 
-    // Animation loop
     const render = () => {
-      ctx.clearRect(0, 0, width, height);
-      lissajousTime += 0.0012;
+      // Create a smooth trailing motion blur using the site's exact light warm cream background
+      ctx.fillStyle = 'rgba(245, 230, 211, 0.09)';
+      ctx.fillRect(0, 0, width, height);
 
-      // Update and smooth-interpolate human focus point
+      time += 0.001;
+
+      // Update and smooth-interpolate human locus point
       if (mouse.active) {
-        // Soft lag following mouse
-        humanLocus.x += (mouse.x - humanLocus.x) * 0.06;
-        humanLocus.y += (mouse.y - humanLocus.y) * 0.06;
+        humanLocus.x += (mouse.x - humanLocus.x) * 0.05;
+        humanLocus.y += (mouse.y - humanLocus.y) * 0.05;
       } else {
         // Floating Lissajous pattern representing an autonomous "breathing query"
-        const targetX = width / 2 + Math.sin(lissajousTime * 2) * (width * 0.25);
-        const targetY = height / 2 + Math.cos(lissajousTime * 3.5) * (height * 0.2);
-        humanLocus.x += (targetX - humanLocus.x) * 0.04;
-        humanLocus.y += (targetY - humanLocus.y) * 0.04;
+        const targetX = width / 2 + Math.sin(time * 1.8) * (width * 0.22);
+        const targetY = height / 2 + Math.cos(time * 2.8) * (height * 0.18);
+        humanLocus.x += (targetX - humanLocus.x) * 0.025;
+        humanLocus.y += (targetY - humanLocus.y) * 0.025;
       }
 
-      // Human question radial breath amplitude
-      const breath = Math.sin(lissajousTime * 8) * 20;
+      // Smooth breathe oscillation for the locus field
+      const breath = Math.sin(time * 6.0) * 12;
       humanLocus.radius = humanLocus.targetRadius + breath;
 
-      // Draw "The Human Question" Warm Luminous Core
-      // A large, incredibly subtle radial gradient that creates a warm, soft atmospheric glow on the light cream background
+      // Dynamic rotation angle of the curated structure inside the human focus
+      const structureRotation = time * 0.25;
+
+      // Draw the delicate human cursor/locus boundaries to set a museum look
+      ctx.strokeStyle = 'rgba(182, 122, 61, 0.04)';
+      ctx.lineWidth = 0.5;
+      ctx.beginPath();
+      ctx.arc(humanLocus.x, humanLocus.y, humanLocus.radius, 0, Math.PI * 2);
+      ctx.stroke();
+
+      // Subtle warm radial atmospheric aura behind the formation
       const warmGlow = ctx.createRadialGradient(
         humanLocus.x,
         humanLocus.y,
@@ -109,111 +127,178 @@ export function PhilosophyBg() {
         humanLocus.y,
         humanLocus.radius
       );
-      // Soft caramel tone (--accent: #b67a3d at very low opacities)
-      warmGlow.addColorStop(0, 'rgba(182, 122, 61, 0.095)');
-      warmGlow.addColorStop(0.5, 'rgba(182, 122, 61, 0.035)');
+      warmGlow.addColorStop(0, 'rgba(182, 122, 61, 0.065)');
+      warmGlow.addColorStop(0.5, 'rgba(182, 122, 61, 0.02)');
       warmGlow.addColorStop(1, 'rgba(245, 230, 211, 0)');
-      
       ctx.fillStyle = warmGlow;
       ctx.beginPath();
       ctx.arc(humanLocus.x, humanLocus.y, humanLocus.radius, 0, Math.PI * 2);
       ctx.fill();
 
-      // Subtle human focal core circle
-      ctx.strokeStyle = 'rgba(182, 122, 61, 0.12)';
-      ctx.lineWidth = 0.8;
-      ctx.beginPath();
-      ctx.arc(humanLocus.x, humanLocus.y, 45 + Math.sin(lissajousTime * 5) * 5, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Draw faint connections (The structured networks of "Intelligence")
-      ctx.lineWidth = 0.55;
-      for (let i = 0; i < nodes.length; i++) {
-        const n1 = nodes[i];
-        for (let j = i + 1; j < nodes.length; j++) {
-          const n2 = nodes[j];
-          const dx = n2.x - n1.x;
-          const dy = n2.y - n1.y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          // Connect if close
-          if (dist < 135) {
-            // Determine proximity to the human locus
-            const midX = (n1.x + n2.x) / 2;
-            const midY = (n1.y + n2.y) / 2;
-            const hDistX = midX - humanLocus.x;
-            const hDistY = midY - humanLocus.y;
-            const hDist = Math.sqrt(hDistX * hDistX + hDistY * hDistY);
-
-            // Compute line opacity
-            const baseAlpha = (1 - dist / 135) * 0.11;
-            
-            if (hDist < humanLocus.radius) {
-              // Highlighted bronze-caramel connection when inside the human scope
-              const influence = 1 - hDist / humanLocus.radius;
-              ctx.strokeStyle = `rgba(182, 122, 61, ${baseAlpha + influence * 0.13})`;
-            } else {
-              // Standard desaturated line
-              ctx.strokeStyle = `rgba(106, 68, 34, ${baseAlpha * 0.65})`;
-            }
-
-            ctx.beginPath();
-            ctx.moveTo(n1.x, n1.y);
-            ctx.lineTo(n2.x, n2.y);
-            ctx.stroke();
-          }
+      // Generate the instant target coordinates for the curated concentric geometry
+      const currentTargets: { x: number; y: number }[] = [];
+      for (let r = 0; r < ringCount; r++) {
+        const radius = ringRadii[r];
+        // Rotate alternating rings in opposite directions for dynamic mechanical complexity
+        const rot = r % 2 === 0 ? structureRotation : -structureRotation * 0.7;
+        
+        for (let p = 0; p < pointsPerRing; p++) {
+          const angle = (p / pointsPerRing) * Math.PI * 2 + rot;
+          currentTargets.push({
+            x: humanLocus.x + Math.cos(angle) * radius,
+            y: humanLocus.y + Math.sin(angle) * radius,
+          });
         }
       }
 
-      // Draw and update Nodes
-      for (let i = 0; i < nodes.length; i++) {
-        const n = nodes[i];
+      // Draw thin structural guidance lines for the formation (glowing concentric orbits)
+      ctx.strokeStyle = 'rgba(182, 122, 61, 0.045)';
+      ctx.lineWidth = 0.5;
+      for (let r = 0; r < ringCount; r++) {
+        ctx.beginPath();
+        ctx.arc(humanLocus.x, humanLocus.y, ringRadii[r], 0, Math.PI * 2);
+        ctx.stroke();
+      }
 
-        // POETIC DRIFT
-        n.x += n.vx;
-        n.y += n.vy;
+      // Draw faint crosshairs at the center of curation
+      ctx.strokeStyle = 'rgba(182, 122, 61, 0.08)';
+      ctx.beginPath();
+      ctx.moveTo(humanLocus.x - 8, humanLocus.y);
+      ctx.lineTo(humanLocus.x + 8, humanLocus.y);
+      ctx.moveTo(humanLocus.x, humanLocus.y - 8);
+      ctx.lineTo(humanLocus.x, humanLocus.y + 8);
+      ctx.stroke();
 
-        // Soft elastic boundaries
-        if (n.x < 0) n.x = width;
-        if (n.x > width) n.x = 0;
-        if (n.y < 0) n.y = height;
-        if (n.y > height) n.y = 0;
+      // Particles physics and drawing
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
 
-        // Micro-pulsing size
-        n.pulsePhase += n.pulseSpeed;
-        n.radius = n.baseRadius + Math.sin(n.pulsePhase) * 0.5;
+        // Distance from the human curation center
+        const dx = p.x - humanLocus.x;
+        const dy = p.y - humanLocus.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
 
-        // Interaction with "Human Locus"
-        const hDx = n.x - humanLocus.x;
-        const hDy = n.y - humanLocus.y;
-        const hDist = Math.sqrt(hDx * hDx + hDy * hDy);
+        let forceX = 0;
+        let forceY = 0;
+        let speedMultiplier = 1.0;
+        let color = 'rgba(106, 68, 34, 0.11)'; // Quiet, desaturated micro dots
 
-        let color = 'rgba(138, 106, 74, 0.25)'; // standard muted brown
-        let glowSize = 0;
+        if (dist < humanLocus.radius) {
+          // 1. INSIDE CURATION FIELD: Re-organize, slow down, and crystallize into the structured geometry
+          const influence = 1 - dist / humanLocus.radius;
+          speedMultiplier = 0.3 + (1 - influence) * 0.7; // Gradual decay of speed as it is curated
 
-        if (hDist < humanLocus.radius) {
-          const influence = 1 - hDist / humanLocus.radius;
-          // Transition node into caramel bronze color
-          color = `rgba(182, 122, 61, ${0.28 + influence * 0.52})`;
-          glowSize = influence * 6;
+          // Get assigned target in the concentric rings
+          const target = currentTargets[p.formationTargetIndex];
+          if (target) {
+            // Steering force toward the specific curated slot
+            const desiredX = target.x - p.x;
+            const desiredY = target.y - p.y;
+            const desiredDist = Math.sqrt(desiredX * desiredX + desiredY * desiredY);
 
-          // Poetic subtle gravity pull - particles gently drift toward the center of the question
-          n.x -= (hDx / hDist) * influence * 0.12;
-          n.y -= (hDy / hDist) * influence * 0.12;
+            if (desiredDist > 1) {
+              const snapStrength = 0.08 * influence;
+              forceX += (desiredX / desiredDist) * snapStrength;
+              forceY += (desiredY / desiredDist) * snapStrength;
+            }
+          }
+
+          // Warm bronze/gold hue transition as particles are "curated"
+          color = `rgba(182, 122, 61, ${0.16 + influence * 0.62})`;
+
+          // Draw micro-connections to nearby curated nodes to make it look like "Something is forming"
+          if (influence > 0.45 && i % 4 === 0) {
+            for (let j = i + 1; j < particles.length; j += 7) {
+              const p2 = particles[j];
+              const odx = p2.x - p.x;
+              const ody = p2.y - p.y;
+              const odist = Math.sqrt(odx * odx + ody * ody);
+              if (odist < 35) {
+                ctx.strokeStyle = `rgba(182, 122, 61, ${0.015 * influence})`;
+                ctx.lineWidth = 0.4;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(p2.x, p2.y);
+                ctx.stroke();
+              }
+            }
+          }
+        } else {
+          // 2. OUTSIDE CURATION FIELD: Standard high-speed fluid murmuration (AI Acceleration)
+          // Add a subtle turbulent flow field representing unstructured computational speed
+          const noiseAngle = Math.sin(p.x * 0.004) * Math.cos(p.y * 0.004) * Math.PI * 2;
+          forceX += Math.cos(noiseAngle) * 0.025;
+          forceY += Math.sin(noiseAngle) * 0.025;
+
+          // Simple local separation forces to prevent overlapping when murmuring
+          let sepX = 0, sepY = 0, sepCount = 0;
+          for (let j = 0; j < particles.length; j += 6) {
+            if (i === j) continue;
+            const other = particles[j];
+            const odx = p.x - other.x;
+            const ody = p.y - other.y;
+            const odist = Math.sqrt(odx * odx + ody * ody);
+            if (odist > 0 && odist < 18) {
+              sepX += odx / odist;
+              sepY += ody / odist;
+              sepCount++;
+            }
+          }
+          if (sepCount > 0) {
+            forceX += (sepX / sepCount) * 0.06;
+            forceY += (sepY / sepCount) * 0.06;
+          }
+
+          // Flocking alignment: steer in the general direction of neighbors
+          let alignX = 0, alignY = 0, alignCount = 0;
+          for (let j = 0; j < particles.length; j += 10) {
+            if (i === j) continue;
+            const other = particles[j];
+            const odist = Math.sqrt((p.x - other.x) ** 2 + (p.y - other.y) ** 2);
+            if (odist < 45) {
+              alignX += other.vx;
+              alignY += other.vy;
+              alignCount++;
+            }
+          }
+          if (alignCount > 0) {
+            alignX /= alignCount;
+            alignY /= alignCount;
+            const alignLen = Math.sqrt(alignX * alignX + alignY * alignY);
+            if (alignLen > 0) {
+              forceX += (alignX / alignLen) * 0.03;
+              forceY += (alignY / alignLen) * 0.03;
+            }
+          }
         }
 
-        // Render node glow
-        if (glowSize > 0) {
-          ctx.fillStyle = 'rgba(182, 122, 61, 0.08)';
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.radius + glowSize, 0, Math.PI * 2);
-          ctx.fill();
+        // Apply forces to velocity
+        p.vx += forceX;
+        p.vy += forceY;
+
+        // Limit speed
+        const speed = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+        const limit = p.maxSpeed * speedMultiplier;
+        if (speed > limit) {
+          p.vx = (p.vx / speed) * limit;
+          p.vy = (p.vy / speed) * limit;
         }
 
-        // Render node core
+        // Update position
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Soft wrap limits
+        const pad = 10;
+        if (p.x < -pad) p.x = width + pad;
+        if (p.x > width + pad) p.x = -pad;
+        if (p.y < -pad) p.y = height + pad;
+        if (p.y > height + pad) p.y = -pad;
+
+        // Render the micro-dot
         ctx.fillStyle = color;
         ctx.beginPath();
-        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
         ctx.fill();
       }
 
@@ -235,7 +320,7 @@ export function PhilosophyBg() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-80"
+      className="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-[0.9]"
       style={{ mixBlendMode: 'multiply' }}
     />
   );
