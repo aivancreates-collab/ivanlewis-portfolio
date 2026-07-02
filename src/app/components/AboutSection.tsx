@@ -79,15 +79,11 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <p className="text-[17px] sm:text-[18px] leading-[1.85] mb-5 sm:mb-6 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)' }}>
-              Humans fascinate me. Why we remember certain stories and forget everything else. Why some ideas land and others vanish the moment the meeting&nbsp;ends.
+              We are drowning in execution. What we lack is the discipline to ask what we are actually building, and why it should exist.
             </p>
  
             <p className="text-[17px] sm:text-[18px] leading-[1.85] mb-5 sm:mb-6 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)' }}>
-              That question is what I'm actually working on. Campaigns, scripts, television, strategy. Those are just the forms it&nbsp;takes.
-            </p>
- 
-            <p className="text-[17px] sm:text-[18px] leading-[1.85] mb-5 sm:mb-6 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--dark-text-secondary)' }}>
-              I direct. I write. I think through the strategy. Usually in the same&nbsp;room.
+              I write, direct, and consult on projects that preserve that distinction.
             </p>
  
             <div className="mt-8 sm:mt-10 flex flex-wrap gap-6 sm:gap-8 text-[13px] reveal" style={{ fontFamily: 'var(--font-family-mono)' }}>

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import lastMessageKV from '../../imports/last_message_kv-1.png';
 import mkkPoster from '../../imports/mkk_ poster_kv.png';
+import lastMessageVideo from '../../imports/20589796-hd_1920_1080_60fps.mp4';
+import mkkVideo from '../../imports/20589796-hd_1920_1080_60fps-1.mp4';
 import { ScriptModal } from './ScriptModal';
 import { CurrentEngagementsModal } from './CurrentEngagementsModal';
 import { MurmurationBg } from './MurmurationBg';
@@ -250,12 +252,14 @@ export function WorkSection() {
                 }}
               />
 
-              <img
-                src={lastMessageKV}
-                alt="The Last Message - Film Key Visual"
+              <video
+                src={lastMessageVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
-                loading="lazy"
-                referrerPolicy="no-referrer"
+                poster={lastMessageKV}
               />
 
               {/* Filmic Contrast Vignette */}
@@ -279,14 +283,6 @@ export function WorkSection() {
                 <span className="block opacity-75">SND: DUAL // SHUTTER: 180°</span>
                 <span className="block opacity-75">LENS: ANAMORPHIC 50MM</span>
               </div>
-
-              {/* Bottom Gradient Wash for Text Legibility */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none z-10"
-                style={{
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 60%, transparent 100%)',
-                }}
-              />
 
               {/* Film Slate Overlay */}
               <div className="absolute bottom-6 left-6 z-20 text-white select-none">
@@ -321,7 +317,7 @@ export function WorkSection() {
                 className="text-[34px] sm:text-[40px] lg:text-[44px] font-normal tracking-[-0.02em] leading-[1.05] mb-5"
                 style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
               >
-                The Last Message
+                The Last Message <span className="text-[12px] font-mono text-text-muted select-none ml-2 align-middle">18P</span>
               </h2>
 
               <p
@@ -466,12 +462,14 @@ export function WorkSection() {
                 }}
               />
 
-              <img
-                src={mkkPoster}
-                alt="Maati Kona Chi? - Film Key Visual"
+              <video
+                src={mkkVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
                 className="w-full h-full object-cover scale-[1.07] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.10]"
-                loading="lazy"
-                referrerPolicy="no-referrer"
+                poster={mkkPoster}
               />
 
               {/* Filmic Contrast Vignette */}
@@ -479,14 +477,6 @@ export function WorkSection() {
                 className="absolute inset-0 pointer-events-none z-10"
                 style={{
                   background: 'radial-gradient(circle at center, transparent 45%, rgba(10,10,10,0.45) 100%)',
-                }}
-              />
-
-              {/* Bottom Gradient Wash for Text Legibility (Strengthened for high contrast) */}
-              <div
-                className="absolute inset-x-0 bottom-0 h-1/2 pointer-events-none z-10"
-                style={{
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 60%, transparent 100%)',
                 }}
               />
 
@@ -523,7 +513,7 @@ export function WorkSection() {
                 className="text-[34px] sm:text-[40px] lg:text-[44px] font-normal tracking-[-0.02em] leading-[1.05] mb-5"
                 style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
               >
-                Maati Kona Chi?
+                Maati Kona Chi? <span className="text-[12px] font-mono text-text-muted select-none ml-2 align-middle">9P</span>
               </h2>
 
               <p

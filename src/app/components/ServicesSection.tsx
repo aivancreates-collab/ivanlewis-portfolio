@@ -6,24 +6,24 @@ export function ServicesSection() {
   const services = [
     {
       title: 'Strategy Consultation',
-      description: 'Narrative diagnosis. Cultural positioning.\nFor founders and brand leaders exploring strategic\u00A0direction.',
+      description: 'Most brands talk too much because they don\'t know who they are. We run intensive, diagnostic consultations for founders to define the single core argument that makes all subsequent marketing noise redundant.',
       paid: true,
     },
     {
       title: 'Campaign Concept',
-      description: 'Narrative strategy + creative direction for campaigns, product launches, brand repositioning.\nConcept development, creative brief, visual\u00A0direction.',
+      description: 'We do not pitch ideas that look like ads. We build campaign concepts rooted in genuine cultural tension—creating launch briefs, visual directions, and narrative anchors that earn attention rather than buying it.',
     },
     {
       title: 'Screenwriting & Development',
-      description: 'Scripts for film, TV, branded content. Story development from seed to shooting draft.\nCharacter work, world-building,\u00A0dialogue.',
+      description: 'The script is where the budget is saved or wasted. We develop cinematic screenplays—from short films to episodic concepts—stripping out the ornament to protect the emotional architecture.',
     },
     {
       title: 'Film Direction',
-      description: 'Directing commercials, branded films, documentaries, shorts. Full production from creative concept through post. Emphasis on cinematic storytelling and human\u00A0truth.',
+      description: 'Visual scale cannot rescue a hollow scene. We direct commercial and documentary projects with an extreme discipline on human behavior, quiet pacing, and atmospheric reality.',
     },
     {
       title: 'Creative Advisory',
-      description: 'Retainer-based consulting for founders, platforms, and brands. Ongoing narrative strategy, creative direction, IP development, content ecosystem\u00A0design.',
+      description: 'A great narrative is a daily practice, not a slide deck. We partner with select brand leaders on a long-term advisory basis, acting as a direct filter for positioning, IP development, and creative execution.',
     },
   ];
 

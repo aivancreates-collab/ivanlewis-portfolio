@@ -426,7 +426,7 @@ export function InteractiveConnectSection() {
                       style={{ borderColor: 'var(--border)', fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}
                       data-interactive
                     >
-                      ✉ Send Direct Email Backup
+                      ✉ DISPATCH DIRECT EMAIL BACKUP
                     </a>
 
                     <button
@@ -436,7 +436,7 @@ export function InteractiveConnectSection() {
                       style={{ backgroundColor: 'var(--text)', color: 'var(--bg)', fontFamily: 'var(--font-family-mono)' }}
                       data-interactive
                     >
-                      Send New Transmission
+                      DISPATCH NEW TRANSMISSION
                     </button>
                   </div>
 

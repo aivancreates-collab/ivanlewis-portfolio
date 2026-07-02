@@ -76,20 +76,13 @@ export function Hero() {
           The human question does not.
         </h1>
 
-        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center mb-8">
+        <div className="flex justify-center items-center mt-8 sm:mt-12">
           <a
             href="#connect"
-            className="text-[11px] uppercase tracking-[0.08em] px-4 py-2.5 transition-all duration-300 bg-white text-black hover:bg-accent border-none w-auto inline-flex items-center min-h-[44px]"
+            className="text-[11px] uppercase tracking-[0.16em] transition-all duration-300 text-white/60 hover:text-white border-b border-white/20 hover:border-white pb-1 inline-flex items-center"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
-            Initiate Project
-          </a>
-          <a
-            href="#connect"
-            className="text-[10px] uppercase tracking-[0.08em] px-4 py-2.5 transition-all duration-300 text-white/80 hover:text-white underline underline-offset-4 w-auto inline-flex items-center min-h-[44px]"
-            style={{ fontFamily: 'var(--font-family-mono)' }}
-          >
-            Book a Call
+            initiate brief
           </a>
         </div>
       </div>
