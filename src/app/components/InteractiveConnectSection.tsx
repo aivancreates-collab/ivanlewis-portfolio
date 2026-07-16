@@ -18,6 +18,7 @@ export function InteractiveConnectSection() {
     brief: '',
   });
   const [status, setStatus] = useState<'idle' | 'sending' | 'success'>('idle');
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [transmissions, setTransmissions] = useState<Transmission[]>([]);
 
@@ -51,50 +52,84 @@ export function InteractiveConnectSection() {
     if (!formData.name || !formData.email || !formData.brief) return;
 
     setStatus('sending');
+    setSubmissionError(null);
     setStepIndex(0);
 
     const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || '';
+    const formspreeId = import.meta.env.VITE_FORMSPREE_ENDPOINT_ID || '';
     let apiError = '';
 
-    const sendToWeb3Forms = async () => {
-      if (!accessKey) {
+    const sendToFormEndpoint = async () => {
+      if (!accessKey && !formspreeId) {
         // Mock submission when no key is set
         await new Promise((resolve) => setTimeout(resolve, 1500));
         return true;
       }
 
-      try {
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify({
-            access_key: accessKey,
-            name: formData.name,
-            email: formData.email,
-            subject: `Portfolio Communication from ${formData.name}`,
-            message: `Selected Focus Track: ${formData.track}\n\nProject Brief/Query:\n${formData.brief}`,
-            from_name: 'Ivan Lewis Portfolio'
-          })
-        });
+      if (formspreeId) {
+        // Formspree submission
+        try {
+          const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              name: formData.name,
+              email: formData.email,
+              track: formData.track,
+              message: formData.brief,
+              _subject: `Portfolio Communication from ${formData.name}`
+            })
+          });
 
-        const data = await response.json();
-        if (data.success) {
-          return true;
-        } else {
-          throw new Error(data.message || 'Web3Forms returned an error');
+          if (response.ok) {
+            return true;
+          } else {
+            const data = await response.json();
+            throw new Error(data.error || 'Formspree returned an error');
+          }
+        } catch (err: any) {
+          console.error('Formspree Submission Error:', err);
+          apiError = err.message || 'Formspree network route failed';
+          return false;
         }
-      } catch (err: any) {
-        console.error('Web3Forms Submission Error:', err);
-        apiError = err.message || 'Network route failed';
-        return false;
+      } else {
+        // Web3Forms submission
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+              access_key: accessKey,
+              name: formData.name,
+              email: formData.email,
+              subject: `Portfolio Communication from ${formData.name}`,
+              message: `Selected Focus Track: ${formData.track}\n\nProject Brief/Query:\n${formData.brief}`,
+              from_name: 'Ivan Lewis Portfolio'
+            })
+          });
+
+          const data = await response.json();
+          if (data.success) {
+            return true;
+          } else {
+            throw new Error(data.message || 'Web3Forms returned an error');
+          }
+        } catch (err: any) {
+          console.error('Web3Forms Submission Error:', err);
+          apiError = err.message || 'Network route failed';
+          return false;
+        }
       }
     };
 
     // Trigger API request in background
-    const apiPromise = sendToWeb3Forms();
+    const apiPromise = sendToFormEndpoint();
 
     let currentStep = 0;
     const interval = setInterval(async () => {
@@ -109,6 +144,7 @@ export function InteractiveConnectSection() {
 
         if (!success) {
           console.warn("API Error (Falling back to local simulation so submission is logged):", apiError);
+          setSubmissionError(apiError || "Delivery rejected by Web3Forms server");
         }
 
         setStepIndex(sendSteps.length - 1);
@@ -407,14 +443,28 @@ export function InteractiveConnectSection() {
 
                   <p className="text-[17px] leading-[1.65]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
                     Thank you. Your brief has been received, logged, and fully protected under our automatic mutual NDA. I will review the brief and get back to you directly on your email.
-                  </p>
-
-                  {!import.meta.env.VITE_WEB3FORMS_ACCESS_KEY && (
+                  </p>                   {!import.meta.env.VITE_WEB3FORMS_ACCESS_KEY && !import.meta.env.VITE_FORMSPREE_ENDPOINT_ID && (
                     <div className="p-4 border text-[13px] leading-relaxed flex flex-col gap-1.5 rounded-none" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                       <p className="font-semibold text-amber-600 dark:text-amber-400 font-mono text-[12px] uppercase tracking-wider">🔧 Developer Note: Simulation Mode</p>
                       <p style={{ color: 'var(--text-muted)' }}>
-                        No live email was dispatched because the environment variable <code className="px-1 py-0.5 bg-neutral-100 dark:bg-neutral-900 rounded font-mono text-[11px]">VITE_WEB3FORMS_ACCESS_KEY</code> is not yet configured. To receive live email submissions, please paste your Web3Forms access key into the **Secrets / Settings** panel of your Google AI Studio workspace.
+                        No live email was dispatched because neither <code className="px-1 py-0.5 bg-neutral-100 dark:bg-neutral-900 rounded font-mono text-[11px]">VITE_WEB3FORMS_ACCESS_KEY</code> nor <code className="px-1 py-0.5 bg-neutral-100 dark:bg-neutral-900 rounded font-mono text-[11px]">VITE_FORMSPREE_ENDPOINT_ID</code> is configured. To receive live email submissions, please paste your access key into the **Secrets / Settings** panel of your Google AI Studio workspace.
                       </p>
+                    </div>
+                  )}
+
+                  {submissionError && (
+                    <div className="p-4 border text-[13px] leading-relaxed flex flex-col gap-1.5 rounded-none" style={{ borderColor: 'rgba(239, 68, 68, 0.4)', backgroundColor: 'rgba(239, 68, 68, 0.05)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                      <p className="font-semibold text-red-600 dark:text-red-400 font-mono text-[12px] uppercase tracking-wider">⚠️ Email Delivery Issue</p>
+                      <p className="font-medium" style={{ color: 'var(--text)' }}>
+                        Form Endpoint Response: <code className="px-1 py-0.5 bg-neutral-100 dark:bg-neutral-900 rounded font-mono text-[12px] text-red-600 dark:text-red-400">{submissionError}</code>
+                      </p>
+                      <div className="text-[12px] mt-1 space-y-1.5" style={{ color: 'var(--text-muted)' }}>
+                        <p>If you recently set up this endpoint, please check:</p>
+                        <ul className="list-disc pl-4 space-y-1">
+                          <li><strong>Verification Link:</strong> If using Web3Forms or Formspree, check your email inbox (and Spam folder) for an activation or confirmation link and click it.</li>
+                          <li><strong>Correct Key:</strong> Double check that the value in your Settings matches your key exactly.</li>
+                        </ul>
+                      </div>
                     </div>
                   )}
 
