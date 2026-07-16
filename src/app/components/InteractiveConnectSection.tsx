@@ -409,6 +409,15 @@ export function InteractiveConnectSection() {
                     Thank you. Your brief has been received, logged, and fully protected under our automatic mutual NDA. I will review the brief and get back to you directly on your email.
                   </p>
 
+                  {!import.meta.env.VITE_WEB3FORMS_ACCESS_KEY && (
+                    <div className="p-4 border text-[13px] leading-relaxed flex flex-col gap-1.5 rounded-none" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                      <p className="font-semibold text-amber-600 dark:text-amber-400 font-mono text-[12px] uppercase tracking-wider">🔧 Developer Note: Simulation Mode</p>
+                      <p style={{ color: 'var(--text-muted)' }}>
+                        No live email was dispatched because the environment variable <code className="px-1 py-0.5 bg-neutral-100 dark:bg-neutral-900 rounded font-mono text-[11px]">VITE_WEB3FORMS_ACCESS_KEY</code> is not yet configured. To receive live email submissions, please paste your Web3Forms access key into the **Secrets / Settings** panel of your Google AI Studio workspace.
+                      </p>
+                    </div>
+                  )}
+
                   <div className="pt-4 flex flex-wrap gap-4">
                     <button
                       type="button"
