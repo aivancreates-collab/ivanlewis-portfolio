@@ -37,8 +37,8 @@ export function InteractiveConnectSection() {
     'INITIALIZING SECURE GATEWAY ROUTER...',
     'ENCRYPTING BRIEF DATA PACKET...',
     'STAMPING AUTOMATIC MUTUAL NDA...',
-    'TRANSMITTING COMPLETED BRIEF TO DIRECTORY...',
-    'TRANSMISSION COMPLETED SECURELY.'
+    'SENDING COMPLETED BRIEF TO DIRECTORY...',
+    'COMMUNICATION COMPLETED SECURELY.'
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -74,7 +74,7 @@ export function InteractiveConnectSection() {
             access_key: accessKey,
             name: formData.name,
             email: formData.email,
-            subject: `Portfolio Transmission from ${formData.name}`,
+            subject: `Portfolio Communication from ${formData.name}`,
             message: `Selected Focus Track: ${formData.track}\n\nProject Brief/Query:\n${formData.brief}`,
             from_name: 'Ivan Lewis Portfolio'
           })
@@ -114,7 +114,7 @@ export function InteractiveConnectSection() {
         setStepIndex(sendSteps.length - 1);
 
         const newTx: Transmission = {
-          id: 'TX-' + Math.floor(100000 + Math.random() * 900000),
+          id: 'CM-' + Math.floor(100000 + Math.random() * 900000),
           timestamp: new Date().toLocaleString(),
           name: formData.name,
           email: formData.email,
@@ -137,9 +137,9 @@ export function InteractiveConnectSection() {
     const element = document.createElement("a");
     const file = new Blob([
       `========================================\n`,
-      `    IVAN LEWIS // CREATIVE TRANSMISSION\n`,
+      `    IVAN LEWIS // CREATIVE COMMUNICATION\n`,
       `========================================\n\n`,
-      `TRANSMISSION ID: ${tx.id}\n`,
+      `COMMUNICATION ID: ${tx.id}\n`,
       `TIMESTAMP:       ${tx.timestamp}\n`,
       `SENDER NAME:     ${tx.name}\n`,
       `SENDER EMAIL:    ${tx.email}\n`,
@@ -151,7 +151,7 @@ export function InteractiveConnectSection() {
       `========================================`
     ], { type: 'text/plain;charset=utf-8' });
     element.href = URL.createObjectURL(file);
-    element.download = `transmission-${tx.id}.txt`;
+    element.download = `communication-${tx.id}.txt`;
     document.body.appendChild(element);
     element.click();
     document.body.removeChild(element);
@@ -345,7 +345,7 @@ export function InteractiveConnectSection() {
 
                   <div className="pt-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                     <span className="text-[14px] leading-relaxed max-w-[400px]" style={{ color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                      Your transmission is encrypted and dispatched directly to Ivan Lewis under an automatic mutual NDA.
+                      Your communication is encrypted and dispatched directly to Ivan Lewis under an automatic mutual NDA.
                     </span>
                     <button
                       type="submit"
@@ -369,7 +369,7 @@ export function InteractiveConnectSection() {
                   
                   <div className="space-y-2 max-w-[400px]">
                     <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                      ENCRYPTING TRANSMISSION
+                      ENCRYPTING COMMUNICATION
                     </span>
                     <p className="text-[15px] md:text-[14px] leading-relaxed font-medium transition-all duration-300" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
                       {sendSteps[stepIndex]}
@@ -397,16 +397,16 @@ export function InteractiveConnectSection() {
                     </div>
                     <div>
                       <h4 className="text-[18px] font-medium" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
-                        Transmission Secured
+                        Communication Secured
                       </h4>
                       <p className="text-[14px] md:text-[13px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                        REF ID: {transmissions[0]?.id || 'TX-902183'} // AUTOMATIC MUTUAL NDA APPLIED
+                        REF ID: {transmissions[0]?.id || 'CM-902183'} // AUTOMATIC MUTUAL NDA APPLIED
                       </p>
                     </div>
                   </div>
 
                   <p className="text-[17px] leading-[1.65]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
-                    Thank you. Your creative package has been parsed, sealed with our automatic mutual NDA code, and logged safely. Ivan Lewis will receive this transmission and reply via your professional gateway.
+                    Thank you. Your brief has been received, logged, and fully protected under our automatic mutual NDA. I will review the brief and get back to you directly on your email.
                   </p>
 
                   <div className="pt-4 flex flex-wrap gap-4">
@@ -421,7 +421,7 @@ export function InteractiveConnectSection() {
                     </button>
 
                     <a
-                      href={`mailto:lastgoodtaste@gmail.com?subject=Transmission%20Backup%20-%20${transmissions[0]?.id}&body=Hi%20Ivan,%0D%0A%0D%0AHere%20is%20my%20brief%20backup:%0D%0A%0D%0AName:%20${encodeURIComponent(transmissions[0]?.name || '')}%0D%0ATrack:%20${encodeURIComponent(transmissions[0]?.track || '')}%0D%0ABrief:%20${encodeURIComponent(transmissions[0]?.brief || '')}`}
+                      href={`mailto:lastgoodtaste@gmail.com?subject=Communication%20Backup%20-%20${transmissions[0]?.id}&body=Hi%20Ivan,%0D%0A%0D%0AHere%20is%20my%20brief%20backup:%0D%0A%0D%0AName:%20${encodeURIComponent(transmissions[0]?.name || '')}%0D%0ATrack:%20${encodeURIComponent(transmissions[0]?.track || '')}%0D%0ABrief:%20${encodeURIComponent(transmissions[0]?.brief || '')}`}
                       className="inline-flex items-center gap-2 border px-6 py-3.5 text-[14px] md:text-[13px] uppercase tracking-[0.12em] transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 cursor-pointer no-underline rounded-none"
                       style={{ borderColor: 'var(--border)', fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}
                       data-interactive
@@ -436,7 +436,7 @@ export function InteractiveConnectSection() {
                       style={{ backgroundColor: 'var(--text)', color: 'var(--bg)', fontFamily: 'var(--font-family-mono)' }}
                       data-interactive
                     >
-                      DISPATCH NEW TRANSMISSION
+                      DISPATCH NEW COMMUNICATION
                     </button>
                   </div>
                 </div>
@@ -468,11 +468,6 @@ export function InteractiveConnectSection() {
           )}
         </div>
 
-        <div className="mt-12 pt-6 text-center select-none reveal">
-          <p className="text-[14px] md:text-[13px] tracking-[0.05em] uppercase" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-            All details submitted are protected under automatic mutual NDA.
-          </p>
-        </div>
       </div>
     </section>
   );
