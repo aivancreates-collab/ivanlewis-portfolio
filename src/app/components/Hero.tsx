@@ -29,10 +29,24 @@ export function Hero() {
         playsInline
         preload="auto"
         src={bgVideo}
-        className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none z-[0]"
         style={{
           objectPosition: 'center 30%',
           filter: 'saturate(0.8) contrast(1.1) brightness(0.85)',
+        }}
+      />
+
+      {/* Digital Mesh Filter Overlay */}
+      <div
+        className="digital-mesh-filter absolute top-0 left-0 w-full h-full pointer-events-none z-[1]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: '3px 3px',
+          mixBlendMode: 'screen',
+          opacity: 0.12,
         }}
       />
 
