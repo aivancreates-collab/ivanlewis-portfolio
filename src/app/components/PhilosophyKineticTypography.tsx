@@ -10,9 +10,9 @@ interface WordProps {
 
 function Word({ text, highlighted, progress, range }: WordProps) {
   // Smoothly transform scroll progress into opacity, positioning, and subtle scaling
-  const opacity = useTransform(progress, range, [0.12, 1.0]);
-  const y = useTransform(progress, range, [12, 0]);
-  const scale = useTransform(progress, range, [0.98, 1.0]);
+  const opacity = useTransform(progress, range, [0.18, 1.0]);
+  const y = useTransform(progress, range, [8, 0]);
+  const scale = useTransform(progress, range, [0.99, 1.0]);
 
   return (
     <motion.span
@@ -23,9 +23,9 @@ function Word({ text, highlighted, progress, range }: WordProps) {
         display: 'inline-block',
         transformOrigin: 'bottom left'
       }}
-      className={`mr-[0.24em] select-none ${
+      className={`mr-[0.22em] mb-[0.1em] select-none ${
         highlighted 
-          ? 'font-semibold not-italic text-white' 
+          ? 'font-semibold not-italic text-[var(--accent)]' 
           : 'font-light italic text-[var(--text-muted)]'
       }`}
     >
@@ -45,8 +45,8 @@ export function PhilosophyKineticTypography() {
 
   // Apply spring physics for buttery-smooth kinetic updates
   const smoothProgress = useSpring(scrollYProgress, {
-    damping: 24,
-    stiffness: 90,
+    damping: 26,
+    stiffness: 95,
     restDelta: 0.001
   });
 
@@ -73,17 +73,15 @@ export function PhilosophyKineticTypography() {
     { text: "ours.", highlighted: false }
   ];
 
-  // We want the text to start revealing after the block is well into the viewport, 
-  // and complete the reveal slightly before it hits the center.
   const startOffset = 0.1;
   const endOffset = 0.9;
   const totalRange = endOffset - startOffset;
   const step = totalRange / words.length;
 
   return (
-    <div ref={containerRef} className="w-full relative py-4">
+    <div ref={containerRef} className="w-full relative py-2">
       <p 
-        className="text-[32px] sm:text-[46px] md:text-[58px] lg:text-[66px] italic leading-[1.2] tracking-[-0.02em] text-white max-w-[950px] flex flex-wrap" 
+        className="text-[28px] sm:text-[42px] md:text-[54px] lg:text-[62px] italic leading-[1.3] tracking-[-0.02em] text-[var(--text-secondary)] max-w-[900px] flex flex-wrap" 
         style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
       >
         {words.map((word, index) => {

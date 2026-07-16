@@ -181,25 +181,25 @@ export function InteractiveConnectSection() {
   };
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24" id="connect" style={{ backgroundColor: 'var(--bg)' }}>
-      <div className="max-w-[900px] mx-auto px-6 sm:px-10 lg:px-12">
-        <div className="mb-12">
+    <section className="py-12 sm:py-16 md:py-20" id="connect" style={{ backgroundColor: 'var(--bg)' }}>
+      <div className="max-w-[900px] mx-auto px-5 sm:px-10 lg:px-16">
+        <div className="mb-10 md:mb-12">
           <p
-            className="text-[26px] sm:text-[34px] md:text-[42px] lg:text-[48px] italic leading-[1.25] tracking-[-0.02em] mb-8 reveal max-w-[720px]"
+            className="text-[24px] sm:text-[32px] md:text-[38px] lg:text-[44px] italic leading-[1.25] tracking-[-0.02em] mb-6 reveal max-w-[720px]"
             style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)', fontWeight: 'normal' }}
           >
             The best projects start with <span className="font-semibold not-italic">one honest question</span>. If you have one, <span className="font-semibold not-italic text-[var(--accent)]">send it.</span>
           </p>
-          <p className="text-[17px] sm:text-[18px] text-text-secondary leading-[1.75] max-w-[600px] mb-4 reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
+          <p className="text-[17px] sm:text-[18px] text-[var(--text-secondary)] leading-[1.7] max-w-[600px] mb-4 reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
             Serious enquiries only. Strategy, writing, and film.
           </p>
-          <span className="block text-[10px] uppercase tracking-[0.15em] mb-8 font-medium reveal" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+          <span className="block text-[14px] md:text-[13px] uppercase tracking-[0.15em] mb-8 font-medium reveal" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
             Choose a path below to begin our dialogue.
           </span>
         </div>
 
         {/* Tracks selector */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-12 select-none reveal">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10 select-none reveal">
           <button
             type="button"
             onClick={() => setSelectedTrack('direct')}
@@ -210,14 +210,14 @@ export function InteractiveConnectSection() {
             data-interactive
           >
             <div>
-              <span className="block text-[10px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                 TRACK 01 // DISPATCH
               </span>
               <h3 className="text-[18px] font-normal leading-[1.3] mb-2" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                 Direct Dispatch
               </h3>
             </div>
-            <p className="text-[12.5px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'direct' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
+            <p className="text-[13px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'direct' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
               Submit your inquiry or project brief directly on this page. Private and secure.
             </p>
             <div className="absolute top-6 right-6 w-2 h-2 rounded-full transition-transform duration-300 group-hover:scale-125" style={{ backgroundColor: selectedTrack === 'direct' ? 'var(--text)' : 'transparent', border: selectedTrack === 'direct' ? 'none' : '1px solid var(--border-solid)' }} />
@@ -233,14 +233,14 @@ export function InteractiveConnectSection() {
             data-interactive
           >
             <div>
-              <span className="block text-[10px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                 TRACK 02 // SYNC
               </span>
               <h3 className="text-[18px] font-normal leading-[1.3] mb-2" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                 Workspace Sync
               </h3>
             </div>
-            <p className="text-[12.5px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'call' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
+            <p className="text-[13px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'call' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
               Schedule a focused, 30-minute workspace session to diagnose project scope or map development.
             </p>
             <div className="absolute top-6 right-6 w-2 h-2 rounded-full transition-transform duration-300 group-hover:scale-125" style={{ backgroundColor: selectedTrack === 'call' ? 'var(--text)' : 'transparent', border: selectedTrack === 'call' ? 'none' : '1px solid var(--border-solid)' }} />
@@ -256,14 +256,14 @@ export function InteractiveConnectSection() {
             data-interactive
           >
             <div>
-              <span className="block text-[10px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                 TRACK 03 // PORTAL
               </span>
               <h3 className="text-[18px] font-normal leading-[1.3] mb-2" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                 Briefing Portal
               </h3>
             </div>
-            <p className="text-[12.5px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'enquiry' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
+            <p className="text-[13px] leading-[1.5]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: selectedTrack === 'enquiry' ? 'var(--text-secondary)' : 'var(--text-muted)' }}>
               Perfect for structured production, comprehensive screenplays, campaigns, or advisory requests.
             </p>
             <div className="absolute top-6 right-6 w-2 h-2 rounded-full transition-transform duration-300 group-hover:scale-125" style={{ backgroundColor: selectedTrack === 'enquiry' ? 'var(--text)' : 'transparent', border: selectedTrack === 'enquiry' ? 'none' : '1px solid var(--border-solid)' }} />
@@ -273,12 +273,12 @@ export function InteractiveConnectSection() {
         {/* Dynamic Display */}
         <div className="reveal">
           {selectedTrack === 'direct' ? (
-            <div className="border p-8 sm:p-10" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}>
+            <div className="border p-6 sm:p-10 rounded-none" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}>
               {status === 'idle' && (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="flex flex-col sm:flex-row gap-6">
                     <div className="flex-1 space-y-2">
-                      <label className="block text-[10px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <label className="block text-[15px] md:text-[13px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         Your Name / Organization
                       </label>
                       <input
@@ -288,12 +288,12 @@ export function InteractiveConnectSection() {
                         onChange={handleInputChange}
                         required
                         placeholder="e.g. Studio Canal / Ivan Lewis"
-                        className="w-full bg-transparent border px-4 py-3 text-[13px] outline-none transition-colors duration-300 focus:border-current"
+                        className="w-full bg-transparent border px-4 py-3 text-[16px] md:text-[15px] outline-none transition-colors duration-300 focus:border-current rounded-none"
                         style={{ borderColor: 'var(--border)', fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text)' }}
                       />
                     </div>
                     <div className="flex-1 space-y-2">
-                      <label className="block text-[10px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <label className="block text-[15px] md:text-[13px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         Professional Email
                       </label>
                       <input
@@ -303,21 +303,21 @@ export function InteractiveConnectSection() {
                         onChange={handleInputChange}
                         required
                         placeholder="e.g. contact@domain.com"
-                        className="w-full bg-transparent border px-4 py-3 text-[13px] outline-none transition-colors duration-300 focus:border-current"
+                        className="w-full bg-transparent border px-4 py-3 text-[16px] md:text-[15px] outline-none transition-colors duration-300 focus:border-current rounded-none"
                         style={{ borderColor: 'var(--border)', fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text)' }}
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                    <label className="block text-[15px] md:text-[13px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                       Focus Track
                     </label>
                     <select
                       name="track"
                       value={formData.track}
                       onChange={handleInputChange}
-                      className="w-full bg-[var(--bg-raised)] border px-4 py-3 text-[13px] outline-none transition-colors duration-300 focus:border-current cursor-pointer"
+                      className="w-full bg-[var(--bg-raised)] border px-4 py-3 text-[16px] md:text-[15px] outline-none transition-colors duration-300 focus:border-current cursor-pointer rounded-none"
                       style={{ borderColor: 'var(--border)', fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text)' }}
                     >
                       <option value="Strategy & Alignment Advisory">Strategy & Alignment Advisory</option>
@@ -328,7 +328,7 @@ export function InteractiveConnectSection() {
                   </div>
 
                   <div className="space-y-2">
-                    <label className="block text-[10px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                    <label className="block text-[15px] md:text-[13px] uppercase tracking-[0.12em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                       Project Brief / Query Description
                     </label>
                     <textarea
@@ -338,29 +338,29 @@ export function InteractiveConnectSection() {
                       onChange={handleInputChange}
                       required
                       placeholder="Specify deliverables, timelines, constraints, or goals. Or simply ask for standard NDA outlines."
-                      className="w-full bg-transparent border px-4 py-3 text-[13px] outline-none transition-colors duration-300 focus:border-current custom-scrollbar"
+                      className="w-full bg-transparent border px-4 py-3 text-[16px] md:text-[15px] outline-none transition-colors duration-300 focus:border-current custom-scrollbar rounded-none"
                       style={{ borderColor: 'var(--border)', fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text)', resize: 'vertical' }}
                     />
                   </div>
 
                   <div className="pt-2 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-                    <span className="text-[11px] leading-relaxed" style={{ color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
-                      Your transmission is encrypted and dispatched directly to Ivan Lewis.
+                    <span className="text-[14px] leading-relaxed max-w-[400px]" style={{ color: 'var(--text-muted)', fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                      Your transmission is encrypted and dispatched directly to Ivan Lewis under an automatic mutual NDA.
                     </span>
                     <button
                       type="submit"
-                      className="w-full sm:w-auto inline-flex items-center justify-center text-[11px] uppercase tracking-[0.15em] px-8 py-4 transition-all duration-300 font-medium select-none cursor-pointer hover:opacity-90"
-                      style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--text)', color: 'var(--bg)' }}
+                      className="w-full sm:w-auto inline-flex items-center justify-center text-[16px] md:text-[15px] uppercase tracking-[0.12em] px-8 py-4 transition-all duration-300 font-medium select-none cursor-pointer hover:opacity-90 rounded-none"
+                      style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--accent)', color: '#16110E' }}
                       data-interactive
                     >
-                      Transmit Secured Brief
+                      Initiate a Brief
                     </button>
                   </div>
                 </form>
               )}
 
               {status === 'sending' && (
-                <div className="py-12 flex flex-col items-center justify-center text-center space-y-6">
+                <div className="py-12 flex flex-col items-center justify-center text-center space-y-6 animate-fadeIn">
                   {/* Digital pulse indicator */}
                   <div className="relative w-12 h-12 flex items-center justify-center">
                     <div className="absolute inset-0 border rounded-full animate-ping opacity-25" style={{ borderColor: 'var(--text)' }} />
@@ -368,10 +368,10 @@ export function InteractiveConnectSection() {
                   </div>
                   
                   <div className="space-y-2 max-w-[400px]">
-                    <span className="block text-[10px] uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                    <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.2em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                       ENCRYPTING TRANSMISSION
                     </span>
-                    <p className="text-[14px] leading-relaxed font-medium transition-all duration-300" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
+                    <p className="text-[15px] md:text-[14px] leading-relaxed font-medium transition-all duration-300" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
                       {sendSteps[stepIndex]}
                     </p>
                   </div>
@@ -390,7 +390,7 @@ export function InteractiveConnectSection() {
               )}
 
               {status === 'success' && (
-                <div className="py-4 space-y-6">
+                <div className="py-4 space-y-6 animate-fadeIn">
                   <div className="flex items-center gap-4 border-b pb-5" style={{ borderColor: 'var(--border)' }}>
                     <div className="w-8 h-8 rounded-full flex items-center justify-center text-[12px] font-bold" style={{ backgroundColor: 'var(--text)', color: 'var(--bg)' }}>
                       ✓
@@ -399,13 +399,13 @@ export function InteractiveConnectSection() {
                       <h4 className="text-[18px] font-medium" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                         Transmission Secured
                       </h4>
-                      <p className="text-[11px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <p className="text-[14px] md:text-[13px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         REF ID: {transmissions[0]?.id || 'TX-902183'} // AUTOMATIC MUTUAL NDA APPLIED
                       </p>
                     </div>
                   </div>
 
-                  <p className="text-[14px] leading-[1.65]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
+                  <p className="text-[17px] leading-[1.65]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
                     Thank you. Your creative package has been parsed, sealed with our automatic mutual NDA code, and logged safely. Ivan Lewis will receive this transmission and reply via your professional gateway.
                   </p>
 
@@ -413,7 +413,7 @@ export function InteractiveConnectSection() {
                     <button
                       type="button"
                       onClick={() => transmissions[0] && downloadTextFile(transmissions[0])}
-                      className="inline-flex items-center gap-2 border px-6 py-3.5 text-[11px] uppercase tracking-[0.12em] transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 cursor-pointer"
+                      className="inline-flex items-center gap-2 border px-6 py-3.5 text-[14px] md:text-[13px] uppercase tracking-[0.12em] transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 cursor-pointer rounded-none"
                       style={{ borderColor: 'var(--border)', fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}
                       data-interactive
                     >
@@ -422,7 +422,7 @@ export function InteractiveConnectSection() {
 
                     <a
                       href={`mailto:lastgoodtaste@gmail.com?subject=Transmission%20Backup%20-%20${transmissions[0]?.id}&body=Hi%20Ivan,%0D%0A%0D%0AHere%20is%20my%20brief%20backup:%0D%0A%0D%0AName:%20${encodeURIComponent(transmissions[0]?.name || '')}%0D%0ATrack:%20${encodeURIComponent(transmissions[0]?.track || '')}%0D%0ABrief:%20${encodeURIComponent(transmissions[0]?.brief || '')}`}
-                      className="inline-flex items-center gap-2 border px-6 py-3.5 text-[11px] uppercase tracking-[0.12em] transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 cursor-pointer no-underline"
+                      className="inline-flex items-center gap-2 border px-6 py-3.5 text-[14px] md:text-[13px] uppercase tracking-[0.12em] transition-colors duration-300 hover:bg-neutral-100 dark:hover:bg-neutral-900 cursor-pointer no-underline rounded-none"
                       style={{ borderColor: 'var(--border)', fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}
                       data-interactive
                     >
@@ -432,25 +432,23 @@ export function InteractiveConnectSection() {
                     <button
                       type="button"
                       onClick={handleResetForm}
-                      className="inline-flex items-center gap-2 px-6 py-3.5 text-[11px] uppercase tracking-[0.12em] transition-opacity duration-300 hover:opacity-80 cursor-pointer"
+                      className="inline-flex items-center gap-2 px-6 py-3.5 text-[14px] md:text-[13px] uppercase tracking-[0.12em] transition-opacity duration-300 hover:opacity-80 cursor-pointer rounded-none"
                       style={{ backgroundColor: 'var(--text)', color: 'var(--bg)', fontFamily: 'var(--font-family-mono)' }}
                       data-interactive
                     >
                       DISPATCH NEW TRANSMISSION
                     </button>
                   </div>
-
-
                 </div>
               )}
             </div>
           ) : (
-            <div className="bg-[var(--bg-raised)] border p-8 sm:p-12 transition-all duration-500 flex flex-col sm:flex-row items-center justify-between gap-6" style={{ borderColor: 'var(--border)' }}>
+            <div className="bg-[var(--bg-raised)] border p-8 sm:p-12 transition-all duration-500 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-none" style={{ borderColor: 'var(--border)' }}>
               <div className="max-w-[480px]">
-                <span className="block text-[10px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                <span className="block text-[14px] md:text-[12px] uppercase tracking-[0.12em] mb-2" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                   {selectedTrack === 'call' ? 'SCHEDULE WORKSPACE SYNC' : 'INITIATE FORMAL BRIEFING'}
                 </span>
-                <p className="text-[14px] leading-[1.6]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
+                <p className="text-[17px] leading-[1.6]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
                   {selectedTrack === 'call' 
                     ? 'Schedule a direct sync. Clicking below will open the booking page in a new browser tab.' 
                     : 'Initiate a structured creative briefing. Clicking below will open the secure brief portal in a new browser tab.'}
@@ -460,8 +458,8 @@ export function InteractiveConnectSection() {
                 href={links[selectedTrack].url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center text-[12px] uppercase tracking-[0.12em] px-8 py-4 transition-all duration-300 font-medium select-none no-underline hover:opacity-90"
-                style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--text)', color: 'var(--bg)' }}
+                className="w-full sm:w-auto inline-flex items-center justify-center text-[16px] md:text-[15px] uppercase tracking-[0.12em] px-8 py-4 transition-all duration-300 font-medium select-none no-underline hover:opacity-90 rounded-none"
+                style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--accent)', color: '#16110E' }}
                 data-interactive
               >
                 {links[selectedTrack].cta} ↗
@@ -470,10 +468,8 @@ export function InteractiveConnectSection() {
           )}
         </div>
 
-
-
         <div className="mt-12 pt-6 text-center select-none reveal">
-          <p className="text-[11px] tracking-[0.05em] uppercase" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+          <p className="text-[14px] md:text-[13px] tracking-[0.05em] uppercase" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
             All details submitted are protected under automatic mutual NDA.
           </p>
         </div>

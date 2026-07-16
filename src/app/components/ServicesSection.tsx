@@ -1,8 +1,4 @@
-import { useState } from 'react';
-
 export function ServicesSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const services = [
     {
       title: 'Strategy Consultation',
@@ -27,91 +23,81 @@ export function ServicesSection() {
     },
   ];
 
-  const toggleService = (i: number) => {
-    setOpenIndex(openIndex === i ? null : i);
-  };
-
   return (
-    <section className="py-24" style={{ backgroundColor: 'var(--bg-raised)' }} id="services">
-      <div className="max-w-[900px] mx-auto px-12">
-        <span className="block text-[13px] uppercase font-light tracking-[0.16em] reveal" style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}>
-          SERVICES
-        </span>
-        <p className="text-[16px] italic mt-2 mb-8 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}>
-          available, selectively
-        </p>
- 
-        <div className="text-[17px] leading-[1.75] text-text-secondary mb-12 max-w-[600px] reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
+    <section className="py-12 sm:py-16 md:py-20" style={{ backgroundColor: 'var(--bg-raised)' }} id="services">
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
+        {/* Editorial Section Header */}
+        <div className="mb-8 md:mb-10">
+          <span
+            className="block text-[14px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
+            style={{ fontFamily: 'var(--font-family-mono)' }}
+          >
+            SERVICES
+          </span>
+          <p className="text-[17px] sm:text-[18px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+            available, selectively
+          </p>
+        </div>
+
+        <div 
+          className="text-[18px] sm:text-[20px] leading-[1.65] text-[var(--text-secondary)] mb-10 md:mb-12 max-w-[700px] reveal" 
+          style={{ fontFamily: 'var(--font-family-serif)' }}
+        >
           Strategy, direction, writing, and film. Work varies; the starting question does&nbsp;not.
         </div>
- 
-        {services.map((service, i) => (
-          <div
-            key={i}
-            className="border-t-[0.5px] last:border-b-[0.5px] reveal"
-            style={{ borderColor: 'var(--border)', transitionDelay: `${i * 60}ms` }}
-          >
+
+        {/* Flat Editorial Index Layout with Thin Dividers & Controlled Spacing */}
+        <div className="border-t border-[var(--border)] divide-y divide-[var(--border)] border-b">
+          {services.map((service, i) => (
             <div
-              className="py-[2rem] flex justify-between items-center cursor-pointer transition-all duration-[380ms] hover:pl-3"
-              style={{ transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)' }}
-              onClick={() => toggleService(i)}
-              data-interactive
+              key={i}
+              className="reveal py-6 sm:py-8 group transition-colors duration-300 hover:bg-black/[0.015]"
+              style={{ transitionDelay: `${i * 50}ms` }}
             >
-              <h3
-                className="text-[clamp(18px,2.2vw,24px)] font-normal tracking-[-0.01em]"
-                style={{
-                  fontFamily: 'var(--font-family-serif)',
-                  color: 'var(--text)',
-                }}
-              >
-                {service.title}
-              </h3>
- 
-              <div className="flex items-center gap-6">
-                {service.paid && (
-                  <span
-                    className="text-[10px] uppercase tracking-[0.1em] border px-2 py-[2px] hidden sm:inline"
-                    style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)', borderColor: 'var(--border)' }}
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
+                
+                {/* Title & Badge column (4 out of 12 columns) */}
+                <div className="md:col-span-4 flex flex-col sm:flex-row md:flex-col sm:items-center md:items-start justify-between sm:justify-start md:justify-between gap-2">
+                  <h3
+                    className="text-[20px] sm:text-[22px] md:text-[24px] font-normal tracking-tight text-[var(--text)]"
+                    style={{
+                      fontFamily: 'var(--font-family-serif)',
+                    }}
                   >
-                    paid engagement
-                  </span>
-                )}
-                <span
-                  className={`text-[18px] font-light inline-flex items-center justify-center w-[30px] h-[30px] transition-all duration-[420ms] ${
-                    openIndex === i ? 'rotate-45' : ''
-                  }`}
-                  style={{
-                    fontFamily: 'var(--font-family-mono)',
-                    fontWeight: 400,
-                    color: openIndex === i ? 'var(--text-secondary)' : 'var(--text-muted)',
-                    transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)',
-                  }}
-                >
-                  +
-                </span>
+                    {service.title}
+                  </h3>
+
+                  {service.paid && (
+                    <span
+                      className="inline-block text-[14px] lg:text-[13px] uppercase tracking-[0.1em] border px-2.5 py-0.5 text-[var(--text-muted)] select-none font-mono"
+                      style={{ borderColor: 'var(--border)' }}
+                    >
+                      paid engagement
+                    </span>
+                  )}
+                </div>
+
+                {/* Description column (8 out of 12 columns) */}
+                <div className="md:col-span-8 flex flex-col items-start gap-4">
+                  <p
+                    className="text-[17px] text-[var(--text-secondary)] leading-[1.7] max-w-[750px] font-normal"
+                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                  >
+                    {service.description}
+                  </p>
+                  <a
+                    href="#connect"
+                    className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--text-secondary)] hover:text-[var(--text)] border-b border-[var(--text-secondary)]/20 hover:border-[var(--text)]/60 pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
+                    style={{ fontFamily: 'var(--font-family-mono)' }}
+                  >
+                    Connect <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
+                  </a>
+                </div>
+
               </div>
             </div>
- 
-            {openIndex === i && (
-              <div className="pb-8 transition-all duration-500 animate-fadeIn">
-                <p
-                  className="text-[17px] text-text-secondary leading-[1.75] whitespace-pre-line max-w-[750px]"
-                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
-                >
-                  {service.description}
-                </p>
-                {service.paid && (
-                  <p
-                    className="text-[11px] mt-4 uppercase tracking-[0.05em] sm:hidden"
-                    style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}
-                  >
-                    Paid engagement.
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

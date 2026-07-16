@@ -26,7 +26,7 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-dark-bg/80 backdrop-blur-md transition-opacity duration-300"
-        style={{ backgroundColor: 'rgba(31, 19, 10, 0.8)' }}
+        style={{ backgroundColor: 'rgba(22, 17, 14, 0.8)' }}
         onClick={onClose}
       />
 
@@ -49,7 +49,7 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
             onClick={onClose}
             className="p-1.5 rounded-full transition-colors relative z-30"
             style={{ color: 'var(--text-muted)', backgroundColor: 'transparent' }}
-            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text)'; e.currentTarget.style.backgroundColor = 'rgba(106, 68, 34, 0.05)'; }}
+            onMouseEnter={(e) => { e.currentTarget.style.color = 'var(--text)'; e.currentTarget.style.backgroundColor = 'rgba(247, 249, 250, 0.08)'; }}
             onMouseLeave={(e) => { e.currentTarget.style.color = 'var(--text-muted)'; e.currentTarget.style.backgroundColor = 'transparent'; }}
             aria-label="Close modal"
           >

@@ -1,13 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import thinkingVideo from '../../imports/thinking_bg.mp4';
 
-interface ThinkingFragment {
-  title: string;
-  lead: string;
-  body: string;
-  renderIcon: () => React.ReactNode;
-}
-
 export function SimplifiedThinkingSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
@@ -45,85 +38,54 @@ export function SimplifiedThinkingSection() {
     }
   }, [shouldLoad]);
 
-  const fragments: ThinkingFragment[] = [
+  // Exact headlines as specified in the instructions with corrected punctuation
+  const tickerItems = [
     {
-      title: 'Timing is sight',
-      lead: 'A story told too early feels premature. Told too late, it is a\u00A0post-mortem.',
-      body: 'Instinct is knowing the precise moment culture is ready to hear something true. That is not prediction. That is\u00A0listening.',
-      renderIcon: () => (
-        <svg className="w-5 h-5 text-[var(--dark-text-secondary)] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-          <circle cx="12" cy="12" r="8" strokeDasharray="2 2" />
-          <line x1="12" y1="12" x2="12" y2="4" style={{ animation: 'sweep 3s infinite linear', transformOrigin: '12px 12px' }} />
-        </svg>
-      ),
+      title: 'Timing is Sight',
+      quote: '“When is culture ready to hear something true?”'
     },
     {
-      title: 'Making is thinking',
-      lead: 'The script changes when you write it. The film changes when you\u00A0direct it.',
-      body: 'Ideas live in abstraction until they hit material and fight back. That physical resistance is where the real work\u00A0starts.',
-      renderIcon: () => (
-        <svg className="w-5 h-5 text-[var(--dark-text-secondary)] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-          <path d="M 8 6 L 4 6 L 4 18 L 8 18" style={{ animation: 'shift-left 2.2s infinite ease-in-out' }} />
-          <path d="M 16 6 L 20 6 L 20 18 L 16 18" style={{ animation: 'shift-right 2.2s infinite ease-in-out' }} />
-          <circle cx="12" cy="12" r="1.5" fill="currentColor" />
-        </svg>
-      ),
+      title: 'Making is Thinking',
+      quote: '“What are you creating today?”'
     },
     {
-      title: 'Stories move people',
-      lead: 'A brand needs permission to speak. That permission is earned, not\u00A0bought.',
-      body: 'True authority comes from being honest about what problem you solve and where you fall short. Narrative is the ground you\u00A0stand on.',
-      renderIcon: () => (
-        <svg className="w-5 h-5 text-[var(--dark-text-secondary)] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-          <path d="M 4 12 Q 8 6, 12 12 T 20 12" strokeDasharray="24" strokeDashoffset="0" style={{ animation: 'draw-path 3.2s infinite ease-in-out' }} />
-          <circle cx="20" cy="12" r="1" fill="currentColor" />
-        </svg>
-      ),
+      title: 'Stories Move People',
+      quote: '“Narrative is the ground a brand stands upon. Be honest about the problems you solve and where you fall short.”'
     },
     {
-      title: 'Tools are tools',
-      lead: 'Generative AI is fast and useful. But speed without intention is\u00A0noise.',
-      body: "The question isn't what the technology can do. It's the same question it's always been: what does this specific story\u00A0need?",
-      renderIcon: () => (
-        <svg className="w-5 h-5 text-[var(--dark-text-secondary)] group-hover:text-white transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-          <g style={{ animation: 'spin-gear 12s infinite linear', transformOrigin: '12px 12px' }}>
-            <circle cx="12" cy="12" r="6" />
-            <line x1="12" y1="3" x2="12" y2="5" />
-            <line x1="12" y1="19" x2="12" y2="21" />
-            <line x1="3" y1="12" x2="5" y2="12" />
-            <line x1="19" y1="12" x2="21" y2="12" />
-            <line x1="5.64" y1="5.64" x2="7.05" y2="7.05" />
-            <line x1="16.95" y1="16.95" x2="18.36" y2="18.36" />
-            <line x1="5.64" y1="18.64" x2="7.05" y2="17.23" />
-            <line x1="16.95" y1="7.05" x2="18.36" y2="8.46" />
-          </g>
-        </svg>
-      ),
-    },
+      title: 'Tools are Tools',
+      quote: '“Speed without intention is noise. What does your story need that tech can provide?”'
+    }
   ];
 
+  // Triplicating items to ensure smooth continuous seamless looping marquee
+  const itemsLoop = [...tickerItems, ...tickerItems, ...tickerItems];
+
   return (
-    <section ref={sectionRef} className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-dark-bg" style={{ backgroundColor: 'var(--dark-bg)' }} id="thinking">
+    <section
+      ref={sectionRef}
+      className="relative py-12 sm:py-16 overflow-hidden bg-dark-bg border-y"
+      style={{ backgroundColor: 'var(--dark-bg)', borderColor: 'rgba(247, 249, 250, 0.08)' }}
+      id="thinking"
+    >
       <style>{`
-        @keyframes sweep {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        @keyframes slowMarquee {
+          0% {
+            transform: translate3d(0, 0, 0);
+          }
+          100% {
+            transform: translate3d(-33.3333%, 0, 0);
+          }
         }
-        @keyframes shift-left {
-          0%, 100% { transform: translateX(0px); }
-          50% { transform: translateX(-3px); }
+        .animate-slow-marquee {
+          display: flex;
+          width: max-content;
+          animation: slowMarquee 45s linear infinite;
         }
-        @keyframes shift-right {
-          0%, 100% { transform: translateX(0px); }
-          50% { transform: translateX(3px); }
-        }
-        @keyframes draw-path {
-          0%, 100% { stroke-dashoffset: 24; }
-          50% { stroke-dashoffset: 0; }
-        }
-        @keyframes spin-gear {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-slow-marquee {
+            animation: none !important;
+          }
         }
       `}</style>
 
@@ -137,10 +99,10 @@ export function SimplifiedThinkingSection() {
           playsInline
           preload="none"
           src={thinkingVideo}
-          className="absolute top-0 left-0 w-full h-full object-cover select-none"
+          className="absolute top-0 left-0 w-full h-full object-cover select-none pointer-events-none"
           style={{
             objectPosition: 'center',
-            filter: 'saturate(0.5) contrast(1.15) brightness(0.35) blur(4px)',
+            filter: 'saturate(0.45) contrast(1.1) brightness(0.25) blur(6px)',
           }}
         />
       ) : (
@@ -151,78 +113,62 @@ export function SimplifiedThinkingSection() {
       <div
         className="absolute top-0 left-0 w-full h-full pointer-events-none"
         style={{
-          background: 'linear-gradient(180deg, rgba(31, 19, 10, 0.75) 0%, rgba(31, 19, 10, 0.9) 100%)',
+          background: 'linear-gradient(180deg, rgba(22, 17, 14, 0.85) 0%, rgba(22, 17, 14, 0.95) 100%)',
         }}
       />
 
-      {/* Sharp High-Resolution Digital Micro-Mesh Overlay to perfectly mask any pixelation */}
+      {/* Grain overlay */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.22] mix-blend-overlay"
+        className="absolute inset-0 pointer-events-none opacity-[0.18] mix-blend-overlay"
         style={{
           backgroundImage: `
-            radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px),
-            linear-gradient(rgba(255,255,255,0.025) 1.5px, transparent 1.5px),
-            linear-gradient(90deg, rgba(255,255,255,0.025) 1.5px, transparent 1.5px)
+            radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px),
+            linear-gradient(rgba(255,255,255,0.015) 1.5px, transparent 1.5px)
           `,
-          backgroundSize: '4px 4px, 24px 24px, 24px 24px',
-          backgroundPosition: 'center center',
+          backgroundSize: '4px 4px, 24px 24px',
         }}
       />
 
-      {/* Vignette */}
+      {/* Ambient Vignette */}
       <div
         className="absolute top-0 left-0 w-full h-full pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 90%)',
+          background: 'radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.65) 100%)',
         }}
       />
 
-      <div className="relative z-10 max-w-[960px] mx-auto px-6 sm:px-10 lg:px-12">
-        <span className="block text-[13px] uppercase font-light tracking-[0.16em] reveal mb-12" style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--dark-text-secondary)' }}>
-          THE LENS
-        </span>
-
-        {/* 2x2 Grid with high-end cards to split textual heaviness */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mt-6">
-          {fragments.map((fragment, i) => (
+      {/* Ticker Container - focusable for accessibility and keyboard pause */}
+      <div 
+        className="relative z-10 w-full overflow-hidden py-4 select-none group"
+        tabIndex={0}
+        aria-label="Thinking section ticker. Hover or focus to pause scrolling."
+      >
+        <div 
+          className="animate-slow-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] group-focus:[animation-play-state:paused] focus:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
+        >
+          {itemsLoop.map((item, idx) => (
             <div
-              key={i}
-              className="group relative p-7 sm:p-8 bg-white/[0.012] border border-white/[0.07] hover:border-white/[0.18] hover:bg-white/[0.03] transition-all duration-[450ms] ease-out flex flex-col justify-between reveal rounded-none"
-              style={{
-                transitionDelay: `${i * 100}ms`,
-                backdropFilter: 'blur(3px)',
-                WebkitBackdropFilter: 'blur(3px)',
-              }}
+              key={idx}
+              className="flex items-center gap-6 sm:gap-8 px-12 sm:px-16 whitespace-nowrap border-r border-white/10"
             >
-              <div>
-                {/* Header with animated matching icon */}
-                <div className="flex items-center justify-between mb-5 border-b border-white/[0.06] pb-4">
-                  <span
-                    className="text-[11px] uppercase tracking-[0.14em]"
-                    style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--dark-text-secondary)' }}
-                  >
-                    {fragment.title}
-                  </span>
-                  <div className="opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                    {fragment.renderIcon()}
-                  </div>
-                </div>
+              {/* Headline Category (Sans-Serif) */}
+              <span 
+                className="text-[14px] sm:text-[15px] uppercase tracking-[0.14em] font-normal select-none"
+                style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--dark-text-secondary)' }}
+              >
+                {item.title}
+              </span>
 
-                {/* Highly structured typographic layers to prevent visual bloat */}
-                <h4
-                  className="text-[16px] sm:text-[17px] font-normal leading-[1.6] text-white mb-4"
-                  style={{ fontFamily: 'var(--font-family-serif)' }}
-                >
-                  "{fragment.lead}"
-                </h4>
+              {/* En-dash Separator */}
+              <span className="text-white/30 text-[14px]">—</span>
 
-                <p
-                  className="text-[17px] text-white/55 leading-[1.75] font-light"
-                  style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
-                >
-                  {fragment.body}
-                </p>
-              </div>
+              {/* Exact Quote (Editorial Serif Italic) */}
+              <span 
+                className="text-[16px] sm:text-[18px] md:text-[20px] font-light italic text-white/90 select-none tracking-tight"
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
+                {item.quote}
+              </span>
             </div>
           ))}
         </div>

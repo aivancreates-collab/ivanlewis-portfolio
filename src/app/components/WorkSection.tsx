@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import lastMessageKV from '../../imports/last_message_kv-1.png';
-import mkkPoster from '../../imports/mkk_ poster_kv.png';
 import lastMessageVideo from '../../imports/20589796-hd_1920_1080_60fps.mp4';
-import mkkVideo from '../../imports/20589796-hd_1920_1080_60fps-1.mp4';
+import mkkPosterKV from '../../imports/mkk_ poster_kv.png';
 import { ScriptModal } from './ScriptModal';
 import { CurrentEngagementsModal } from './CurrentEngagementsModal';
-import { MurmurationBg } from './MurmurationBg';
 import { updateMetaTags } from '../utils/seo';
 
 interface TrailPoint {
@@ -164,16 +162,68 @@ const works: WorkEntry[] = [
   },
 ];
 
+interface FeaturedProjectDetails {
+  id: string;
+  title: string;
+  numberLabel: string;
+  formatLabel: string;
+  question: string;
+  pageCount: string;
+  detailsLabel: string;
+  statusText: string;
+  statusStyle: string;
+  viewfinderLeft: string;
+  viewfinderRight: string;
+  mediaType: 'video' | 'image';
+  videoSrc?: string;
+  imageSrc: string;
+}
+
+const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
+  e1: {
+    id: 'e1',
+    title: 'The Last Message',
+    numberLabel: '01 // FEATURED',
+    formatLabel: 'screenplay',
+    question: 'What happens to the words people were saving for later, and never sent?',
+    pageCount: '18P',
+    detailsLabel: 'SWA INDIA, FEB 2026',
+    statusText: 'SEEKING PRODUCTION',
+    statusStyle: 'text-emerald-400 bg-emerald-950/30 border border-emerald-500/20',
+    viewfinderLeft: 'STILL NO. 01 // SOLACE CORP',
+    viewfinderRight: 'KEY VISUAL',
+    mediaType: 'video',
+    videoSrc: lastMessageVideo,
+    imageSrc: lastMessageKV,
+  },
+  e2: {
+    id: 'e2',
+    title: 'Maati Kona Chi?',
+    numberLabel: '02 // FEATURED',
+    formatLabel: 'short film · marathi',
+    question: 'Who decides what gets to grow, and what gets cut?',
+    pageCount: '9P',
+    detailsLabel: 'SWA INDIA, NOV 2025',
+    statusText: 'PRE-PRODUCTION 2026',
+    statusStyle: 'text-amber-400 bg-amber-950/30 border border-amber-500/20',
+    viewfinderLeft: 'POSTER // MAATI KONA CHI?',
+    viewfinderRight: 'KEY VISUAL',
+    mediaType: 'image',
+    imageSrc: mkkPosterKV,
+  }
+};
+
 export function WorkSection() {
+  const [focusedProjectId, setFocusedProjectId] = useState<string>('e1');
   const [openId, setOpenId] = useState<string | null>(null);
   const [activeScriptId, setActiveScriptId] = useState<'e1' | 'e2' | null>(null);
   const [isCurrentEngagementsModalOpen, setIsCurrentEngagementsModalOpen] = useState(false);
 
   useEffect(() => {
-    const activeId = activeScriptId || openId;
-    
+    const activeId = activeScriptId || openId || focusedProjectId;
+    const imgUrl = new URL(lastMessageKV, window.location.origin).href;
+
     if (activeId === 'e1') {
-      const imgUrl = new URL(lastMessageKV, window.location.origin).href;
       updateMetaTags({
         title: 'The Last Message — Ivan Lewis',
         description: 'What happens to the words people were saving for later, and never sent? Registered screenplay. SWA India, Feb 2026.',
@@ -181,7 +231,6 @@ export function WorkSection() {
         imageUrl: imgUrl,
       });
     } else if (activeId === 'e2') {
-      const imgUrl = new URL(mkkPoster, window.location.origin).href;
       updateMetaTags({
         title: 'Maati Kona Chi? — Ivan Lewis',
         description: 'Who decides what gets to grow, and what gets cut? Short film screenplay in Marathi.',
@@ -189,7 +238,6 @@ export function WorkSection() {
         imageUrl: imgUrl,
       });
     } else if (activeId === 'e3') {
-      const imgUrl = new URL(lastMessageKV, window.location.origin).href;
       updateMetaTags({
         title: 'Active Work — Ivan Lewis',
         description: 'What does a brand sound like before it knows what it is? Ongoing creative consulting and story solutions.',
@@ -197,7 +245,6 @@ export function WorkSection() {
         imageUrl: imgUrl,
       });
     } else {
-      const imgUrl = new URL(lastMessageKV, window.location.origin).href;
       updateMetaTags({
         title: 'Ivan Lewis',
         description: 'Creative director, writer, and filmmaker. Mumbai.',
@@ -205,133 +252,144 @@ export function WorkSection() {
         imageUrl: imgUrl,
       });
     }
-  }, [openId, activeScriptId]);
+  }, [openId, activeScriptId, focusedProjectId]);
 
   const toggleWork = (id: string) => {
     setOpenId(openId === id ? null : id);
   };
 
+  const focusedProject = featuredProjectsData[focusedProjectId] || featuredProjectsData['e1'];
+
   return (
     <>
       <ScriptModal isOpen={activeScriptId !== null} onClose={() => setActiveScriptId(null)} scriptId={activeScriptId || 'e1'} />
       <CurrentEngagementsModal isOpen={isCurrentEngagementsModalOpen} onClose={() => setIsCurrentEngagementsModalOpen(false)} />
-      <section className="px-6 sm:px-10 lg:px-16 py-16 sm:py-20 lg:py-24" id="studio">
-      <span
-        className="block text-[13px] uppercase font-light tracking-[0.16em] reveal"
-        style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}
-      >
-        STUDIO
-      </span>
-      <p className="text-[16px] italic mt-2 mb-10 reveal" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}>
-        made, mostly
-      </p>
+      
+      <section className="px-5 sm:px-10 lg:px-16 py-12 sm:py-16 md:py-20" id="studio">
+        {/* Editorial Section Header */}
+        <div className="mb-8 md:mb-12">
+          <span
+            className="block text-[14px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
+            style={{ fontFamily: 'var(--font-family-mono)' }}
+          >
+            STUDIO
+          </span>
+          <p className="text-[17px] sm:text-[18px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+            made, mostly
+          </p>
+        </div>
 
-      {/* Featured Project 1: The Last Message — Always Visible, High-End Film Portfolio Layout */}
-      <div className="mb-20 sm:mb-24 lg:mb-28 reveal">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_1fr] gap-10 lg:gap-16 items-start">
+        {/* Primary Layout: Controlled Asymmetry 12-Column Grid with Single Dominant Visual */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16 md:mb-20">
           
-          {/* Left Column: Atmospheric Movie Still Frame */}
-          <div className="relative group w-full">
-            <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] border p-1.5" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
-              {/* Subtle Viewfinder corner brackets */}
-              <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/40 pointer-events-none z-20" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/40 pointer-events-none z-20" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/40 pointer-events-none z-20" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/40 pointer-events-none z-20" />
+          {/* Left Side: Single Dominant Visual (Take 7 of 12 columns on desktop) */}
+          <div className="lg:col-span-7 relative group w-full">
+            <div 
+              className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] border p-1" 
+              style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}
+            >
+              {/* Cinematic corner viewfinder marks */}
+              <div className="absolute top-4 left-4 w-3 h-3 border-t border-l border-white/30 pointer-events-none z-20" />
+              <div className="absolute top-4 right-4 w-3 h-3 border-t border-r border-white/30 pointer-events-none z-20" />
+              <div className="absolute bottom-4 left-4 w-3 h-3 border-b border-l border-white/30 pointer-events-none z-20" />
+              <div className="absolute bottom-4 right-4 w-3 h-3 border-b border-r border-white/30 pointer-events-none z-20" />
 
-              {/* High-resolution micro-mesh grain overlay for cinematic aesthetic */}
+              {/* High-resolution mesh grain overlay */}
               <div
-                className="absolute inset-0 pointer-events-none opacity-[0.22] mix-blend-overlay z-10"
+                className="absolute inset-0 pointer-events-none opacity-[0.2] mix-blend-overlay z-10"
                 style={{
                   backgroundImage: `
                     radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px),
-                    linear-gradient(rgba(255,255,255,0.02) 1.5px, transparent 1.5px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1.5px, transparent 1.5px)
+                    linear-gradient(rgba(255,255,255,0.01) 1.5px, transparent 1.5px)
                   `,
-                  backgroundSize: '4px 4px, 24px 24px, 24px 24px',
+                  backgroundSize: '4px 4px, 20px 20px',
                 }}
               />
 
-              <video
-                src={lastMessageVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.025]"
-                poster={lastMessageKV}
-              />
+              {focusedProject.mediaType === 'video' ? (
+                <video
+                  key={focusedProject.id}
+                  src={focusedProject.videoSrc}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.015]"
+                  poster={focusedProject.imageSrc}
+                />
+              ) : (
+                <img
+                  key={focusedProject.id}
+                  src={focusedProject.imageSrc}
+                  alt={focusedProject.title}
+                  className="w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.015]"
+                />
+              )}
 
-              {/* Filmic Contrast Vignette */}
+              {/* Vignette */}
               <div
                 className="absolute inset-0 pointer-events-none z-10"
                 style={{
-                  background: 'radial-gradient(circle at center, transparent 45%, rgba(10,10,10,0.45) 100%)',
+                  background: 'radial-gradient(circle at center, transparent 50%, rgba(10,10,10,0.4) 100%)',
                 }}
               />
-
-              {/* Center reticle */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 z-10">
-                <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
-                </div>
-              </div>
             </div>
 
-            {/* Sub-image technical labels */}
-            <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center text-[10px] uppercase tracking-[0.15em] gap-2 select-none" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-              <div className="flex items-center gap-3">
-                <span className="font-semibold" style={{ color: 'var(--text)' }}>STILL NO. 01 // SOLACE CORP RECEPTION</span>
-              </div>
-              <span>KEY VISUAL</span>
+            {/* Viewfinder labels (Guaranteed at least 14px on mobile) */}
+            <div 
+              className="mt-3 flex justify-between items-center text-[14px] lg:text-[13px] uppercase tracking-[0.15em] select-none" 
+              style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}
+            >
+              <span className="font-medium" style={{ color: 'var(--text)' }}>{focusedProject.viewfinderLeft}</span>
+              <span>{focusedProject.viewfinderRight}</span>
             </div>
           </div>
 
-          {/* Right Column: Editorial Typographic Panel */}
-          <div className="flex flex-col justify-between h-full pt-1">
+          {/* Right Side: Editorial Description (Take 5 of 12 columns on desktop) */}
+          <div className="lg:col-span-5 flex flex-col justify-between h-full py-1">
             <div>
               <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
-                <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: 'var(--text-muted)' }}>01 // FEATURED SCREENPLAY</span>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'rgba(106, 68, 34, 0.2)' }} />
-                <span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>screenplay</span>
+                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[rgba(197,160,89,0.3)]" />
+                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
               </div>
 
-              <h2
-                className="text-[34px] sm:text-[40px] lg:text-[44px] font-normal tracking-[-0.02em] leading-[1.05] mb-5"
+              <h3
+                className="text-[32px] sm:text-[38px] lg:text-[42px] font-normal tracking-[-0.02em] leading-[1.1] mb-4"
                 style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
               >
-                The Last Message <span className="text-[12px] font-mono text-text-muted select-none ml-2 align-middle">18P</span>
-              </h2>
+                {focusedProject.title} <span className="text-[14px] font-mono text-[var(--text-muted)] select-none ml-2 align-middle">{focusedProject.pageCount}</span>
+              </h3>
 
               <p
-                className="text-[17px] sm:text-[19px] italic leading-[1.55] mb-8"
-                style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}
+                className="text-[18px] sm:text-[20px] italic leading-[1.6] mb-6 text-[var(--text-secondary)]"
+                style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                "What happens to the words people were saving for later, and never sent?"
+                "{focusedProject.question}"
               </p>
 
-              {/* Status details line */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-[11px] uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                <span>18 PAGES</span>
+              {/* Status block (Guaranteed >= 14px on mobile) */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                <span>{focusedProject.pageCount === '18P' ? '18 PAGES' : '9 PAGES'}</span>
                 <span>•</span>
-                <span>SWA INDIA, FEB 2026</span>
+                <span>{focusedProject.detailsLabel}</span>
                 <span>•</span>
-                <span className="text-emerald-700 bg-emerald-50/50 border border-emerald-100/80 px-2 py-0.5 text-[10px] rounded-sm font-semibold">SEEKING PRODUCTION</span>
+                <span className={`${focusedProject.statusStyle} px-2 py-0.5 text-[12px] font-semibold tracking-wider`}>{focusedProject.statusText}</span>
               </div>
             </div>
 
-            {/* Custom Interactive Narrative Actions embedded into the editorial layout */}
-            <div className="border-t pt-6 flex flex-col gap-5" style={{ borderColor: 'var(--border)' }}>
+            {/* Custom Interactive Narrative Actions */}
+            <div className="border-t pt-5 flex flex-col gap-4" style={{ borderColor: 'var(--border)' }}>
               <button
-                onClick={() => setActiveScriptId('e1')}
-                className="flex items-center justify-between w-full group/btn text-left"
+                onClick={() => setActiveScriptId(focusedProject.id as 'e1' | 'e2')}
+                className="flex items-center justify-between w-full group/btn text-left py-2"
                 data-interactive
               >
-                <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
+                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
                   READ SCREENPLAY EXCERPT
                 </span>
                 <span
-                  className="text-[14px] font-light inline-flex items-center justify-center w-[28px] h-[28px] border rounded-full transition-transform duration-300 group-hover/btn:translate-x-1"
+                  className="text-[15px] font-light inline-flex items-center justify-center w-[32px] h-[32px] border rounded-full transition-transform duration-300 group-hover/btn:translate-x-1"
                   style={{
                     fontFamily: 'var(--font-family-mono)',
                     borderColor: 'var(--border)',
@@ -341,19 +399,19 @@ export function WorkSection() {
                 </span>
               </button>
 
-              <div className="border-t pt-5" style={{ borderColor: 'var(--border)' }}>
+              <div className="border-t pt-3" style={{ borderColor: 'var(--border)' }}>
                 <button
-                  onClick={() => toggleWork('e1')}
-                  className="flex items-center justify-between w-full group/btn text-left"
+                  onClick={() => toggleWork(focusedProject.id)}
+                  className="flex items-center justify-between w-full group/btn text-left py-2"
                   data-interactive
                 >
-                  <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
-                    {openId === 'e1' ? 'CLOSE MOVIE BACKGROUND' : 'READ DEVELOPMENT BACKGROUND'}
+                  <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
+                    {openId === focusedProject.id ? 'CLOSE DEVELOPMENT BACKGROUND' : 'READ DEVELOPMENT BACKGROUND'}
                   </span>
                   <span
-                    className="text-[14px] font-light inline-flex items-center justify-center w-[28px] h-[28px] border rounded-full transition-transform duration-300"
+                    className="text-[15px] font-light inline-flex items-center justify-center w-[32px] h-[32px] border rounded-full transition-transform duration-300"
                     style={{
-                      transform: openId === 'e1' ? 'rotate(45deg)' : 'none',
+                      transform: openId === focusedProject.id ? 'rotate(45deg)' : 'none',
                       fontFamily: 'var(--font-family-mono)',
                       borderColor: 'var(--border)',
                     }}
@@ -363,34 +421,30 @@ export function WorkSection() {
                 </button>
               </div>
 
-              {openId === 'e1' && (
-                <div className="mt-6 space-y-6 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar border-l pl-5" style={{ borderColor: 'var(--border)' }}>
-                  {works[0].trail?.map((point, i) => (
-                    <div
-                      key={i}
-                      className="py-1"
-                      style={{ animation: 'fadeIn 0.4s ease-out forwards' }}
-                    >
-                      <span className="block text-[9px] uppercase tracking-[0.16em] mb-1.5" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              {openId === focusedProject.id && (
+                <div className="mt-4 space-y-5 max-h-[250px] overflow-y-auto pr-2 custom-scrollbar border-l pl-4" style={{ borderColor: 'var(--border)' }}>
+                  {works.find(w => w.id === focusedProject.id)?.trail?.map((point, i) => (
+                    <div key={i} className="py-1 animate-fadeIn">
+                      <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.12em] mb-1" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         {point.label}
                       </span>
                       {point.type === 'question' ? (
-                        <blockquote className="text-[16px] italic leading-relaxed" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+                        <blockquote className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
                           "{point.content}"
                         </blockquote>
                       ) : (
-                        <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+                        <p className="text-[17px] leading-relaxed text-[var(--text-secondary)]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                           {point.content}
                         </p>
                       )}
 
                       {point.pullquote && (
-                        <div className="mt-3 border-l-[1.5px] pl-4 py-1" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(106, 68, 34, 0.01)' }}>
-                          <p className="text-[13px] italic leading-relaxed" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+                        <div className="mt-2 border-l-2 pl-4 py-1" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(247, 249, 250, 0.02)' }}>
+                          <p className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
                             "{point.pullquote}"
                           </p>
                           {point.pullquoteSource && (
-                            <span className="block text-[9px] uppercase tracking-[0.12em] mt-1.5" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                            <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.1em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                               — {point.pullquoteSource}
                             </span>
                           )}
@@ -398,15 +452,14 @@ export function WorkSection() {
                       )}
 
                       {point.links && (
-                        <div className="mt-4 flex flex-wrap gap-4 text-[10px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                        <div className="mt-3 flex flex-wrap gap-4 text-[14px] lg:text-[13px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                           {point.links.map((link, linkIdx) => (
                             <a
                               key={linkIdx}
                               href={link.href}
                               target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
                               rel="noopener noreferrer"
-                              className="underline underline-offset-4 hover:opacity-70 transition-opacity uppercase tracking-wider"
-                              style={{ color: 'var(--text)' }}
+                              className="underline underline-offset-4 hover:opacity-70 transition-opacity uppercase tracking-wider text-[var(--text)] font-normal"
                             >
                               {link.text} →
                             </a>
@@ -418,417 +471,168 @@ export function WorkSection() {
                 </div>
               )}
             </div>
-
           </div>
-
         </div>
-      </div>
 
-      {/* Featured Project 2: Maati Kona Chi? — Same High-End Film Portfolio Layout */}
-      <div className="mb-20 sm:mb-24 lg:mb-28 reveal">
-        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.2fr)_1fr] gap-10 lg:gap-16 items-start">
-          
-          {/* Left Column: Atmospheric Movie Still Frame */}
-          <div className="relative group w-full">
-            <div className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] lg:aspect-[16/10] border p-1.5" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
-              {/* Subtle Viewfinder corner brackets */}
-              <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/40 pointer-events-none z-20" />
-              <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/40 pointer-events-none z-20" />
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/40 pointer-events-none z-20" />
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/40 pointer-events-none z-20" />
-              
-              {/* High-resolution micro-mesh grain overlay for cinematic aesthetic */}
+        {/* Additional Projects Index: Flat Editorial Typography Listing */}
+        <span
+          className="block mt-12 mb-4 text-[14px] lg:text-[13px] uppercase tracking-[0.18em] select-none border-b pb-2 text-[var(--text-muted)]"
+          style={{ fontFamily: 'var(--font-family-mono)', borderColor: 'var(--border)' }}
+        >
+          ADDITIONAL PROJECTS
+        </span>
+
+        <div className="divide-y divide-[var(--border)]">
+          {works.filter(w => w.id !== focusedProjectId).map((work, index) => (
+            <div
+              key={work.id}
+              className="reveal relative py-8 sm:py-10 transition-all duration-300"
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
               <div
-                className="absolute inset-0 pointer-events-none opacity-[0.22] mix-blend-overlay z-10"
-                style={{
-                  backgroundImage: `
-                    radial-gradient(circle, rgba(255,255,255,0.18) 1px, transparent 1px),
-                    linear-gradient(rgba(255,255,255,0.02) 1.5px, transparent 1.5px),
-                    linear-gradient(90deg, rgba(255,255,255,0.02) 1.5px, transparent 1.5px)
-                  `,
-                  backgroundSize: '4px 4px, 24px 24px, 24px 24px',
+                className={`transition-all duration-[350ms] ${
+                  work.placeholder ? 'cursor-default pointer-events-none' : 'cursor-pointer hover:pl-2'
+                }`}
+                onClick={() => {
+                  if (!work.placeholder) {
+                    if (work.id === 'e1' || work.id === 'e2') {
+                      setFocusedProjectId(work.id);
+                      setOpenId(null);
+                      document.getElementById('studio')?.scrollIntoView({ behavior: 'smooth' });
+                    } else {
+                      toggleWork(work.id);
+                    }
+                  }
                 }}
-              />
+                data-interactive={!work.placeholder || undefined}
+              >
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
+                  <h4
+                    className="text-[22px] sm:text-[26px] font-normal tracking-tight text-[var(--text)] flex items-center gap-3"
+                    style={{ fontFamily: 'var(--font-family-serif)' }}
+                  >
+                    {work.title}
+                    {work.placeholder && (
+                      <span className="text-[13px] uppercase tracking-[0.1em] border border-current px-2 py-[2px] ml-1 align-middle text-[var(--text-muted)] font-mono">
+                        coming 2026
+                      </span>
+                    )}
+                  </h4>
 
-              <video
-                src={mkkVideo}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover scale-[1.07] transition-transform duration-[1200ms] ease-out group-hover:scale-[1.10]"
-                poster={mkkPoster}
-              />
+                  <span
+                    className="text-[14px] lg:text-[13px] font-normal tracking-[0.1em] text-[var(--text-muted)]"
+                    style={{ fontFamily: 'var(--font-family-mono)' }}
+                  >
+                    {work.date}
+                  </span>
+                </div>
 
-              {/* Filmic Contrast Vignette */}
-              <div
-                className="absolute inset-0 pointer-events-none z-10"
-                style={{
-                  background: 'radial-gradient(circle at center, transparent 45%, rgba(10,10,10,0.45) 100%)',
-                }}
-              />
+                <p
+                  className="text-[17px] sm:text-[18px] italic leading-relaxed text-[var(--text-secondary)] mb-4 max-w-[700px]"
+                  style={{ fontFamily: 'var(--font-family-serif)' }}
+                >
+                  {work.question}
+                </p>
 
-              {/* Center reticle */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20 z-10">
-                <div className="w-8 h-8 border border-white/20 rounded-full flex items-center justify-center">
-                  <div className="w-1.5 h-1.5 bg-white/40 rounded-full" />
+                <div className="flex justify-between items-center">
+                  <span
+                    className="text-[14px] lg:text-[13px] font-normal tracking-[0.12em] text-[var(--text-muted)]"
+                    style={{ fontFamily: 'var(--font-family-mono)' }}
+                  >
+                    {work.format}
+                  </span>
+
+                  {!work.placeholder && (
+                    <span
+                      className={`text-[15px] font-light inline-flex items-center justify-center w-[36px] h-[36px] border rounded-full transition-all duration-[300ms] ${
+                        openId === work.id ? 'rotate-45' : ''
+                      }`}
+                      style={{
+                        borderColor: 'var(--border)',
+                        color: openId === work.id ? 'var(--text)' : 'var(--text-muted)',
+                      }}
+                    >
+                      +
+                    </span>
+                  )}
                 </div>
               </div>
-            </div>
 
-            {/* Sub-image technical labels */}
-            <div className="mt-4 flex flex-col sm:flex-row justify-between items-start sm:items-center text-[10px] uppercase tracking-[0.15em] gap-2 select-none" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-              <div className="flex items-center gap-3">
-                <span className="font-semibold" style={{ color: 'var(--text)' }}>STILL NO. 01 // OVERGROWN COURTYARD</span>
-              </div>
-              <span>POSTER ART</span>
-            </div>
-          </div>
-
-          {/* Right Column: Editorial Typographic Panel */}
-          <div className="flex flex-col justify-between h-full pt-1">
-            <div>
-              <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
-                <span className="text-[10px] uppercase tracking-[0.18em]" style={{ color: 'var(--text-muted)' }}>02 // FEATURED SCREENPLAY</span>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: 'rgba(106, 68, 34, 0.2)' }} />
-                <span className="text-[10px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>short film · marathi</span>
-              </div>
-
-              <h2
-                className="text-[34px] sm:text-[40px] lg:text-[44px] font-normal tracking-[-0.02em] leading-[1.05] mb-5"
-                style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
-              >
-                Maati Kona Chi? <span className="text-[12px] font-mono text-text-muted select-none ml-2 align-middle">9P</span>
-              </h2>
-
-              <p
-                className="text-[17px] sm:text-[19px] italic leading-[1.55] mb-8"
-                style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}
-              >
-                "Who decides what gets to grow, and what gets cut?"
-              </p>
-
-              {/* Status details line */}
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mb-8 text-[11px] uppercase tracking-[0.15em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                <span>9 PAGES</span>
-                <span>•</span>
-                <span>SWA INDIA, NOV 2025</span>
-                <span>•</span>
-                <span className="text-amber-700 bg-amber-50/50 border border-amber-100/80 px-2 py-0.5 text-[10px] rounded-sm font-semibold text-center select-none uppercase tracking-[0.1em]">PRE-PRODUCTION 2026</span>
-              </div>
-            </div>
-
-            {/* Custom Interactive Narrative Actions embedded into the editorial layout */}
-            <div className="border-t pt-6 flex flex-col gap-5" style={{ borderColor: 'var(--border)' }}>
-              <button
-                onClick={() => setActiveScriptId('e2')}
-                className="flex items-center justify-between w-full group/btn text-left"
-                data-interactive
-              >
-                <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
-                  READ SCREENPLAY EXCERPT
-                </span>
-                <span
-                  className="text-[14px] font-light inline-flex items-center justify-center w-[28px] h-[28px] border rounded-full transition-transform duration-300 group-hover/btn:translate-x-1"
-                  style={{
-                    fontFamily: 'var(--font-family-mono)',
-                    borderColor: 'var(--border)',
-                  }}
-                >
-                  →
-                </span>
-              </button>
-
-              <div className="border-t pt-5" style={{ borderColor: 'var(--border)' }}>
-                <button
-                  onClick={() => toggleWork('e2')}
-                  className="flex items-center justify-between w-full group/btn text-left"
-                  data-interactive
-                >
-                  <span className="text-[11px] uppercase tracking-[0.18em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
-                    {openId === 'e2' ? 'CLOSE MOVIE BACKGROUND' : 'READ DEVELOPMENT BACKGROUND'}
-                  </span>
-                  <span
-                    className="text-[14px] font-light inline-flex items-center justify-center w-[28px] h-[28px] border rounded-full transition-transform duration-300"
-                    style={{
-                      transform: openId === 'e2' ? 'rotate(45deg)' : 'none',
-                      fontFamily: 'var(--font-family-mono)',
-                      borderColor: 'var(--border)',
-                    }}
-                  >
-                    +
-                  </span>
-                </button>
-              </div>
-
-              {openId === 'e2' && (
-                <div className="mt-6 space-y-6 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar border-l pl-5" style={{ borderColor: 'var(--border)' }}>
-                  {works[1].trail?.map((point, i) => (
+              {/* Collapsed Trail Content (Text-only index layout, no secondary videos) */}
+              {work.trail && openId === work.id && (
+                <div className="mt-6 pt-6 border-t border-[var(--border)] max-w-3xl space-y-6 animate-fadeIn">
+                  {work.trail.map((point, i) => (
                     <div
                       key={i}
-                      className="py-1"
-                      style={{ animation: 'fadeIn 0.4s ease-out forwards' }}
+                      className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-3 sm:gap-6 py-4 border-t first:border-0 border-[var(--border)]"
                     >
-                      <span className="block text-[9px] uppercase tracking-[0.16em] mb-1.5" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <span
+                        className="text-[14px] lg:text-[13px] font-normal tracking-[0.1em] text-[var(--text-muted)] pt-[2px]"
+                        style={{ fontFamily: 'var(--font-family-mono)' }}
+                      >
                         {point.label}
                       </span>
-                      {point.type === 'question' ? (
-                        <blockquote className="text-[16px] italic leading-relaxed" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
-                          "{point.content}"
-                        </blockquote>
-                      ) : (
-                        <p className="text-[14px] leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+
+                      <div>
+                        {point.pullquote && (
+                          <div className="mb-3 border-l-2 pl-4 py-1" style={{ borderColor: 'var(--border-solid)' }}>
+                            <p className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+                              "{point.pullquote}"
+                            </p>
+                            {point.pullquoteSource && (
+                              <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.08em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                                — {point.pullquoteSource}
+                              </span>
+                            )}
+                          </div>
+                        )}
+
+                        <p
+                          className={`text-[17px] leading-relaxed ${
+                            point.type === 'question' ? 'italic text-[var(--text)] font-serif' : 'text-[var(--text-secondary)] font-serif'
+                          }`}
+                        >
                           {point.content}
                         </p>
-                      )}
 
-                      {point.pullquote && (
-                        <div className="mt-3 border-l-[1.5px] pl-4 py-1" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(106, 68, 34, 0.01)' }}>
-                          <p className="text-[13px] italic leading-relaxed" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
-                            "{point.pullquote}"
-                          </p>
-                          {point.pullquoteSource && (
-                            <span className="block text-[9px] uppercase tracking-[0.12em] mt-1.5" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                              — {point.pullquoteSource}
-                            </span>
-                          )}
-                        </div>
-                      )}
+                        {point.links && (
+                          <div className="mt-3 flex flex-wrap gap-4 text-[14px] lg:text-[13px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                            {point.links.map((link, j) => (
+                              <a
+                                key={j}
+                                href={link.href}
+                                target={link.href.startsWith('mailto:') ? '_self' : '_blank'}
+                                rel="noopener noreferrer"
+                                className="underline underline-offset-4 hover:opacity-70 transition-opacity uppercase tracking-wider text-[var(--text)] font-normal"
+                              >
+                                {link.text} →
+                              </a>
+                            ))}
+                          </div>
+                        )}
+
+                        {point.status && (
+                          <span
+                            className="inline-block text-[14px] lg:text-[13px] font-normal tracking-[0.1em] border px-2 py-1 mt-3 cursor-pointer transition-colors bg-[var(--text)] text-[var(--bg)] hover:opacity-90 select-none"
+                            style={{ fontFamily: 'var(--font-family-mono)' }}
+                            onClick={() => {
+                              if (point.status === 'active 2026') {
+                                setIsCurrentEngagementsModalOpen(true);
+                              }
+                            }}
+                          >
+                            {point.status}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
               )}
             </div>
-
-          </div>
-
+          ))}
         </div>
-      </div>
-
-      {/* More Projects Header */}
-      <span
-        className="block mt-16 mb-4 text-[10px] uppercase tracking-[0.18em] select-none border-b pb-3"
-        style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)', borderColor: 'var(--border)' }}
-      >
-        ADDITIONAL PROJECTS
-      </span>
-
-      {works.slice(2).map((work, index) => (
-        <div
-          key={work.id}
-          className={`border-b-[0.5px] last:border-b-[0.5px] reveal relative ${
-            work.placeholder ? 'overflow-hidden' : ''
-          }`}
-          style={{
-            borderColor: 'var(--border)',
-            transitionDelay: `${index * 80}ms`
-          }}
-        >
-          {work.placeholder && <MurmurationBg />}
-          <div
-            className={`py-[2.6rem] transition-all duration-[380ms] ${
-              work.placeholder ? 'cursor-default pointer-events-none' : 'cursor-pointer hover:pl-3'
-            }`}
-            style={{ transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)' }}
-            onClick={() => !work.placeholder && toggleWork(work.id)}
-            data-interactive
-          >
-            <h2
-              className="text-[clamp(22px,2.8vw,34px)] font-normal tracking-[-0.015em] leading-[1.15] mb-2"
-              style={{
-                fontFamily: 'var(--font-family-serif)',
-                color: 'var(--text)'
-              }}
-            >
-              {work.title}
-              {work.placeholder && (
-                <span className="text-[10px] uppercase tracking-[0.1em] border border-current px-2 py-[3px] ml-3 align-middle" style={{ color: 'var(--text-muted)' }}>
-                  coming 2026
-                </span>
-              )}
-            </h2>
-
-            <p
-              className="text-[16px] italic leading-[1.7] mb-[1.4rem]"
-              style={{
-                fontFamily: 'var(--font-family-serif)',
-                color: 'var(--text-secondary)'
-              }}
-            >
-              {work.question}
-            </p>
-
-            <div className="flex justify-between items-center">
-              <span
-                className="text-[12px] font-light tracking-[0.12em]"
-                style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}
-              >
-                {work.format}
-              </span>
-
-              <div className="flex items-center gap-6">
-                <span
-                  className="text-[12px] font-light tracking-[0.1em]"
-                  style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}
-                >
-                  {work.date}
-                </span>
-                {!work.placeholder && (
-                  <span
-                    className={`text-[12px] font-light inline-flex items-center justify-center w-[44px] h-[44px] transition-all duration-[420ms] ${
-                      openId === work.id ? 'rotate-45' : ''
-                    }`}
-                    style={{
-                      fontFamily: 'var(--font-family-mono)',
-                      fontWeight: 400,
-                      color: openId === work.id ? 'var(--text)' : 'var(--text-muted)',
-                      transitionTimingFunction: 'cubic-bezier(0.16,1,0.3,1)',
-                    }}
-                  >
-                    +
-                  </span>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {work.trail && openId === work.id && (
-            <div className="pb-12">
-              {work.id === 'e2' && (
-                <div className="mb-8 relative group max-w-xl animate-fadeIn">
-                  <div className="relative overflow-hidden aspect-[4/3] border p-1.5" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}>
-                    <div className="absolute top-4 left-4 w-4 h-4 border-t border-l border-white/40 pointer-events-none z-20" />
-                    <div className="absolute top-4 right-4 w-4 h-4 border-t border-r border-white/40 pointer-events-none z-20" />
-                    <div className="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-white/40 pointer-events-none z-20" />
-                    <div className="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-white/40 pointer-events-none z-20" />
-                    
-                    <img
-                      src={mkkPoster}
-                      alt="Maati Kona Chi watercolor art"
-                      className="w-full h-full object-cover grayscale-[0.1] contrast-[1.05] brightness-[0.95]"
-                      referrerPolicy="no-referrer"
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20 pointer-events-none" />
-                  </div>
-                  <div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                    <span>VISUAL REVELATION // MAATI KONA CHI</span>
-                    <span>WATERCOLOR POSTER ART</span>
-                  </div>
-                </div>
-              )}
-              {work.trail.map((point, i) => (
-                <div
-                  key={i}
-                  className="grid grid-cols-1 sm:grid-cols-[100px_1fr] md:grid-cols-[130px_1fr] gap-4 sm:gap-8 py-5 sm:py-7 border-t-[0.5px] items-start"
-                  style={{
-                    borderColor: point.type === 'thing' ? 'var(--border-solid)' : 'var(--border)',
-                  }}
-                >
-                  <span
-                    className="text-[13px] font-light tracking-[0.12em] pt-[3px] leading-[1.5]"
-                    style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}
-                  >
-                    {point.label}
-                  </span>
-
-                  <div>
-                    {point.pullquote && (
-                      <>
-                        <p
-                          className="text-[16px] border-l pl-5 mt-2 leading-[1.72] whitespace-pre-line"
-                          style={{
-                            fontFamily: 'var(--font-family-serif)',
-                            color: 'var(--text-secondary)',
-                            borderColor: 'var(--border)'
-                          }}
-                        >
-                          {point.pullquote}
-                        </p>
-                        <span
-                          className="text-[12px] font-light tracking-[0.08em] mt-2 block pl-5"
-                          style={{ fontFamily: 'var(--font-family-mono)', fontWeight: 400, color: 'var(--text-muted)' }}
-                        >
-                          {point.pullquoteSource}
-                        </span>
-                        <br />
-                        <br />
-                      </>
-                    )}
-
-                    <p
-                      className={`leading-[1.75] ${
-                        point.type === 'question'
-                          ? 'text-[20px] italic tracking-[-0.005em]'
-                          : point.type === 'underneath'
-                          ? 'text-[18px] tracking-[0.04em]'
-                          : 'text-[18px]'
-                      }`}
-                      style={{
-                        fontFamily: 'var(--font-family-serif)',
-                        fontWeight: 'normal',
-                        color: point.type === 'question' ? 'var(--text)' : 'var(--text-secondary)'
-                      }}
-                    >
-                      {point.content}
-                    </p>
-
-                    {point.links && (
-                      <div className="mt-3">
-                        {point.links.map((link, j) => (
-                          <a
-                            key={j}
-                            href={link.href}
-                            target={link.href.startsWith('http') ? '_blank' : undefined}
-                            rel={link.href.startsWith('http') ? 'noopener' : undefined}
-                            className="inline-block text-[10px] font-light tracking-[0.08em] no-underline border-b-[0.5px] pb-[1px] mr-5 mt-3 transition-all duration-200"
-                            style={{
-                              fontFamily: 'var(--font-family-mono)',
-                              fontWeight: 400,
-                              color: 'var(--text-muted)',
-                              borderColor: 'var(--border)'
-                            }}
-                            onMouseEnter={(e) => {
-                              e.currentTarget.style.color = 'var(--text)';
-                              e.currentTarget.style.borderColor = 'var(--text)';
-                            }}
-                            onMouseLeave={(e) => {
-                              e.currentTarget.style.color = 'var(--text-muted)';
-                              e.currentTarget.style.borderColor = 'var(--border)';
-                            }}
-                          >
-                            {link.text}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-
-                    {point.status && (
-                      <span
-                        className="inline-block text-[12px] font-light tracking-[0.1em] border-[0.5px] px-2 py-[3px] mt-4 cursor-pointer transition-colors hover:bg-text hover:text-bg"
-                        style={{
-                          fontFamily: 'var(--font-family-mono)',
-                          fontWeight: 400,
-                          color: 'var(--text-muted)',
-                          borderColor: 'var(--border)'
-                        }}
-                        onClick={() => {
-                          if (point.status === 'active 2026') {
-                            setIsCurrentEngagementsModalOpen(true);
-                          }
-                        }}
-                      >
-                        {point.status}
-                      </span>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </section>
+      </section>
     </>
   );
 }
