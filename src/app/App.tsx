@@ -174,13 +174,13 @@ export default function App() {
             Letterboxd
           </a>
           <a
-            href="https://www.are.na/ivan-lewis"
+            href="https://www.instagram.com/itzivanl/"
             target="_blank"
             rel="noopener"
             className="no-underline transition-colors duration-300 hover:text-[var(--text)]"
             style={{ color: 'var(--text-muted)' }}
           >
-            Are.na
+            Instagram
           </a>
         </div>
 

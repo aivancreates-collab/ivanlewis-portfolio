@@ -47,6 +47,13 @@ export function AboutSection() {
               >
                 I write, direct, and consult on projects that still begin with the question.
               </p>
+
+              <p 
+                className="text-[15px] sm:text-[16px] leading-[1.7] text-white/50 font-normal pt-1" 
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
+                Currently based in Mumbai, India, open to work everywhere.
+              </p>
             </div>
 
             {/* Social Links placed cleanly underneath the biography */}
