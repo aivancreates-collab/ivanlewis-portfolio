@@ -149,7 +149,7 @@ export function ReelSection() {
                   textShadow: '0 1px 3px rgba(0,0,0,0.5)',
                 }}
               >
-                assembling · 2026
+                assembling · <span style={{ color: 'var(--accent)' }}>2026</span>
               </span>
             </div>
           </div>
@@ -213,7 +213,7 @@ export function ReelSection() {
                   textShadow: '0 1px 3px rgba(0,0,0,0.5)',
                 }}
               >
-                assembling · 2026
+                assembling · <span style={{ color: 'var(--accent)' }}>2026</span>
               </span>
             </div>
           </div>

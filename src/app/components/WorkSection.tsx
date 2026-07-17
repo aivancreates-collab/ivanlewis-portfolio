@@ -350,7 +350,7 @@ export function WorkSection() {
             <div>
               <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
                 <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[rgba(197,160,89,0.3)]" />
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                 <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
               </div>
 
@@ -513,7 +513,7 @@ export function WorkSection() {
                   >
                     {work.title}
                     {work.placeholder && (
-                      <span className="text-[13px] uppercase tracking-[0.1em] border border-current px-2 py-[2px] ml-1 align-middle text-[var(--text-muted)] font-mono">
+                      <span className="text-[13px] uppercase tracking-[0.1em] border border-[var(--accent)]/40 px-2 py-[2px] ml-1 align-middle text-[var(--accent)] font-mono">
                         coming 2026
                       </span>
                     )}

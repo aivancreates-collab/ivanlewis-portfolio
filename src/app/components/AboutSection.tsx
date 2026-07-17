@@ -18,7 +18,7 @@ export function AboutSection() {
           className="text-[14px] lg:text-[13px] uppercase tracking-[0.2em] mb-8 md:mb-12 reveal font-normal"
           style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--dark-text-secondary)' }}
         >
-          Not what I do. <span className="text-white font-semibold">Why.</span>
+          Not what I do. <span className="text-[var(--accent)] font-semibold">Why.</span>
         </p>
 
         {/* 12-Column Grid creating perfect side-by-side image-to-text balance on desktop */}
@@ -42,7 +42,7 @@ export function AboutSection() {
               </p>
 
               <p 
-                className="text-[17px] sm:text-[18px] leading-[1.7] text-[var(--dark-text-secondary)] font-normal italic border-l-2 border-[var(--accent)]/40 pl-4 py-0.5" 
+                className="text-[17px] sm:text-[18px] leading-[1.7] text-[var(--dark-text-secondary)] font-normal italic border-l-2 border-[var(--accent)] pl-4 py-0.5" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 I write, direct, and consult on projects that still begin with the question.
@@ -52,7 +52,7 @@ export function AboutSection() {
                 className="text-[15px] sm:text-[16px] leading-[1.7] text-white/50 font-normal pt-1" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                Currently based in Mumbai, India, open to work everywhere.
+                Currently based in Mumbai, India, open to work <span className="text-[var(--accent)] font-medium">everywhere.</span>
               </p>
             </div>
 

@@ -92,10 +92,10 @@ export function Hero() {
         <div className="flex justify-center items-center mt-6 sm:mt-8">
           <a
             href="#connect"
-            className="text-[16px] md:text-[15px] tracking-[0.06em] font-normal transition-all duration-300 text-[var(--text-secondary)] hover:text-[var(--text)] border-b border-[var(--text-secondary)]/30 hover:border-[var(--text)] pb-1.5 inline-flex items-center"
+            className="text-[16px] md:text-[15px] tracking-[0.06em] font-normal transition-all duration-300 text-[var(--accent)] hover:text-white border-b border-[var(--accent)]/30 hover:border-white pb-1.5 inline-flex items-center group"
             style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
           >
-            Initiate a Brief
+            Initiate a Brief <span className="ml-1 transition-transform duration-300 transform group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>

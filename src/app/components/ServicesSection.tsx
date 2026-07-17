@@ -96,7 +96,7 @@ export function ServicesSection() {
                   {service.hasConnect && (
                     <a
                       href="#connect"
-                      className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--text-secondary)] hover:text-[var(--text)] border-b border-[var(--text-secondary)]/20 hover:border-[var(--text)]/60 pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta mt-1"
+                      className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--accent)] hover:text-[var(--text)] border-b border-[var(--accent)]/30 hover:border-[var(--text)]/60 pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta mt-1"
                       style={{ fontFamily: 'var(--font-family-mono)' }}
                     >
                       Connect <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>

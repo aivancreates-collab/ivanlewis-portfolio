@@ -160,7 +160,7 @@ export function SimplifiedThinkingSection() {
               </span>
 
               {/* En-dash Separator */}
-              <span className="text-white/30 text-[14px]">—</span>
+              <span className="text-[var(--accent)] text-[14px] font-semibold opacity-80">—</span>
 
               {/* Exact Quote (Editorial Serif Italic) */}
               <span 
