@@ -1,25 +1,34 @@
 export function ServicesSection() {
   const services = [
     {
-      title: 'Strategy Consultation',
-      description: 'Most brands talk too much because they don\'t know who they are. We run intensive, diagnostic consultations for founders to define the single core argument that makes all subsequent marketing noise redundant.',
-      paid: true,
+      title: 'Creative Concepts',
+      hook: 'Most brands do not have an execution problem. They have an idea problem.',
+      description: 'I work with founders, brands, and creative teams to develop campaign ideas, launch concepts, narrative directions, and original formats—bringing two decades of creative experience to the thinking.',
+      hasConnect: true,
     },
     {
-      title: 'Campaign Concept',
-      description: 'We do not pitch ideas that look like ads. We build campaign concepts rooted in genuine cultural tension—creating launch briefs, visual directions, and narrative anchors that earn attention rather than buying it.',
+      title: 'Writing & Development',
+      hook: 'Good ideas are often weakened by the way they are written.',
+      description: 'I write and develop brand copy, scripts, films, episodic concepts, campaign narratives and IPs, helping shape the structure, language, tone, and emotional core of the work.',
+      hasConnect: true,
     },
     {
-      title: 'Screenwriting & Development',
-      description: 'The script is where the budget is saved or wasted. We develop cinematic screenplays—from short films to episodic concepts—stripping out the ornament to protect the emotional architecture.',
+      title: 'Brand Building',
+      hook: 'A brand is shaped by every decision it repeats.',
+      description: 'I collaborate with teams on positioning, voice, campaigns, launches, and long-term creative direction, drawing on years of experience building brands across markets and categories.',
+      hasConnect: true,
     },
     {
       title: 'Film Direction',
-      description: 'Visual scale cannot rescue a hollow scene. We direct commercial and documentary projects with an extreme discipline on human behavior, quiet pacing, and atmospheric reality.',
+      hook: 'A scene only works when the behaviour inside it feels true.',
+      description: 'I direct long-form, documentary, and narrative content, working closely with cast, crew, agencies, and clients on performance, tone, rhythm, and visual storytelling.',
+      hasConnect: true,
     },
     {
       title: 'Creative Advisory',
-      description: 'A great narrative is a daily practice, not a slide deck. We partner with select brand leaders on a long-term advisory basis, acting as a direct filter for positioning, IP development, and creative execution.',
+      hook: 'Creative teams often need perspective more than another presentation.',
+      description: 'I offer ongoing support across ideas, writing, brand direction, campaigns, and production—bringing experienced judgement to the areas where it is most useful.',
+      hasConnect: false,
     },
   ];
 
@@ -56,7 +65,7 @@ export function ServicesSection() {
             >
               <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 items-start">
                 
-                {/* Title & Badge column (4 out of 12 columns) */}
+                {/* Title column (4 out of 12 columns) */}
                 <div className="md:col-span-4 flex flex-col sm:flex-row md:flex-col sm:items-center md:items-start justify-between sm:justify-start md:justify-between gap-2">
                   <h3
                     className="text-[20px] sm:text-[22px] md:text-[24px] font-normal tracking-tight text-[var(--text)]"
@@ -66,32 +75,33 @@ export function ServicesSection() {
                   >
                     {service.title}
                   </h3>
-
-                  {service.paid && (
-                    <span
-                      className="inline-block text-[14px] lg:text-[13px] uppercase tracking-[0.1em] border px-2.5 py-0.5 text-[var(--text-muted)] select-none font-mono"
-                      style={{ borderColor: 'var(--border)' }}
-                    >
-                      paid engagement
-                    </span>
-                  )}
                 </div>
 
                 {/* Description column (8 out of 12 columns) */}
                 <div className="md:col-span-8 flex flex-col items-start gap-4">
-                  <p
-                    className="text-[17px] text-[var(--text-secondary)] leading-[1.7] max-w-[750px] font-normal"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
-                  >
-                    {service.description}
-                  </p>
-                  <a
-                    href="#connect"
-                    className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--text-secondary)] hover:text-[var(--text)] border-b border-[var(--text-secondary)]/20 hover:border-[var(--text)]/60 pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
-                    style={{ fontFamily: 'var(--font-family-mono)' }}
-                  >
-                    Connect <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
-                  </a>
+                  <div className="space-y-3">
+                    <p
+                      className="text-[17px] sm:text-[18px] text-[var(--text)] font-normal leading-[1.45] italic"
+                      style={{ fontFamily: 'var(--font-family-serif)' }}
+                    >
+                      {service.hook}
+                    </p>
+                    <p
+                      className="text-[15px] sm:text-[16px] text-[var(--text-secondary)] leading-[1.7] max-w-[750px] font-normal"
+                      style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
+                  {service.hasConnect && (
+                    <a
+                      href="#connect"
+                      className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--text-secondary)] hover:text-[var(--text)] border-b border-[var(--text-secondary)]/20 hover:border-[var(--text)]/60 pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta mt-1"
+                      style={{ fontFamily: 'var(--font-family-mono)' }}
+                    >
+                      Connect <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
+                    </a>
+                  )}
                 </div>
 
               </div>
