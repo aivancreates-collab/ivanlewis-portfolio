@@ -2,88 +2,111 @@ export function InteractiveConnectSection() {
   const links = {
     call: {
       url: 'https://calendly.com/ivanlewis/30min',
-      cta: 'Book a Call',
-      title: 'Book a Call',
-      description: 'Schedule a 30-minute calendar slot to discuss your project, explore screenplay ideas, or map out creative direction.',
+      cta: 'Launch Calendar Sync ↗',
+      title: '30-MIN DISCOVERY CALL',
+      description: 'For quick alignment, screenplay pitches, or advisory chats.',
     },
     enquiry: {
       url: 'https://docs.google.com/forms/d/1a9raKLvtxup6TMqBxU0cJJDh-tk7LHVs3XjM0q6cUTI/viewform',
-      cta: 'Open Enquiry Form',
-      title: 'Project Enquiry Form',
-      description: 'Submit a structured creative brief. Best for production, screenwriting, narrative strategy, or retainer advisory.',
+      cta: 'Open Brief Form ↗',
+      title: 'STRUCTURED PROJECT BRIEF',
+      description: 'For production, retainer advisory, or full brand strategy.',
     },
   };
 
   return (
-    <section className="py-12 sm:py-16 md:py-20" id="connect" style={{ backgroundColor: 'var(--bg)' }}>
-      <div className="max-w-[900px] mx-auto px-5 sm:px-10 lg:px-16">
-        <div className="mb-10 md:mb-12">
-          <p
-            className="text-[24px] sm:text-[32px] md:text-[38px] lg:text-[44px] italic leading-[1.25] tracking-[-0.02em] mb-6 reveal max-w-[720px]"
-            style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)', fontWeight: 'normal' }}
+    <section className="py-16 sm:py-20 md:py-24" id="connect" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
+        
+        {/* Prominent Monospaced Header Banner */}
+        <div className="w-full border-t border-b py-3 text-center mb-16" style={{ borderColor: '#2A2A2A' }}>
+          <span 
+            className="text-[11px] sm:text-[12px] uppercase tracking-[0.25em] font-normal" 
+            style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
           >
-            The best projects start with <span className="font-semibold not-italic">one honest question</span>. If you have one, <span className="font-semibold not-italic text-[var(--accent)]">send it.</span>
-          </p>
-          <p className="text-[17px] sm:text-[18px] text-[var(--text-secondary)] leading-[1.7] max-w-[600px] mb-4 reveal" style={{ fontFamily: 'var(--font-family-serif)' }}>
-            Serious enquiries only. Strategy, writing, and film.
-          </p>
+            SERIOUS ENQUIRIES ONLY
+          </span>
         </div>
 
-        {/* Clear pathways */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
-          <div
-            className="p-8 border flex flex-col justify-between h-auto min-h-[260px] rounded-none transition-all duration-300 hover:border-current"
-            style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}
+        {/* Two-Tiered Decision Matrix Grid (1fr 1fr on desktop, 1fr on mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+          
+          {/* Card A (Fast Track) */}
+          <a
+            href={links.call.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="clickable-card p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[300px] no-underline group"
+            style={{ borderColor: '#2A2A2A' }}
           >
             <div>
-              <span className="block text-[11px] uppercase tracking-[0.15em] mb-3" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                CALENDAR SYNC
+              <span 
+                className="block text-[11px] uppercase tracking-[0.15em] mb-4 font-normal" 
+                style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
+              >
+                FAST TRACK
               </span>
-              <h3 className="text-[22px] font-normal leading-[1.3] mb-4" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+              <h3 
+                className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
                 {links.call.title}
               </h3>
-              <p className="text-[14px] leading-[1.6] mb-8" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
+              <p 
+                className="text-[14px] sm:text-[15px] leading-[1.6] mb-8" 
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+              >
                 {links.call.description}
               </p>
             </div>
-            <a
-              href={links.call.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center text-[14px] uppercase tracking-[0.12em] px-6 py-4 transition-all duration-300 font-medium select-none no-underline hover:opacity-90 rounded-none"
-              style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--accent)', color: '#16110E' }}
-              data-interactive
+            
+            {/* Ghost Button style */}
+            <div
+              className="w-full inline-flex items-center justify-center text-[13px] uppercase tracking-[0.12em] px-6 py-4 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#2A2A2A] text-white bg-transparent group-hover:border-white"
+              style={{ borderRadius: '0px' }}
             >
-              {links.call.cta} ↗
-            </a>
-          </div>
+              {links.call.cta}
+            </div>
+          </a>
 
-          <div
-            className="p-8 border flex flex-col justify-between h-auto min-h-[260px] rounded-none transition-all duration-300 hover:border-current"
-            style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}
+          {/* Card B (Deep Dive) */}
+          <a
+            href={links.enquiry.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="clickable-card p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[300px] no-underline group"
+            style={{ borderColor: '#2A2A2A' }}
           >
             <div>
-              <span className="block text-[11px] uppercase tracking-[0.15em] mb-3" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                STRUCTURED BRIEF
+              <span 
+                className="block text-[11px] uppercase tracking-[0.15em] mb-4 font-normal" 
+                style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
+              >
+                DEEP DIVE
               </span>
-              <h3 className="text-[22px] font-normal leading-[1.3] mb-4" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+              <h3 
+                className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
                 {links.enquiry.title}
               </h3>
-              <p className="text-[14px] leading-[1.6] mb-8" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: 'var(--text-secondary)' }}>
+              <p 
+                className="text-[14px] sm:text-[15px] leading-[1.6] mb-8" 
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+              >
                 {links.enquiry.description}
               </p>
             </div>
-            <a
-              href={links.enquiry.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full inline-flex items-center justify-center text-[14px] uppercase tracking-[0.12em] px-6 py-4 transition-all duration-300 font-medium select-none no-underline hover:opacity-90 rounded-none"
-              style={{ fontFamily: 'var(--font-family-mono)', backgroundColor: 'var(--accent)', color: '#16110E' }}
-              data-interactive
+            
+            {/* Solid White high-contrast button style */}
+            <div
+              className="w-full inline-flex items-center justify-center text-[13px] uppercase tracking-[0.12em] px-6 py-4 font-mono font-normal select-none no-underline transition-all duration-300 bg-white text-[#0D0D0D] border border-white hover:bg-opacity-90"
+              style={{ borderRadius: '0px' }}
             >
-              {links.enquiry.cta} ↗
-            </a>
-          </div>
+              {links.enquiry.cta}
+            </div>
+          </a>
+
         </div>
       </div>
     </section>

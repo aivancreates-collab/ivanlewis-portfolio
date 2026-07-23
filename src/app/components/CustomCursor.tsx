@@ -1,11 +1,9 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 export function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isExpanded, setIsExpanded] = useState(false);
   const [isPointerFine, setIsPointerFine] = useState(false);
-  const trailingPos = useRef({ x: 0, y: 0 });
-  const [trail, setTrail] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     setIsPointerFine(window.matchMedia('(pointer: fine)').matches);
@@ -37,59 +35,37 @@ export function CustomCursor() {
     attachListeners();
     const interval = setInterval(attachListeners, 1500);
 
-    // Trailing frame loop for the outer ring to create a buttery smooth organic lag
-    let animationFrameId: number;
-    const updateTrail = () => {
-      const ease = 0.16; // smooth lag factor
-      const dx = position.x - trailingPos.current.x;
-      const dy = position.y - trailingPos.current.y;
-      
-      trailingPos.current.x += dx * ease;
-      trailingPos.current.y += dy * ease;
-      
-      setTrail({ x: trailingPos.current.x, y: trailingPos.current.y });
-      animationFrameId = requestAnimationFrame(updateTrail);
-    };
-    animationFrameId = requestAnimationFrame(updateTrail);
-
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       clearInterval(interval);
-      cancelAnimationFrame(animationFrameId);
     };
-  }, [isPointerFine, position]);
+  }, [isPointerFine]);
 
   if (!isPointerFine) return null;
 
   return (
-    <>
-      {/* Tiny Sharp Center Dot */}
-      <div
-        className="fixed rounded-full pointer-events-none z-[9999] transition-transform duration-[220ms] ease-out"
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: `translate(-50%, -50%) scale(${isExpanded ? 0.3 : 1})`,
-          width: '5px',
-          height: '5px',
-          backgroundColor: '#ffffff',
-          mixBlendMode: 'difference',
-        }}
-      />
-      {/* Buttery Smooth Trailing Outer Ring */}
-      <div
-        className="fixed rounded-full pointer-events-none z-[9998]"
-        style={{
-          left: `${trail.x}px`,
-          top: `${trail.y}px`,
-          transform: 'translate(-50%, -50%)',
-          width: isExpanded ? '38px' : '18px',
-          height: isExpanded ? '38px' : '18px',
-          border: '1px solid rgba(255, 255, 255, 0.75)',
-          mixBlendMode: 'difference',
-          transition: 'width 0.22s cubic-bezier(0.16, 1, 0.3, 1), height 0.22s cubic-bezier(0.16, 1, 0.3, 1)',
-        }}
-      />
-    </>
+    <div
+      className="fixed pointer-events-none z-[9999]"
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`,
+        transform: `translate(-2px, -2px) scale(${isExpanded ? 1.2 : 1})`,
+        width: '24px',
+        height: '24px',
+        transition: 'transform 0.15s cubic-bezier(0.16, 1, 0.3, 1)',
+      }}
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M3 3L21 9L13.5 12.5L10 20L3 3Z"
+          fill={isExpanded ? 'var(--accent-warm)' : '#FFFFFF'}
+          stroke="#0D0D0D"
+          strokeWidth="1.5"
+          strokeLinejoin="round"
+          className="transition-colors duration-200"
+        />
+      </svg>
+    </div>
   );
 }
+
