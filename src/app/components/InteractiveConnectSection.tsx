@@ -21,10 +21,10 @@ export function InteractiveConnectSection() {
         {/* Prominent Monospaced Header Banner */}
         <div className="w-full border-t border-b py-3 text-center mb-16" style={{ borderColor: '#2A2A2A' }}>
           <span 
-            className="text-[11px] sm:text-[12px] uppercase tracking-[0.25em] font-normal" 
+            className="text-[11px] sm:text-[12px] tracking-[0.15em] font-normal" 
             style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
           >
-            SERIOUS ENQUIRIES ONLY
+            For considered collaborations (Serious enquiries only)
           </span>
         </div>
 
