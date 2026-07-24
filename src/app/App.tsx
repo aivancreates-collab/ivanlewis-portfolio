@@ -3,10 +3,11 @@ import { CustomCursor } from './components/CustomCursor';
 import { Grain } from './components/Grain';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
+import { QuotesTicker } from './components/QuotesTicker';
 import { PhilosophySection } from './components/PhilosophySection';
-import { SimplifiedThinkingSection } from './components/SimplifiedThinkingSection';
 import { WorkSection } from './components/WorkSection';
 import { ServicesSection } from './components/ServicesSection';
+import { BrandTickerSection } from './components/BrandTickerSection';
 import { ReelSection } from './components/ReelSection';
 import { AboutSection } from './components/AboutSection';
 import { InteractiveConnectSection } from './components/InteractiveConnectSection';
@@ -61,7 +62,7 @@ export default function App() {
       philosophy: 'light',
       studio: 'light',
       services: 'light',
-      thinking: 'dark',
+      brands: 'dark',
       about: 'dark',
       connect: 'light',
     };
@@ -84,7 +85,7 @@ export default function App() {
       }
     );
 
-    const sections = ['reel', 'philosophy', 'studio', 'services', 'thinking', 'about', 'connect'];
+    const sections = ['reel', 'philosophy', 'studio', 'services', 'brands', 'about', 'connect'];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
@@ -118,6 +119,8 @@ export default function App() {
 
       <Hero />
 
+      <QuotesTicker />
+
       <ReelSection />
 
       <PhilosophySection />
@@ -132,7 +135,7 @@ export default function App() {
 
       <div className="w-full h-px my-4" style={{ backgroundColor: 'var(--border)' }} />
 
-      <SimplifiedThinkingSection />
+      <BrandTickerSection />
 
       <AboutSection />
 
