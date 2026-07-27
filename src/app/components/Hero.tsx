@@ -81,12 +81,12 @@ export function Hero() {
 
       <div className="relative z-10 text-center max-w-4xl px-6 pb-16 md:pb-28 md:px-12 w-full flex flex-col justify-end md:justify-center h-full md:h-auto select-none">
         <h1 
-          className="text-[32px] sm:text-[44px] md:text-[52px] lg:text-[62px] leading-[1.15] font-normal italic tracking-[-0.02em] mb-8 sm:mb-12 text-[var(--text)] text-balance" 
+          className="text-[32px] sm:text-[44px] md:text-[52px] lg:text-[62px] leading-[1.15] font-normal not-italic tracking-[-0.02em] mb-8 sm:mb-12 text-[var(--text)] text-balance" 
           style={{ fontFamily: 'var(--font-family-serif)' }}
         >
           Tools change.
           <br />
-          The human question does not.
+          The <span className="italic">human question</span> does not.
         </h1>
 
         <div className="flex justify-center items-center mt-6 sm:mt-8">

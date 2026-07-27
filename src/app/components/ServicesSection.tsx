@@ -38,7 +38,7 @@ export function ServicesSection() {
       badge: 'RETAINER',
       hook: 'Creative teams often need perspective more than another presentation.',
       description: 'I offer ongoing support across ideas, writing, brand direction, campaigns, and production—bringing experienced judgement to the areas where it is most useful.',
-      hasConnect: false,
+      hasConnect: true,
       isFlagship: true,
     },
   ];

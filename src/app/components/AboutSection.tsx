@@ -28,10 +28,10 @@ export function AboutSection() {
           <div className="lg:col-span-7 flex flex-col justify-between h-full reveal">
             <div className="space-y-6 max-w-[640px]">
               <p 
-                className="text-[20px] sm:text-[24px] md:text-[28px] italic leading-[1.35] tracking-tight text-white/95 font-light text-balance" 
+                className="text-[20px] sm:text-[24px] md:text-[28px] not-italic leading-[1.35] tracking-tight text-white/95 font-light text-balance" 
                 style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
               >
-                The question has always been the same. Not what to make, but <span className="font-semibold not-italic">why this</span>, why now, why will anyone care a year from now. Everything else gets figured out when the <span className="font-semibold not-italic">why</span> gets answered honestly.
+                The question has always been the same. Not what to make, but <span className="italic font-normal">why this</span>, why now, why will anyone care a year from now. Everything else gets figured out when the <span className="italic font-normal">why</span> gets answered honestly.
               </p>
 
               <p 

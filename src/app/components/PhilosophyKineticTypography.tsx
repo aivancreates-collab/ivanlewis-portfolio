@@ -25,8 +25,8 @@ function Word({ text, highlighted, progress, range }: WordProps) {
       }}
       className={`mr-[0.22em] mb-[0.1em] select-none ${
         highlighted 
-          ? 'font-semibold not-italic text-[var(--accent)]' 
-          : 'font-light italic text-[var(--text-muted)]'
+          ? 'font-medium italic text-[var(--accent)]' 
+          : 'font-light not-italic text-[var(--text-muted)]'
       }`}
     >
       {text}
@@ -81,7 +81,7 @@ export function PhilosophyKineticTypography() {
   return (
     <div ref={containerRef} className="w-full relative py-2">
       <p 
-        className="text-[28px] sm:text-[42px] md:text-[54px] lg:text-[62px] italic leading-[1.3] tracking-[-0.02em] text-[var(--text-secondary)] max-w-[900px] flex flex-wrap" 
+        className="text-[28px] sm:text-[42px] md:text-[54px] lg:text-[62px] not-italic leading-[1.3] tracking-[-0.02em] text-[var(--text-secondary)] max-w-[900px] flex flex-wrap" 
         style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
       >
         {words.map((word, index) => {
