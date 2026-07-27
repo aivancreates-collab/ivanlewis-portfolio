@@ -102,10 +102,57 @@ export function BrandTickerSection() {
     {
       name: 'Raw & Ruckus',
       svg: (
-        <svg viewBox="0 0 160 32" className="h-7 w-auto fill-current">
-          <text x="0" y="16" fontFamily="var(--font-family-sans)" fontWeight="900" fontSize="13" letterSpacing="1" fill="currentColor">RAW</text>
-          <text x="0" y="28" fontFamily="var(--font-family-sans)" fontWeight="900" fontSize="13" letterSpacing="1" fill="currentColor">&amp; RUCKUS</text>
-          <path d="M100 8c3 5 8 2 10 8-4-1-7-4-10-8z" fill="currentColor" />
+        <svg viewBox="0 0 150 46" className="h-7.5 w-auto fill-current">
+          {/* Left Leaf */}
+          <path d="M 3 22 C -1 16 8 8 21 16 C 24 23 11 29 3 22 Z" fill="currentColor" />
+          <path d="M 21 16 Q 26 18 29 20" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+
+          {/* Top Right Leaf */}
+          <path d="M 125 13 C 122 4 130 -2 137 1 C 139 10 131 16 125 13 Z" fill="currentColor" />
+          <path d="M 125 13 Q 121 16 120 20" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
+
+          {/* Middle Right Leaf */}
+          <path d="M 108 22 C 112 12 135 10 146 15 C 148 27 124 31 108 22 Z" fill="currentColor" />
+          <path d="M 108 22 Q 100 25 94 27" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
+
+          {/* RAW (Top) */}
+          <g fill="currentColor">
+            {/* R */}
+            <path d="M 32 6 c 0 0 3 -1 6 -1 c 4 0 7 2 7 5 c 0 3 -2 5 -5 6 l 5 8 h -4.5 l -4.5 -7 h -1.5 v 7 h -4 Z m 4 3.5 v 3.5 h 2 c 2 0 3 -0.8 3 -1.8 c 0 -1 -1 -1.7 -3 -1.7 Z" />
+            {/* A */}
+            <path d="M 49 23 l 5.5 -18 h 4 l 5.5 18 h -4.2 l -1 -3.5 h -4.6 l -1 3.5 Z m 5.1 -7 h 3.2 l -1.6 -6.2 Z" />
+            {/* W */}
+            <path d="M 66 5 h 4.2 l 2.8 12 l 3 -12 h 3.5 l 3 12 l 2.8 -12 h 4.2 l -4.8 18 h -4 l -3 -11.5 l -3 11.5 h -4 Z" />
+          </g>
+
+          {/* & RUCKUS (Bottom) */}
+          <g fill="currentColor">
+            {/* & */}
+            <path d="M 17 31 c -1.5 0 -2.8 1 -2.8 2.3 c 0 1.2 0.8 2 2.2 3.2 l 2.5 2.1 c -1.2 2 -3.2 3.4 -5.4 3.4 c -2.8 0 -4.5 -2 -4.5 -4.5 c 0 -3.2 2.8 -6.2 6.5 -9.2 l -2.5 -3.3 c -2.2 1.8 -3.8 4.2 -3.8 7 c 0 4.2 3.2 7 7.5 7 c 3.5 0 6.2 -2 8 -4.8 l 1.8 1.8 h 2.5 l -3 -3.2 l -2 -2 c 1.2 -1.2 2 -2.8 2 -4.5 c 0 -2.5 -2 -4.2 -4.5 -4.2 c -2.2 0 -4.2 1.5 -4.5 3.8 l 2.8 0.6 c 0.2 -1 1 -1.6 1.8 -1.6 c 1.2 0 2 0.8 2 2 c 0 1 -0.5 2 -1.5 3 Z" />
+            
+            {/* R */}
+            <path d="M 28 27 h 4 v 5 h 2 c 2.5 0 4 -1 4 -2.8 c 0 -1.8 -1.2 -2.2 -3.5 -2.2 h -6.5 v 15 h 4 v -5 h 1.5 l 3.5 5 h 4.8 l -4.2 -6 c 2.2 -1 3.5 -2.8 3.5 -5.5 c 0 -3.8 -2.8 -5.5 -7.2 -5.5 h -7.9 Z" />
+
+            {/* U */}
+            <path d="M 45 27 h 4 v 9 c 0 2 1.2 3 2.8 3 c 1.6 0 2.8 -1 2.8 -3 v -9 h 4 v 9 c 0 4.2 -2.8 6.5 -6.8 6.5 c -4 0 -6.8 -2.3 -6.8 -6.5 Z" />
+
+            {/* C */}
+            <path d="M 72.5 30.5 c -1 -1 -2.2 -1.5 -3.8 -1.5 c -3 0 -5.2 2.5 -5.2 6 c 0 3.5 2.2 6 5.2 6 c 1.6 0 2.8 -0.5 3.8 -1.5 l 2.5 2.8 c -1.8 1.8 -3.8 2.7 -6.5 2.7 c -5.5 0 -9.2 -4 -9.2 -10 c 0 -6 3.7 -10 9.2 -10 c 2.7 0 4.7 0.9 6.5 2.7 Z" />
+
+            {/* K */}
+            <path d="M 77 27 h 4 v 5.5 l 5 -5.5 h 5.2 l -6.2 6.5 l 6.8 8.5 h -5.2 l -4.8 -6.2 l -0.8 0.8 v 5.4 h -4 Z" />
+
+            {/* U (with Rock/Horns Hand 🤘 Gesture inside!) */}
+            <g transform="translate(93, 26)">
+              <path d="M 1 1 h 3.5 v 4 h -0.5 v -2 h -1 v 8 c 0 2.2 1.5 3.5 3.5 3.5 s 3.5 -1.3 3.5 -3.5 v -8 h -1 v 2 h -0.5 v -4 h 3.5 v 8 c 0 4.2 -2.8 6.8 -6.5 6.8 s -6.5 -2.6 -6.5 -6.8 Z" />
+              <path d="M 3 0 h 2 v 6 h -2 Z" />
+              <path d="M 8.5 0 h 2 v 6 h -2 Z" />
+              <path d="M 5.2 4 h 3.2 v 4 h -3.2 Z" />
+            </g>
+
+            {/* S */}
+            <path d="M 112 30.2 c -1.2 -1 -2.5 -1.5 -4 -1.5 c -1.8 0 -2.8 0.8 -2.8 1.8 c 0 1 0.8 1.5 2.8 2 l 2.2 0.6 c 3.2 0.8 5 2.2 5 4.8 c 0 3.5 -2.8 5.6 -7 5.6 c -2.8 0 -5.2 -0.9 -7 -2.6 l 2.2 -2.8 c 1.4 1.4 3 2 4.8 2 c 2 0 3 -0.8 3 -1.8 c 0 -1 -0.8 -1.5 -2.8 -2 l -2.2 -0.6 c -3.2 -0.8 -5 -2.2 -5 -4.8 c 0 -3.2 2.6 -5.2 6.5 -5.2 c 2.5 0 4.8 0.8 6.2 2.3 Z" />
+          </g>
         </svg>
       )
     },
