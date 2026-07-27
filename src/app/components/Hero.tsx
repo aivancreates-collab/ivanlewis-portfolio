@@ -94,7 +94,7 @@ export function Hero() {
             href="#connect"
             className="high-contrast-cta group"
           >
-            Initiate a Brief <span className="ml-1.5 transition-transform duration-300 transform group-hover:translate-x-1">→</span>
+            Let's Work <span className="ml-1.5 transition-transform duration-300 transform group-hover:translate-x-1">→</span>
           </a>
         </div>
       </div>
