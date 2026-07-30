@@ -147,7 +147,7 @@ export function ReelSection() {
             </div>
 
             {/* Showreel 1 Details */}
-            <div className="mt-5 sm:mt-6 px-1 space-y-2 overflow-hidden">
+            <div className="mt-5 sm:mt-6 px-1 space-y-2">
               <div
                 className="text-[11px] sm:text-[12px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)]"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
@@ -161,7 +161,7 @@ export function ReelSection() {
                 Concept. Script. Creative Direction.
               </h3>
               <p
-                className="text-[12px] sm:text-[13px] lg:text-[14px] text-[#A0A0A0] leading-[1.6] whitespace-nowrap overflow-hidden text-ellipsis"
+                className="text-[12px] sm:text-[13px] lg:text-[14px] text-[#A0A0A0] leading-[1.6]"
                 style={{ fontFamily: 'var(--font-family-sans)' }}
               >
                 A selection of films created across live action, CG and VFX - for different brands, categories and audiences.
@@ -189,6 +189,17 @@ export function ReelSection() {
                   filter: 'saturate(0.6)',
                 }}
               />
+
+              {/* Uploading Soon Badge Overlay */}
+              <div className="absolute top-4 left-4 z-20 pointer-events-none">
+                <span
+                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/85 backdrop-blur-md border border-white/20 text-[11px] font-semibold tracking-[0.16em] text-[var(--accent-warm)] uppercase shadow-lg"
+                  style={{ fontFamily: 'var(--font-family-mono)' }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-warm)] animate-pulse" />
+                  Uploading soon!
+                </span>
+              </div>
 
               {/* Custom Minimal Controls Overlay */}
               <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover/player:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
@@ -218,10 +229,10 @@ export function ReelSection() {
                 GEN AI FILM
               </div>
               <h3
-                className="text-[20px] sm:text-[22px] md:text-[24px] font-normal text-white leading-[1.25] tracking-tight uppercase"
+                className="text-[20px] sm:text-[22px] md:text-[24px] font-normal text-white leading-[1.25] tracking-tight"
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                FROM IDEA TO FINAL FRAME.
+                From idea to final frame.
               </h3>
               <p
                 className="text-[12px] sm:text-[13px] lg:text-[14px] text-[#A0A0A0] leading-[1.6]"
