@@ -11,6 +11,7 @@ export function ReelSection() {
   const sectionRef = useRef<HTMLElement>(null);
   
   const [shouldLoad, setShouldLoad] = useState(false);
+  const [isPlayingYouTube1, setIsPlayingYouTube1] = useState(false);
   const [isPlaying1, setIsPlaying1] = useState(true);
   const [isPlaying2, setIsPlaying2] = useState(true);
   const [isMuted1, setIsMuted1] = useState(true);
@@ -112,38 +113,39 @@ export function ReelSection() {
               className="relative w-full aspect-video overflow-hidden border p-1 rounded-sm group/player"
               style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'rgba(247, 249, 250, 0.12)' }}
             >
-              <video
-                ref={videoRef1}
-                autoPlay
-                loop
-                muted={isMuted1}
-                playsInline
-                poster={thumbnail1}
-                src={shouldLoad ? reelVideo1 : undefined}
-                preload={shouldLoad ? "auto" : "none"}
-                className="w-full h-full object-cover"
-                style={{
-                  filter: 'saturate(0.6)',
-                }}
-              />
-              
-              {/* Custom Minimal Controls Overlay */}
-              <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover/player:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
-                <button
-                  onClick={togglePlay1}
-                  className="w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-black/80 text-white rounded-none border border-white/10 transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-                  aria-label={isPlaying1 ? "Pause Video" : "Play Video"}
+              {!isPlayingYouTube1 ? (
+                <div
+                  onClick={() => setIsPlayingYouTube1(true)}
+                  className="relative w-full h-full cursor-pointer group/thumb flex items-center justify-center overflow-hidden"
                 >
-                  {isPlaying1 ? <Pause size={14} /> : <Play size={14} />}
-                </button>
-                <button
-                  onClick={toggleMute1}
-                  className="w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-black/80 text-white rounded-none border border-white/10 transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-                  aria-label={isMuted1 ? "Unmute Video" : "Mute Video"}
-                >
-                  {isMuted1 ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                </button>
-              </div>
+                  <img
+                    src={thumbnail1}
+                    alt="Selected Commercial Work Showreel Thumbnail"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover/thumb:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/20 transition-colors" />
+
+                  {/* Centered Play Button */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setIsPlayingYouTube1(true);
+                    }}
+                    className="relative z-10 w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center bg-black/75 group-hover/thumb:bg-[var(--accent-warm)] text-white group-hover/thumb:text-black rounded-full border border-white/20 group-hover/thumb:border-transparent transition-all duration-300 shadow-2xl group-hover/thumb:scale-110"
+                    aria-label="Play Selected Commercial Work Showreel"
+                  >
+                    <Play size={24} className="ml-1 fill-current" />
+                  </button>
+                </div>
+              ) : (
+                <iframe
+                  src="https://www.youtube.com/embed/E39DPnxkkvQ?autoplay=1&controls=1&rel=0&modestbranding=1"
+                  title="Selected Commercial Work Showreel"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full border-0 rounded-sm"
+                />
+              )}
             </div>
 
             {/* Showreel 1 Details */}
