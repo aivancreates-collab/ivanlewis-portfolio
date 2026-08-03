@@ -183,7 +183,7 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
   e1: {
     id: 'e1',
     title: 'The Last Message',
-    numberLabel: '01 // FEATURED',
+    numberLabel: '01',
     formatLabel: 'screenplay',
     question: 'What happens to the words people were saving for later, and never sent?',
     pageCount: '18P',
@@ -191,7 +191,7 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
     statusText: 'SEEKING PRODUCTION',
     statusStyle: 'text-[var(--accent-warm)] bg-[var(--accent-warm)]/10 border border-[var(--accent-warm)]/20',
     viewfinderLeft: 'STILL NO. 01 // SOLACE CORP',
-    viewfinderRight: 'KEY VISUAL',
+    viewfinderRight: '',
     mediaType: 'video',
     videoSrc: lastMessageVideo,
     imageSrc: lastMessageKV,
@@ -199,7 +199,7 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
   e2: {
     id: 'e2',
     title: 'Maati Kona Chi?',
-    numberLabel: '02 // FEATURED',
+    numberLabel: '02',
     formatLabel: 'short film · marathi',
     question: 'Who decides what gets to grow, and what gets cut?',
     pageCount: '9P',
@@ -207,7 +207,7 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
     statusText: 'PRE-PRODUCTION 2026',
     statusStyle: 'text-[var(--accent-warm)] bg-[var(--accent-warm)]/10 border border-[var(--accent-warm)]/20',
     viewfinderLeft: 'POSTER // MAATI KONA CHI?',
-    viewfinderRight: 'KEY VISUAL',
+    viewfinderRight: '',
     mediaType: 'image',
     imageSrc: mkkPosterKV,
   }

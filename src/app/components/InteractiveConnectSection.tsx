@@ -4,13 +4,13 @@ export function InteractiveConnectSection() {
       url: 'https://calendly.com/ivanlewis/30min',
       cta: 'Launch Calendar Sync ↗',
       title: 'OVER A CALL',
-      description: 'For quick alignment, screenplay pitches, or advisory chats.',
+      description: 'For immediate project discussions and advisory chats.',
     },
     enquiry: {
       url: 'https://docs.google.com/forms/d/1a9raKLvtxup6TMqBxU0cJJDh-tk7LHVs3XjM0q6cUTI/viewform',
       cta: 'Get to the Brief! ↗',
-      title: 'START A PROJECT',
-      description: 'For production, retainer advisory, or full brand strategy.',
+      title: 'BRIEF A PROJECT',
+      description: 'For production, retainer or complete brand communication.',
     },
   };
 

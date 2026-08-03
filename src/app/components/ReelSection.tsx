@@ -101,7 +101,7 @@ export function ReelSection() {
             style={{ fontFamily: 'var(--font-family-serif)' }}
           >
             TWO WAYS OF MAKING.<br />
-            <span className="italic text-white">ONE POINT OF VIEW.</span>
+            <span className="italic text-white/75">ONE POINT OF VIEW.</span>
           </h2>
         </div>
 

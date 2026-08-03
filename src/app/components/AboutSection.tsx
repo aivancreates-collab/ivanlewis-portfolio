@@ -143,10 +143,9 @@ export function AboutSection() {
  
             {/* Micro-editorial description (Guaranteed >= 14px on mobile) */}
             <div 
-              className="mt-3 flex items-center justify-between text-[14px] lg:text-[13px] uppercase tracking-[0.14em] text-white/40 select-none" 
+              className="mt-3 flex items-center justify-end text-[14px] lg:text-[13px] uppercase tracking-[0.14em] text-white/40 select-none" 
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
-              <span>FIG. 1.0 — IVAN LEWIS</span>
               <span>25.2702° N, 91.7317° E</span>
             </div>
           </div>
