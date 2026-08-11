@@ -70,7 +70,7 @@ const works: WorkEntry[] = [
         type: 'thing',
         links: [
           { text: 'connect for script', href: 'mailto:lastgoodtaste@gmail.com' },
-          { text: 'the service now exists', href: 'https://www.hereafter.ai' },
+          { text: 'the service now exists', href: 'https://bestdigitalmemorials.com/blog/grieftech-ai-deathbots-digital-afterlife-ethics' },
         ],
         status: 'seeking production',
       },
