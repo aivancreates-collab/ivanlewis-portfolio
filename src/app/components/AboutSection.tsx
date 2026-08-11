@@ -12,7 +12,6 @@ export function AboutSection() {
       />
  
       <div className="relative z-10 max-w-[1050px] mx-auto px-5 sm:px-10 lg:px-16">
-        
         {/* Section label (Guaranteed >= 14px on mobile) */}
         <p
           className="text-[14px] lg:text-[13px] uppercase tracking-[0.2em] mb-8 md:mb-12 reveal font-normal"

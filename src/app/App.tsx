@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { CustomCursor } from './components/CustomCursor';
 import { Grain } from './components/Grain';
 import { Navigation } from './components/Navigation';
+import { FloatingNav } from './components/FloatingNav';
 import { Hero } from './components/Hero';
 import { QuotesTicker } from './components/QuotesTicker';
 import { PhilosophySection } from './components/PhilosophySection';
@@ -116,6 +117,7 @@ export default function App() {
       <CustomCursor />
       <Grain />
       <Navigation scrolled={scrolled} theme={navTheme} />
+      <FloatingNav />
 
       <Hero />
 

@@ -46,7 +46,6 @@ export function ServicesSection() {
   return (
     <section className="py-16 sm:py-20 md:py-24" style={{ backgroundColor: 'var(--bg-primary)' }} id="services">
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
-        
         {/* Editorial Section Header */}
         <div className="mb-10 md:mb-12">
           <span

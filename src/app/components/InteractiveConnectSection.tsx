@@ -17,7 +17,6 @@ export function InteractiveConnectSection() {
   return (
     <section className="py-16 sm:py-20 md:py-24" id="connect" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
-        
         {/* Prominent Monospaced Header Banner */}
         <div className="w-full border-t border-b py-3 text-center mb-16" style={{ borderColor: '#2A2A2A' }}>
           <span 

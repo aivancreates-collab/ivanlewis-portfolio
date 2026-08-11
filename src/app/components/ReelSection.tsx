@@ -93,7 +93,7 @@ export function ReelSection() {
       style={{ backgroundColor: 'var(--dark-bg)' }} 
       id="reel"
     >
-      <div className="max-w-[1240px] mx-auto space-y-12 md:space-y-16">
+      <div className="max-w-[1240px] mx-auto space-y-10 md:space-y-12">
         {/* Section Header */}
         <div className="reveal text-center max-w-[850px] mx-auto">
           <h2
