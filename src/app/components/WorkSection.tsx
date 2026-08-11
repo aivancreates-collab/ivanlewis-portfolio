@@ -69,7 +69,7 @@ const works: WorkEntry[] = [
         content: 'Registered screenplay. 18 pages. SWA India, Feb 2026.',
         type: 'thing',
         links: [
-          { text: 'connect for script', href: 'mailto:lastgoodtaste@gmail.com' },
+          { text: 'connect for script', href: 'https://www.linkedin.com/in/ivan-lewis' },
           { text: 'the service now exists', href: 'https://bestdigitalmemorials.com/blog/grieftech-ai-deathbots-digital-afterlife-ethics' },
         ],
         status: 'seeking production',
