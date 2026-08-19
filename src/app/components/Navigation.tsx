@@ -44,7 +44,14 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
     };
   }, [mobileMenuOpen]);
 
-  const navItems = ['reel', 'philosophy', 'studio', 'services', 'about', 'connect'];
+  const navItems = [
+    { label: 'Work', href: '#reel' },
+    { label: 'Thinking', href: '#philosophy' },
+    { label: 'Studio', href: '#studio' },
+    { label: 'What I Do', href: '#services' },
+    { label: 'About', href: '#about' },
+    { label: 'Contact', href: '#connect' },
+  ];
 
   return (
     <>
@@ -94,9 +101,9 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex list-none gap-8 xl:gap-10 items-center">
           {navItems.map((item) => (
-            <li key={item} className="flex items-center">
+            <li key={item.label} className="flex items-center">
               <a
-                href={`#${item}`}
+                href={item.href}
                 className="text-[14px] uppercase no-underline transition-colors duration-300 tracking-[0.1em] font-normal hover:text-opacity-100"
                 style={{
                   fontFamily: 'var(--font-family-mono)',
@@ -110,7 +117,7 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
                   e.currentTarget.style.opacity = '0.72';
                 }}
               >
-                {item}
+                {item.label}
               </a>
             </li>
           ))}
@@ -161,13 +168,13 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
               <ul className="flex flex-col list-none gap-6 sm:gap-8">
                 {navItems.map((item, index) => (
                   <motion.li
-                    key={item}
+                    key={item.label}
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 + 0.1, duration: 0.4 }}
                   >
                     <a
-                      href={`#${item}`}
+                      href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="inline-block py-2 text-[20px] sm:text-[24px] uppercase no-underline transition-colors duration-300 tracking-[0.12em] font-normal"
                       style={{
@@ -175,7 +182,7 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
                         color: 'var(--dark-text)',
                       }}
                     >
-                      {item}
+                      {item.label}
                     </a>
                   </motion.li>
                 ))}

@@ -279,13 +279,13 @@ export function WorkSection() {
           </p>
         </div>
 
-        {/* Primary Layout: Controlled Asymmetry 12-Column Grid with Single Dominant Visual */}
+        {/* Primary Layout: Controlled Asymmetry 12-Column Grid with Refined Visual */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start mb-16 md:mb-20">
           
-          {/* Left Side: Single Dominant Visual (Take 7 of 12 columns on desktop) */}
-          <div className="lg:col-span-7 relative group w-full">
+          {/* Left Side: Refined Studio Visual (Take 5 of 12 columns on desktop - subordinate to Reel) */}
+          <div className="lg:col-span-5 relative group w-full max-w-[500px] lg:max-w-none">
             <div 
-              className="relative overflow-hidden aspect-[16/10] sm:aspect-[16/9] border p-1" 
+              className="relative overflow-hidden aspect-[16/10] border p-1" 
               style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg)' }}
             >
               {/* Cinematic corner viewfinder marks */}
@@ -345,8 +345,8 @@ export function WorkSection() {
             </div>
           </div>
 
-          {/* Right Side: Editorial Description (Take 5 of 12 columns on desktop) */}
-          <div className="lg:col-span-5 flex flex-col justify-between h-full py-1">
+          {/* Right Side: Editorial Narrative & Script Excerpt (Take 7 of 12 columns on desktop) */}
+          <div className="lg:col-span-7 flex flex-col justify-between h-full py-1">
             <div>
               <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
                 <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>

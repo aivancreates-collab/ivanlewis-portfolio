@@ -127,25 +127,15 @@ export default function App() {
 
       <PhilosophySection />
 
-      <div className="w-full h-px my-4" style={{ backgroundColor: 'var(--border)' }} />
-
       <WorkSection />
 
-      <div className="w-full h-px my-4" style={{ backgroundColor: 'var(--border)' }} />
-
       <ServicesSection />
-
-      <div className="w-full h-px my-4" style={{ backgroundColor: 'var(--border)' }} />
 
       <BrandTickerSection />
 
       <AboutSection />
 
-      <div className="w-full h-px my-8" style={{ backgroundColor: 'var(--border)' }} />
-
       <InteractiveConnectSection />
-
-      <div className="w-full h-px my-8" style={{ backgroundColor: 'var(--border)' }} />
 
       <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-xs flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>
         <span className="block my-2">Ivan Lewis</span>

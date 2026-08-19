@@ -4,40 +4,40 @@ export function ServicesSection() {
       index: '01',
       title: 'Creative Concepts',
       badge: 'STRATEGY',
-      hook: 'Most brands do not have an execution problem. They have an idea problem.',
-      description: 'I work with founders, brands, and creative teams to develop campaign ideas, launch concepts, narrative directions, and original formats—bringing two decades of creative experience to the thinking.',
+      hook: 'A great execution can’t save a small idea.',
+      description: 'So I start where the work should start... with the idea! Campaigns, launches, narratives, formats — finding the thought that makes everything that follows more interesting.',
       hasConnect: true,
     },
     {
       index: '02',
       title: 'Writing & Development',
       badge: 'DEVELOPMENT',
-      hook: 'Good ideas are often weakened by the way they are written.',
-      description: 'I write and develop brand copy, scripts, films, episodic concepts, campaign narratives and IPs, helping shape the structure, language, tone, and emotional core of the work.',
+      hook: 'An idea can only travel as far as its words.',
+      description: 'I find the words, structure and voice that let an idea become what it wants to be; whether it’s a line, a script, a film, a series or something that doesn’t have a name yet.',
       hasConnect: true,
     },
     {
       index: '03',
       title: 'Brand Building',
       badge: 'STRATEGY',
-      hook: 'A brand is shaped by every decision it repeats.',
-      description: 'I collaborate with teams on positioning, voice, campaigns, launches, and long-term creative direction, drawing on years of experience building brands across markets and categories.',
+      hook: 'A brand becomes what it keeps doing.',
+      description: 'So I help make those choices count: from positioning and voice to campaigns, launches and the creative decisions that, over time, become the brand.',
       hasConnect: true,
     },
     {
       index: '04',
       title: 'Film Direction',
       badge: 'PRODUCTION',
-      hook: 'A scene only works when the behaviour inside it feels true.',
-      description: 'I direct long-form, documentary, and narrative content, working closely with cast, crew, agencies, and clients on performance, tone, rhythm, and visual storytelling.',
+      hook: 'We believe stories when we believe the people in them.',
+      description: 'Long-form nonfiction taught me to sense the story that’s already there - in people, in behavior, and in the moments you could never have written.',
       hasConnect: true,
     },
     {
       index: '05',
       title: 'Creative Advisory',
       badge: 'RETAINER',
-      hook: 'Creative teams often need perspective more than another presentation.',
-      description: 'I offer ongoing support across ideas, writing, brand direction, campaigns, and production—bringing experienced judgement to the areas where it is most useful.',
+      hook: 'The closer you are to the work, the less you see.',
+      description: 'Sometimes what a project needs isn’t more work. It’s another way of seeing it. I bring an experienced outside eye to ideas, writing, brands, campaigns and production, especially when something isn’t quite working and nobody can say why.',
       hasConnect: true,
       isFlagship: true,
     },
@@ -49,10 +49,10 @@ export function ServicesSection() {
         {/* Editorial Section Header */}
         <div className="mb-10 md:mb-12">
           <span
-            className="block text-[11px] uppercase font-normal tracking-[0.16em] text-[var(--text-tertiary)]"
+            className="block text-[14px] lg:text-[13px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
-            SERVICES INDEX
+            WHAT I DO
           </span>
           <p className="text-[17px] sm:text-[18px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
             available, selectively
@@ -63,7 +63,7 @@ export function ServicesSection() {
           className="text-[18px] sm:text-[20px] leading-[1.65] text-[var(--text-secondary)] mb-12 md:mb-16 max-w-[700px] reveal" 
           style={{ fontFamily: 'var(--font-family-serif)' }}
         >
-          Strategy, direction, writing, and film. Work varies; the starting question does&nbsp;not.
+          Strategy, writing, direction, film. The work changes. The question doesn’t.
         </div>
 
         {/* Asymmetric Numbered Index Grid */}

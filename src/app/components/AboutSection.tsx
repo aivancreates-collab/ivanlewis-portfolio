@@ -12,14 +12,6 @@ export function AboutSection() {
       />
  
       <div className="relative z-10 max-w-[1050px] mx-auto px-5 sm:px-10 lg:px-16">
-        {/* Section label (Guaranteed >= 14px on mobile) */}
-        <p
-          className="text-[14px] lg:text-[13px] uppercase tracking-[0.2em] mb-8 md:mb-12 reveal font-normal"
-          style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--dark-text-secondary)' }}
-        >
-          Not what I do. <span className="text-[var(--accent)] font-semibold">Why.</span>
-        </p>
-
         {/* 12-Column Grid creating perfect side-by-side image-to-text balance on desktop */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
@@ -27,31 +19,40 @@ export function AboutSection() {
           <div className="lg:col-span-7 flex flex-col justify-between h-full reveal">
             <div className="space-y-6 max-w-[640px]">
               <p 
-                className="text-[20px] sm:text-[24px] md:text-[28px] not-italic leading-[1.35] tracking-tight text-white/95 font-light text-balance" 
+                className="text-[20px] sm:text-[24px] md:text-[28px] not-italic leading-[1.35] tracking-tight text-white/95 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
               >
-                The question has always been the same. Not what to make, but <span className="italic font-normal">why this</span>, why now, why will anyone care a year from now. Everything else gets figured out when the <span className="italic font-normal">why</span> gets answered honestly.
+                <span className="block sm:whitespace-nowrap">Making something is rarely the hard part.</span>
+                <span className="block mt-1 sm:mt-1.5 text-white/90">Knowing why it deserves to exist is.</span>
+              </p>
+
+              <p 
+                className="text-[17px] sm:text-[18px] leading-[1.7] text-white/80 font-light" 
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
+                Why this? Why now? Why would anyone care?
+                <span className="block mt-1 text-white/75">Get that right and most of what follows becomes easier.</span>
               </p>
 
               <p 
                 className="text-[17px] sm:text-[18px] leading-[1.7] text-white/70 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                The work moves across film, writing, brand, and strategy. The problem underneath is always the same. Something needs a <span className="font-semibold not-italic text-white">reason to exist</span> beyond the obvious. That's where I come in.
+                I work across film, writing, brands and ideas. Different work, same instinct: finding the reason something deserves to be made in the first place.
               </p>
 
               <p 
                 className="text-[17px] sm:text-[18px] leading-[1.7] text-[var(--dark-text-secondary)] font-normal italic border-l-2 border-[var(--accent)] pl-4 py-0.5" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I write, direct, and consult on projects that still begin with the question.
+                I write, direct and advise on work worth making.
               </p>
 
               <p 
                 className="text-[15px] sm:text-[16px] leading-[1.7] text-white/50 font-normal pt-1" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                Currently based in Mumbai, India, open to work <span className="text-[var(--accent)] font-medium">everywhere.</span>
+                Based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
               </p>
             </div>
 

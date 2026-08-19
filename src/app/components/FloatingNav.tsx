@@ -38,7 +38,7 @@ export function FloatingNav() {
         >
           <button
             onClick={scrollToTop}
-            className="group flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 rounded-full border border-white/20 shadow-[0_12px_32px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:border-white/40 hover:scale-110 active:scale-95 focus:outline-none"
+            className="group flex items-center justify-center w-8 h-8 sm:w-9 sm:h-9 rounded-full border border-white/20 shadow-[0_8px_24px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:border-white/40 hover:scale-110 active:scale-95 focus:outline-none"
             style={{
               backgroundColor: 'rgba(18, 14, 11, 0.85)',
             }}
@@ -46,7 +46,7 @@ export function FloatingNav() {
             title="Back to landing page"
           >
             <ArrowUp
-              size={18}
+              size={14}
               className="text-white/80 group-hover:text-white group-hover:-translate-y-0.5 transition-all duration-200"
             />
           </button>

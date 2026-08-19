@@ -3,7 +3,7 @@ import { PhilosophyKineticTypography } from './PhilosophyKineticTypography';
 export function PhilosophySection() {
   return (
     <section 
-      className="relative py-16 sm:py-24 md:py-32 overflow-hidden border-b border-white/5" 
+      className="relative py-16 sm:py-24 md:py-32 overflow-hidden" 
       style={{ backgroundColor: 'var(--bg)' }}
       id="philosophy"
     >

@@ -255,8 +255,8 @@ export function BrandTickerSection() {
 
   return (
     <section 
-      className="relative py-10 sm:py-14 overflow-hidden border-y select-none group"
-      style={{ backgroundColor: '#0A0A0A', borderColor: 'rgba(255, 255, 255, 0.08)' }}
+      className="relative py-10 sm:py-14 overflow-hidden select-none group"
+      style={{ backgroundColor: '#0A0A0A' }}
       id="brands"
     >
       <style>{`

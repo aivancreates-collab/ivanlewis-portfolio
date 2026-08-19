@@ -3,14 +3,14 @@ export function InteractiveConnectSection() {
     call: {
       url: 'https://calendly.com/ivanlewis/30min',
       cta: 'Launch Calendar Sync ↗',
-      title: 'OVER A CALL',
-      description: 'For immediate project discussions and advisory chats.',
+      title: 'LET’S TALK',
+      description: 'For projects, ideas, and problems worth a conversation.',
     },
     enquiry: {
       url: 'https://docs.google.com/forms/d/1a9raKLvtxup6TMqBxU0cJJDh-tk7LHVs3XjM0q6cUTI/viewform',
       cta: 'Get to the Brief! ↗',
-      title: 'BRIEF A PROJECT',
-      description: 'For production, retainer or complete brand communication.',
+      title: 'BRIEF ME',
+      description: 'For something you already know you want to make.',
     },
   };
 
@@ -18,7 +18,7 @@ export function InteractiveConnectSection() {
     <section className="py-16 sm:py-20 md:py-24" id="connect" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
         {/* Prominent Monospaced Header Banner */}
-        <div className="w-full border-t border-b py-3 text-center mb-16" style={{ borderColor: '#2A2A2A' }}>
+        <div className="w-full py-3 text-center mb-12">
           <span 
             className="text-[11px] sm:text-[12px] tracking-[0.15em] font-normal" 
             style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
@@ -30,7 +30,7 @@ export function InteractiveConnectSection() {
         {/* Two-Tiered Decision Matrix Grid (1fr 1fr on desktop, 1fr on mobile) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
           
-          {/* Card A (Fast Track) */}
+          {/* Card A */}
           <a
             href={links.call.url}
             target="_blank"
@@ -39,12 +39,6 @@ export function InteractiveConnectSection() {
             style={{ borderColor: '#2A2A2A' }}
           >
             <div>
-              <span 
-                className="block text-[11px] uppercase tracking-[0.15em] mb-4 font-normal" 
-                style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
-              >
-                FAST TRACK
-              </span>
               <h3 
                 className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
@@ -68,7 +62,7 @@ export function InteractiveConnectSection() {
             </div>
           </a>
 
-          {/* Card B (Deep Dive) */}
+          {/* Card B */}
           <a
             href={links.enquiry.url}
             target="_blank"
@@ -77,12 +71,6 @@ export function InteractiveConnectSection() {
             style={{ borderColor: '#2A2A2A' }}
           >
             <div>
-              <span 
-                className="block text-[11px] uppercase tracking-[0.15em] mb-4 font-normal" 
-                style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
-              >
-                DEEP DIVE
-              </span>
               <h3 
                 className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
