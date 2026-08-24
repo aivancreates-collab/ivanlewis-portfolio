@@ -23,7 +23,7 @@ export function InteractiveConnectSection() {
             className="text-[11px] sm:text-[12px] tracking-[0.15em] font-normal" 
             style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
           >
-            For considered collaborations (Serious enquiries only)
+            For collaborations
           </span>
         </div>
 

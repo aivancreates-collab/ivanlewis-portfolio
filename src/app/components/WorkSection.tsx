@@ -183,14 +183,14 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
   e1: {
     id: 'e1',
     title: 'The Last Message',
-    numberLabel: '01',
-    formatLabel: 'screenplay',
+    numberLabel: '',
+    formatLabel: '',
     question: 'What happens to the words people were saving for later, and never sent?',
-    pageCount: '18P',
+    pageCount: '',
     detailsLabel: 'SWA INDIA, FEB 2026',
     statusText: 'SEEKING PRODUCTION',
     statusStyle: 'text-[var(--accent-warm)] bg-[var(--accent-warm)]/10 border border-[var(--accent-warm)]/20',
-    viewfinderLeft: 'STILL NO. 01 // SOLACE CORP',
+    viewfinderLeft: '',
     viewfinderRight: '',
     mediaType: 'video',
     videoSrc: lastMessageVideo,
@@ -199,14 +199,14 @@ const featuredProjectsData: Record<string, FeaturedProjectDetails> = {
   e2: {
     id: 'e2',
     title: 'Maati Kona Chi?',
-    numberLabel: '02',
-    formatLabel: 'short film · marathi',
+    numberLabel: '',
+    formatLabel: '',
     question: 'Who decides what gets to grow, and what gets cut?',
-    pageCount: '9P',
+    pageCount: '',
     detailsLabel: 'SWA INDIA, NOV 2025',
     statusText: 'PRE-PRODUCTION 2026',
     statusStyle: 'text-[var(--accent-warm)] bg-[var(--accent-warm)]/10 border border-[var(--accent-warm)]/20',
-    viewfinderLeft: 'POSTER // MAATI KONA CHI?',
+    viewfinderLeft: '',
     viewfinderRight: '',
     mediaType: 'image',
     imageSrc: mkkPosterKV,
@@ -336,29 +336,39 @@ export function WorkSection() {
             </div>
 
             {/* Viewfinder labels (Guaranteed at least 14px on mobile) */}
-            <div 
-              className="mt-3 flex justify-between items-center text-[14px] lg:text-[13px] uppercase tracking-[0.15em] select-none" 
-              style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}
-            >
-              <span className="font-medium" style={{ color: 'var(--text)' }}>{focusedProject.viewfinderLeft}</span>
-              <span>{focusedProject.viewfinderRight}</span>
-            </div>
+            {(focusedProject.viewfinderLeft || focusedProject.viewfinderRight) && (
+              <div 
+                className="mt-3 flex justify-between items-center text-[14px] lg:text-[13px] uppercase tracking-[0.15em] select-none" 
+                style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}
+              >
+                <span className="font-medium" style={{ color: 'var(--text)' }}>{focusedProject.viewfinderLeft}</span>
+                <span>{focusedProject.viewfinderRight}</span>
+              </div>
+            )}
           </div>
 
           {/* Right Side: Editorial Narrative & Script Excerpt (Take 7 of 12 columns on desktop) */}
           <div className="lg:col-span-7 flex flex-col justify-between h-full py-1">
             <div>
-              <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
-                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
-                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
-              </div>
+              {(focusedProject.numberLabel || focusedProject.formatLabel) && (
+                <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                  {focusedProject.numberLabel && (
+                    <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
+                  )}
+                  {focusedProject.numberLabel && focusedProject.formatLabel && (
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                  )}
+                  {focusedProject.formatLabel && (
+                    <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
+                  )}
+                </div>
+              )}
 
               <h3
                 className="text-[32px] sm:text-[38px] lg:text-[42px] font-normal tracking-[-0.02em] leading-[1.1] mb-4"
                 style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
               >
-                {focusedProject.title} <span className="text-[14px] font-mono text-[var(--text-muted)] select-none ml-2 align-middle">{focusedProject.pageCount}</span>
+                {focusedProject.title} {focusedProject.pageCount && <span className="text-[14px] font-mono text-[var(--text-muted)] select-none ml-2 align-middle">{focusedProject.pageCount}</span>}
               </h3>
 
               <p
@@ -370,10 +380,18 @@ export function WorkSection() {
 
               {/* Status block (Guaranteed >= 14px on mobile) */}
               <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
-                <span>{focusedProject.pageCount === '18P' ? '18 PAGES' : '9 PAGES'}</span>
-                <span>•</span>
-                <span>{focusedProject.detailsLabel}</span>
-                <span>•</span>
+                {focusedProject.pageCount && (
+                  <>
+                    <span>{focusedProject.pageCount === '18P' ? '18 PAGES' : focusedProject.pageCount === '9P' ? '9 PAGES' : `${focusedProject.pageCount} PAGES`}</span>
+                    <span>•</span>
+                  </>
+                )}
+                {focusedProject.detailsLabel && (
+                  <>
+                    <span>{focusedProject.detailsLabel}</span>
+                    <span>•</span>
+                  </>
+                )}
                 <span className={`${focusedProject.statusStyle} px-2 py-0.5 text-[12px] font-semibold tracking-wider`}>{focusedProject.statusText}</span>
               </div>
             </div>

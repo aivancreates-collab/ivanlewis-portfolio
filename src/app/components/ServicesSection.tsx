@@ -1,4 +1,17 @@
+import { useState } from 'react';
+import { Plus, Minus, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+
 export function ServicesSection() {
+  const [expanded, setExpanded] = useState<Record<number, boolean>>({});
+
+  const toggleCard = (index: number) => {
+    setExpanded((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   const services = [
     {
       index: '01',
@@ -70,93 +83,126 @@ export function ServicesSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
           {services.map((service, i) => {
             const isAdvisory = service.isFlagship;
+            const isExpanded = !!expanded[i];
+
             return (
               <div
                 key={i}
-                className={`reveal flex flex-col justify-between h-full relative transition-all duration-200 border rounded-none group ${
+                id={`service-card-${i}`}
+                role="button"
+                tabIndex={0}
+                aria-expanded={isExpanded}
+                onClick={() => toggleCard(i)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleCard(i);
+                  }
+                }}
+                className={`reveal flex flex-col justify-between relative transition-all duration-300 border rounded-none text-left cursor-pointer select-none group ${
                   isAdvisory 
                     ? 'md:col-span-2' 
                     : ''
                 }`}
                 style={{
                   backgroundColor: isAdvisory ? '#1A1A1A' : '#141414',
-                  borderColor: isAdvisory ? '#444444' : '#282828',
+                  borderColor: isExpanded ? '#FFFFFF' : isAdvisory ? '#444444' : '#282828',
                   padding: '2rem',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = '#FFFFFF';
+                  if (!isExpanded) e.currentTarget.style.borderColor = '#FFFFFF';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = isAdvisory ? '#444444' : '#282828';
+                  if (!isExpanded) e.currentTarget.style.borderColor = isAdvisory ? '#444444' : '#282828';
                 }}
               >
                 {/* Header Row with Index and Category Badge */}
-                <div className="flex items-center justify-between gap-4 mb-8">
-                  <span 
-                    className="text-[11px] uppercase tracking-[0.12em] font-normal" 
-                    style={{ fontFamily: 'var(--font-family-mono)', color: '#888888' }}
-                  >
-                    {service.index} // {service.title.toUpperCase()}
-                  </span>
-                  
-                  <span 
-                    className="text-[10px] uppercase font-mono tracking-wider border text-white"
-                    style={{ 
-                      borderColor: '#333333', 
-                      padding: '4px 8px',
-                      lineHeight: '1',
-                      borderRadius: '0px',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    {service.badge}
-                  </span>
-                </div>
+                <div>
+                  <div className="flex items-center justify-between gap-4 mb-6">
+                    <span 
+                      className="text-[12px] sm:text-[11px] uppercase tracking-[0.12em] font-normal" 
+                      style={{ fontFamily: 'var(--font-family-mono)', color: isExpanded ? '#FFFFFF' : '#888888' }}
+                    >
+                      {service.index} // {service.title.toUpperCase()}
+                    </span>
+                    
+                    <div className="flex items-center gap-2.5">
+                      <span 
+                        className="text-[10px] uppercase font-mono tracking-wider border text-white"
+                        style={{ 
+                          borderColor: '#333333', 
+                          padding: '4px 8px',
+                          lineHeight: '1',
+                          borderRadius: '0px',
+                          whiteSpace: 'nowrap',
+                        }}
+                      >
+                        {service.badge}
+                      </span>
 
-                {/* Content Body */}
-                <div className="space-y-4 mb-8 flex-grow">
-                  <p 
-                    className="text-[17px] sm:text-[18px] text-white font-normal leading-[1.45] italic"
+                      <span 
+                        className="w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 border border-white/10 text-white/60 group-hover:text-white group-hover:border-white/30"
+                        style={{
+                          backgroundColor: isExpanded ? '#2A2A2A' : '#1E1E1E',
+                        }}
+                      >
+                        {isExpanded ? <Minus size={12} /> : <Plus size={12} />}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Headline / Hook */}
+                  <h3 
+                    className="text-[18px] sm:text-[19px] text-white font-normal leading-[1.4] italic"
                     style={{ fontFamily: 'var(--font-family-serif)' }}
                   >
                     {service.hook}
-                  </p>
-                  <p 
-                    className="text-[14px] sm:text-[15px] leading-[1.6]"
-                    style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
-                  >
-                    {service.description}
-                  </p>
+                  </h3>
                 </div>
 
-                {/* Card Footer with CTA */}
-                {service.hasConnect ? (
-                  <div className="pt-4 border-t" style={{ borderColor: isAdvisory ? '#444444' : '#282828' }}>
-                    <a
-                      href="#connect"
-                      className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--accent-warm)] hover:text-white border-b border-[var(--accent-warm)]/30 hover:border-white pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
-                      style={{ fontFamily: 'var(--font-family-mono)' }}
+                {/* Collapsible Details: Description + CTA */}
+                <AnimatePresence initial={false}>
+                  {isExpanded && (
+                    <motion.div
+                      key={`content-${i}`}
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      className="overflow-hidden"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      Connect <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
-                    </a>
-                  </div>
-                ) : (
-                  <div className="pt-4 border-t flex items-center justify-between" style={{ borderColor: isAdvisory ? '#444444' : '#282828' }}>
-                    <span 
-                      className="text-[11px] uppercase tracking-[0.12em] font-mono text-white/40"
-                    >
-                      Flagship Advisory Offer
-                    </span>
-                    <a
-                      href="#connect"
-                      className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--accent-warm)] hover:text-white border-b border-[var(--accent-warm)]/30 hover:border-white pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
-                      style={{ fontFamily: 'var(--font-family-mono)' }}
-                    >
-                      Inquire <span className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1">→</span>
-                    </a>
+                      <div className="pt-5 space-y-5">
+                        <p 
+                          className="text-[14px] sm:text-[15px] leading-[1.65]"
+                          style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+                        >
+                          {service.description}
+                        </p>
+
+                        {/* Card Footer with CTA */}
+                        <div className="pt-4 border-t" style={{ borderColor: isAdvisory ? '#444444' : '#282828' }}>
+                          <a
+                            href="#connect"
+                            className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--accent-warm)] hover:text-white border-b border-[var(--accent-warm)]/30 hover:border-white pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
+                            style={{ fontFamily: 'var(--font-family-mono)' }}
+                          >
+                            {isAdvisory ? 'Inquire' : 'Connect'}{' '}
+                            <ArrowRight size={13} className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1" />
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                {/* Subtle affordance when collapsed */}
+                {!isExpanded && (
+                  <div className="mt-4 pt-3 flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] group-hover:text-white/70 transition-colors">
+                    <span>Click to view details</span>
+                    <span>+</span>
                   </div>
                 )}
-
               </div>
             );
           })}
@@ -165,3 +211,4 @@ export function ServicesSection() {
     </section>
   );
 }
+

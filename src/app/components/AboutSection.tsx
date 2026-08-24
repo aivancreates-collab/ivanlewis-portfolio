@@ -29,14 +29,7 @@ export function AboutSection() {
                 className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                Asked early enough, this simple question can keep a campaign from becoming content, a film from becoming footage and a brand launch from becoming noise.
-              </p>
-
-              <p 
-                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
-                style={{ fontFamily: 'var(--font-family-serif)' }}
-              >
-                I’ve spent years moving between advertising, branded films, startups and feature scripts. More often than not, the solution lies in finding what needs to be said before deciding how to say it. This is critical in turning briefs into campaigns, thoughts into films and modest budgets into ideas that don’t look modest.
+                I’ve spent years moving between advertising, branded films, startups and feature scripts. More often than not, the solution lies in answering these questions and finding what needs to be said before deciding how to say it. This is critical in turning briefs into campaigns, thoughts into films and modest budgets into ideas that don’t look modest.
               </p>
 
               <p 
