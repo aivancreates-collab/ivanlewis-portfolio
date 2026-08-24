@@ -19,37 +19,35 @@ export function AboutSection() {
           <div className="lg:col-span-7 flex flex-col justify-between h-full reveal">
             <div className="space-y-6 max-w-[640px]">
               <p 
-                className="text-[20px] sm:text-[24px] md:text-[28px] not-italic leading-[1.35] tracking-tight text-white/95 font-light" 
-                style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 'normal' }}
-              >
-                <span className="block sm:whitespace-nowrap">Making something is rarely the hard part.</span>
-                <span className="block mt-1 sm:mt-1.5 text-white/90">Knowing why it deserves to exist is.</span>
-              </p>
-
-              <p 
-                className="text-[17px] sm:text-[18px] leading-[1.7] text-white/80 font-light" 
+                className="text-[19px] sm:text-[21px] md:text-[23px] not-italic leading-[1.45] tracking-tight text-white/95 font-normal" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                Why this? Why now? Why would anyone care?
-                <span className="block mt-1 text-white/75">Get that right and most of what follows becomes easier.</span>
+                While most creative work is judged by how well it answers the brief, far less time is spent asking whether the brief contains a question worth answering.
               </p>
 
               <p 
-                className="text-[17px] sm:text-[18px] leading-[1.7] text-white/70 font-light" 
+                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I work across film, writing, brands and ideas. Different work, same instinct: finding the reason something deserves to be made in the first place.
+                Asked early enough, this simple question can keep a campaign from becoming content, a film from becoming footage and a brand launch from becoming noise.
               </p>
 
               <p 
-                className="text-[17px] sm:text-[18px] leading-[1.7] text-[var(--dark-text-secondary)] font-normal italic border-l-2 border-[var(--accent)] pl-4 py-0.5" 
+                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I write, direct and advise on work worth making.
+                I’ve spent years moving between advertising, branded films, startups and feature scripts. More often than not, the solution lies in finding what needs to be said before deciding how to say it. This is critical in turning briefs into campaigns, thoughts into films and modest budgets into ideas that don’t look modest.
               </p>
 
               <p 
-                className="text-[15px] sm:text-[16px] leading-[1.7] text-white/50 font-normal pt-1" 
+                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
+                style={{ fontFamily: 'var(--font-family-serif)' }}
+              >
+                The aim isn’t to make more things. It’s to make something harder to ignore.
+              </p>
+
+              <p 
+                className="text-[15px] sm:text-[16px] leading-[1.7] text-white/60 font-normal pt-2" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 Based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
