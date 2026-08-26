@@ -38,10 +38,10 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
         {/* Header bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b z-20" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}>
           <div className="flex flex-col">
-            <span className="text-[10px] tracking-[0.2em] font-medium text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+            <span className="text-[13px] tracking-[0.2em] font-medium text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
               {scriptId === 'e1' ? 'SCREENPLAY EXCERPT // FEB 2026' : 'SCREENPLAY EXCERPT // NOV 2025'}
             </span>
-            <span className="text-[16px] font-normal text-text" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+            <span className="text-[20px] font-normal text-text" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
               {scriptId === 'e1' ? 'The Last Message' : 'Maati Kona Chi? (Whose Soil is It?)'}
             </span>
           </div>
@@ -61,16 +61,16 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
         <div className="flex-1 overflow-y-auto px-6 py-10 sm:px-16 sm:py-14 custom-scrollbar selection:bg-accent/30" style={{ backgroundColor: 'var(--bg)' }}>
           {scriptId === 'e1' ? (
             <div 
-              className="max-w-[650px] mx-auto text-text text-[13px] leading-[1.62] space-y-8 select-text"
+              className="max-w-[680px] mx-auto text-text text-[16px] leading-[1.65] space-y-8 select-text"
               style={{ fontFamily: 'var(--font-family-mono)', whiteSpace: 'pre-wrap', color: 'var(--text)' }}
             >
               {/* Title page element */}
               <div className="text-center py-10 border-b mb-12" style={{ borderColor: 'var(--border)' }}>
-                <h1 className="text-[20px] tracking-[0.12em] font-normal uppercase mb-2">THE LAST MESSAGE</h1>
-                <p className="text-[11px] tracking-[0.08em] mb-8" style={{ color: 'var(--text-muted)' }}>An Original Screenplay</p>
-                <p className="text-[12px] italic">Written by</p>
-                <p className="text-[13px] font-semibold tracking-wider mt-1">IVAN LEWIS</p>
-                <div className="mt-10 text-[9px] tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
+                <h1 className="text-[24px] tracking-[0.12em] font-normal uppercase mb-2">THE LAST MESSAGE</h1>
+                <p className="text-[14px] tracking-[0.08em] mb-8" style={{ color: 'var(--text-muted)' }}>An Original Screenplay</p>
+                <p className="text-[15px] italic">Written by</p>
+                <p className="text-[16px] font-semibold tracking-wider mt-1">IVAN LEWIS</p>
+                <div className="mt-10 text-[12px] tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
                   SWA REGISTERED // PAGES 1 — 2 / 18
                 </div>
               </div>
@@ -146,17 +146,17 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
             </div>
           ) : (
             <div 
-              className="max-w-[650px] mx-auto text-text text-[13px] leading-[1.62] space-y-8 select-text"
+              className="max-w-[680px] mx-auto text-text text-[16px] leading-[1.65] space-y-8 select-text"
               style={{ fontFamily: 'var(--font-family-mono)', whiteSpace: 'pre-wrap', color: 'var(--text)' }}
             >
               {/* Title page element */}
               <div className="text-center py-10 border-b mb-12" style={{ borderColor: 'var(--border)' }}>
-                <h1 className="text-[20px] tracking-[0.12em] font-normal uppercase mb-2">MAATI KONA CHI?</h1>
-                <p className="text-[11px] tracking-[0.08em] mb-2" style={{ color: 'var(--text-muted)' }}>Whose Soil is It?</p>
-                <p className="text-[11px] tracking-[0.08em] mb-8" style={{ color: 'var(--text-muted)' }}>An Original Marathi Short Screenplay</p>
-                <p className="text-[12px] italic">Written by</p>
-                <p className="text-[13px] font-semibold tracking-wider mt-1">IVAN LEWIS</p>
-                <div className="mt-10 text-[9px] tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
+                <h1 className="text-[24px] tracking-[0.12em] font-normal uppercase mb-2">MAATI KONA CHI?</h1>
+                <p className="text-[14px] tracking-[0.08em] mb-2" style={{ color: 'var(--text-muted)' }}>Whose Soil is It?</p>
+                <p className="text-[14px] tracking-[0.08em] mb-8" style={{ color: 'var(--text-muted)' }}>An Original Marathi Short Screenplay</p>
+                <p className="text-[15px] italic">Written by</p>
+                <p className="text-[16px] font-semibold tracking-wider mt-1">IVAN LEWIS</p>
+                <div className="mt-10 text-[12px] tracking-[0.15em] uppercase" style={{ color: 'var(--text-muted)' }}>
                   SWA REGISTERED // PAGES 1 — 2 / 9
                 </div>
               </div>
@@ -226,7 +226,7 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
 
                 <div className="text-center px-12 sm:px-24 mt-6">
                   <span className="block font-bold uppercase">CHINNI (CONT'D)</span>
-                  <span className="block italic text-[12px]" style={{ color: 'var(--text-secondary)' }}>(as loud as she can muster, waving too)</span>
+                  <span className="block italic text-[14px]" style={{ color: 'var(--text-secondary)' }}>(as loud as she can muster, waving too)</span>
                   <p className="mt-2 text-left sm:text-center sm:inline-block">
                     "Aaho Thamba na…aikoo yet nahi maala…"
                   </p>
@@ -237,7 +237,7 @@ export function ScriptModal({ isOpen, onClose, scriptId }: ScriptModalProps) {
         </div>
 
         {/* Footer bar */}
-        <div className="px-6 py-4 border-t text-center select-none text-[10px] tracking-[0.12em]" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', color: 'var(--text-muted)', fontFamily: 'var(--font-family-mono)' }}>
+        <div className="px-6 py-4 border-t text-center select-none text-[12px] tracking-[0.12em]" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', color: 'var(--text-muted)', fontFamily: 'var(--font-family-mono)' }}>
           PRESS <span className="font-semibold text-text" style={{ color: 'var(--text)' }}>ESC</span> OR CLICK OUTSIDE TO RETURN
         </div>
       </div>

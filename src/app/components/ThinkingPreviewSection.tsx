@@ -75,7 +75,7 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
         {/* Supporting Editorial Voice Signal (Restrained, not oversized) */}
         <div className="mb-12 md:mb-14 pb-8 border-b border-[#222222]">
           <p 
-            className="text-[16px] sm:text-[17px] md:text-[18px] leading-[1.6] text-white/90 font-normal italic max-w-[760px]"
+            className="text-[20px] sm:text-[22px] md:text-[24px] leading-[1.6] text-white/90 font-normal italic max-w-[820px]"
             style={{ fontFamily: 'var(--font-family-serif)' }}
           >
             "{data.voiceQuote}"
@@ -86,20 +86,20 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
         <div className="mb-8 sm:mb-10 flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
           <div>
             <span
-              className="block text-[11px] sm:text-[12px] uppercase font-normal tracking-[0.2em] text-[var(--text-muted)]"
+              className="block text-[13px] sm:text-[14px] uppercase font-normal tracking-[0.2em] text-[var(--text-muted)]"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               {data.tag}
             </span>
             <h3 
-              className="text-[22px] sm:text-[26px] md:text-[28px] font-normal tracking-tight text-white mt-1"
+              className="text-[26px] sm:text-[30px] md:text-[34px] font-normal tracking-tight text-white mt-1"
               style={{ fontFamily: 'var(--font-family-serif)' }}
             >
               {data.title}
             </h3>
           </div>
           <span 
-            className="text-[12px] text-[var(--text-muted)] font-mono"
+            className="text-[14px] sm:text-[15px] text-[var(--text-muted)] font-mono"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             {data.medium}
@@ -107,15 +107,15 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
         </div>
 
         {/* Lead Question Anchor */}
-        <div className="mb-8 p-5 sm:p-6 bg-[#141414] border border-[#222222]">
+        <div className="mb-8 p-6 sm:p-7 bg-[#141414] border border-[#222222]">
           <span 
-            className="block text-[10px] uppercase tracking-[0.2em] text-[var(--accent-warm)] mb-1.5"
+            className="block text-[12px] uppercase tracking-[0.2em] text-[var(--accent-warm)] mb-2"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             THE QUESTION UNDERNEATH
           </span>
           <p 
-            className="text-[17px] sm:text-[19px] leading-[1.4] text-white/95 font-normal"
+            className="text-[21px] sm:text-[24px] leading-[1.4] text-white/95 font-normal"
             style={{ fontFamily: 'var(--font-family-serif)' }}
           >
             "{data.leadQuestion}"
@@ -127,18 +127,18 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
           {data.developmentLogic.map((step, idx) => (
             <div 
               key={idx} 
-              className={`p-4 sm:p-5 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 ${
+              className={`p-5 sm:p-6 flex flex-col sm:flex-row sm:items-baseline gap-2 sm:gap-6 ${
                 step.isKeyPivot ? 'bg-[#161616]' : ''
               }`}
             >
               <span 
-                className="w-28 shrink-0 text-[11px] uppercase tracking-[0.16em] text-[var(--text-muted)] font-mono"
+                className="w-32 sm:w-36 shrink-0 text-[13px] sm:text-[14px] uppercase tracking-[0.16em] text-[var(--text-muted)] font-mono"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
               >
                 {step.label}
               </span>
               <p 
-                className={`text-[14px] sm:text-[15px] leading-[1.6] ${
+                className={`text-[17px] sm:text-[18px] md:text-[19px] leading-[1.6] ${
                   step.isKeyPivot ? 'text-white font-normal' : 'text-white/80'
                 }`}
                 style={{ fontFamily: 'var(--font-family-sans)' }}
@@ -154,17 +154,17 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
           <div className="mt-6 flex items-center justify-between pt-2">
             <button
               onClick={() => setActiveScriptModal(data.scriptId || null)}
-              className="inline-flex items-center gap-2 text-[12px] uppercase tracking-[0.16em] text-white/90 hover:text-[var(--accent-warm)] transition-colors py-2"
+              className="inline-flex items-center gap-2 text-[14px] sm:text-[15px] uppercase tracking-[0.16em] text-white/90 hover:text-[var(--accent-warm)] transition-colors py-2"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
-              <BookOpen size={14} className="text-[var(--accent-warm)]" />
+              <BookOpen size={16} className="text-[var(--accent-warm)]" />
               <span>Read Full Screenplay Excerpt</span>
-              <ArrowRight size={13} />
+              <ArrowRight size={15} />
             </button>
 
             <a 
               href="#studio" 
-              className="text-[12px] text-[var(--text-muted)] hover:text-white transition-colors font-mono"
+              className="text-[14px] sm:text-[15px] text-[var(--text-muted)] hover:text-white transition-colors font-mono"
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               View in Studio ↓

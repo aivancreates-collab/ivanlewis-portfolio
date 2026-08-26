@@ -142,10 +142,10 @@ export default function App() {
       {/* 8. CONTACT */}
       <InteractiveConnectSection />
 
-      <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-xs flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>
-        <span className="block my-2">Ivan Lewis</span>
+      <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-base flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>
+        <span className="block my-2 text-[18px] text-[var(--text)]">Ivan Lewis</span>
         
-        <div className="flex gap-6 items-center justify-center my-4 text-[11px]">
+        <div className="flex gap-6 items-center justify-center my-4 text-[15px]">
           <a
             href="https://www.linkedin.com/in/ivan-lewis/"
             target="_blank"
@@ -184,7 +184,7 @@ export default function App() {
           </a>
         </div>
 
-        <span className="block text-[11px]" style={{ color: 'var(--text-muted)' }}>© 2026</span>
+        <span className="block text-[15px]" style={{ color: 'var(--text-muted)' }}>© 2026</span>
       </footer>
     </div>
   );

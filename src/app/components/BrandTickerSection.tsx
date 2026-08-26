@@ -283,7 +283,7 @@ export function BrandTickerSection() {
       {/* Editorial Header Tag */}
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16 mb-6 text-center sm:text-left">
         <span 
-          className="inline-block text-[11px] uppercase tracking-[0.2em] font-normal"
+          className="inline-block text-[15px] uppercase tracking-[0.2em] font-normal"
           style={{ fontFamily: 'var(--font-family-mono)', color: '#888888' }}
         >
           SELECTED CLIENTS &amp; COLLABORATIONS

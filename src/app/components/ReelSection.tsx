@@ -151,20 +151,20 @@ export function ReelSection() {
             <div className="mt-4 sm:mt-5 px-1 space-y-1.5 text-center sm:text-left flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
               <div>
                 <h3
-                  className="text-[18px] sm:text-[20px] font-normal text-white leading-[1.3] tracking-tight"
+                  className="text-[22px] sm:text-[24px] font-normal text-white leading-[1.3] tracking-tight"
                   style={{ fontFamily: 'var(--font-family-serif)' }}
                 >
                   Concept. Script. Creative Direction.
                 </h3>
                 <p
-                  className="text-[12px] sm:text-[13px] text-[#A0A0A0] leading-[1.5] mt-1 max-w-[540px]"
+                  className="text-[15px] sm:text-[16px] text-[#A0A0A0] leading-[1.5] mt-1 max-w-[580px]"
                   style={{ fontFamily: 'var(--font-family-sans)' }}
                 >
                   A selection of films I have conceptualised, written and directed across live action, CG and VFX — for various brands, categories and audiences.
                 </p>
               </div>
               <span
-                className="text-[11px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)] shrink-0 self-start"
+                className="text-[13px] sm:text-[14px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)] shrink-0 self-start"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
               >
                 LIVE ACTION · CG · VFX

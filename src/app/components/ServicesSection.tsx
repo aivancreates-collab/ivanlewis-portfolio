@@ -62,12 +62,12 @@ export function ServicesSection() {
         {/* Editorial Section Header */}
         <div className="mb-8">
           <span
-            className="block text-[11px] sm:text-[12px] uppercase font-normal tracking-[0.2em] text-[var(--text-muted)]"
+            className="block text-[15px] sm:text-[16px] uppercase font-normal tracking-[0.2em] text-[var(--text-muted)]"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             WHAT I DO
           </span>
-          <p className="text-[15px] sm:text-[16px] italic mt-1 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+          <p className="text-[19px] sm:text-[20px] italic mt-1 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
             available, selectively
           </p>
         </div>
@@ -97,13 +97,13 @@ export function ServicesSection() {
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                   <div className="flex items-baseline gap-3">
                     <span 
-                      className="text-[11px] font-mono text-[var(--text-muted)] w-6 shrink-0"
+                      className="text-[14px] font-mono text-[var(--text-muted)] w-6 shrink-0"
                       style={{ fontFamily: 'var(--font-family-mono)' }}
                     >
                       {service.index}
                     </span>
                     <h3 
-                      className="text-[17px] sm:text-[18px] text-white font-normal leading-[1.3] group-hover:text-[var(--accent-warm)] transition-colors"
+                      className="text-[21px] sm:text-[22px] text-white font-normal leading-[1.3] group-hover:text-[var(--accent-warm)] transition-colors"
                       style={{ fontFamily: 'var(--font-family-serif)' }}
                     >
                       {service.title}
@@ -112,12 +112,12 @@ export function ServicesSection() {
 
                   <div className="flex items-center gap-3 sm:gap-4 self-start sm:self-auto pl-9 sm:pl-0">
                     <span 
-                      className="text-[10px] uppercase font-mono tracking-wider text-[var(--text-muted)] border border-[#2A2A2A] px-2 py-0.5"
+                      className="text-[13px] uppercase font-mono tracking-wider text-[var(--text-muted)] border border-[#2A2A2A] px-2.5 py-0.5"
                       style={{ fontFamily: 'var(--font-family-mono)' }}
                     >
                       {service.badge}
                     </span>
-                    <span className="text-[12px] font-mono text-[var(--text-muted)] group-hover:text-white transition-colors">
+                    <span className="text-[16px] font-mono text-[var(--text-muted)] group-hover:text-white transition-colors">
                       {isExpanded ? '—' : '+'}
                     </span>
                   </div>
@@ -137,13 +137,13 @@ export function ServicesSection() {
                     >
                       <div className="pt-4 pl-9 pr-2 space-y-3">
                         <p 
-                          className="text-[14px] text-white/90 italic font-normal"
+                          className="text-[18px] text-white/90 italic font-normal"
                           style={{ fontFamily: 'var(--font-family-serif)' }}
                         >
                           "{service.hook}"
                         </p>
                         <p 
-                          className="text-[13px] sm:text-[14px] leading-[1.65] text-[#AAAAAA]"
+                          className="text-[17px] sm:text-[18px] leading-[1.65] text-[#AAAAAA]"
                           style={{ fontFamily: 'var(--font-family-sans)' }}
                         >
                           {service.description}
@@ -151,10 +151,10 @@ export function ServicesSection() {
                         <div className="pt-2">
                           <a
                             href="#connect"
-                            className="text-[12px] uppercase tracking-[0.14em] text-[var(--accent-warm)] hover:text-white transition-colors inline-flex items-center gap-1 font-mono"
+                            className="text-[15px] uppercase tracking-[0.14em] text-[var(--accent-warm)] hover:text-white transition-colors inline-flex items-center gap-1 font-mono"
                             style={{ fontFamily: 'var(--font-family-mono)' }}
                           >
-                            Inquire <ArrowRight size={12} />
+                            Inquire <ArrowRight size={14} />
                           </a>
                         </div>
                       </div>

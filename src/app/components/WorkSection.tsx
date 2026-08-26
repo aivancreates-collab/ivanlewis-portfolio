@@ -261,12 +261,12 @@ export function WorkSection() {
         {/* Editorial Section Header */}
         <div className="mb-8 md:mb-12">
           <span
-            className="block text-[14px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
+            className="block text-[16px] sm:text-[17px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             STUDIO
           </span>
-          <p className="text-[17px] sm:text-[18px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+          <p className="text-[21px] sm:text-[22px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
             made, mostly
           </p>
         </div>
@@ -327,10 +327,10 @@ export function WorkSection() {
               />
             </div>
 
-            {/* Viewfinder labels (Guaranteed at least 14px on mobile) */}
+            {/* Viewfinder labels */}
             {(focusedProject.viewfinderLeft || focusedProject.viewfinderRight) && (
               <div 
-                className="mt-3 flex justify-between items-center text-[14px] lg:text-[13px] uppercase tracking-[0.15em] select-none" 
+                className="mt-3 flex justify-between items-center text-[16px] lg:text-[15px] uppercase tracking-[0.15em] select-none" 
                 style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}
               >
                 <span className="font-medium" style={{ color: 'var(--text)' }}>{focusedProject.viewfinderLeft}</span>
@@ -345,33 +345,33 @@ export function WorkSection() {
               {(focusedProject.numberLabel || focusedProject.formatLabel) && (
                 <div className="flex items-center gap-3 mb-4 select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
                   {focusedProject.numberLabel && (
-                    <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
+                    <span className="text-[16px] lg:text-[15px] uppercase tracking-[0.14em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.numberLabel}</span>
                   )}
                   {focusedProject.numberLabel && focusedProject.formatLabel && (
                     <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
                   )}
                   {focusedProject.formatLabel && (
-                    <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
+                    <span className="text-[16px] lg:text-[15px] uppercase tracking-[0.12em]" style={{ color: 'var(--text-muted)' }}>{focusedProject.formatLabel}</span>
                   )}
                 </div>
               )}
 
               <h3
-                className="text-[32px] sm:text-[38px] lg:text-[42px] font-normal tracking-[-0.02em] leading-[1.1] mb-4"
+                className="text-[36px] sm:text-[44px] lg:text-[48px] font-normal tracking-[-0.02em] leading-[1.1] mb-4"
                 style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}
               >
-                {focusedProject.title} {focusedProject.pageCount && <span className="text-[14px] font-mono text-[var(--text-muted)] select-none ml-2 align-middle">{focusedProject.pageCount}</span>}
+                {focusedProject.title} {focusedProject.pageCount && <span className="text-[16px] font-mono text-[var(--text-muted)] select-none ml-2 align-middle">{focusedProject.pageCount}</span>}
               </h3>
 
               <p
-                className="text-[18px] sm:text-[20px] italic leading-[1.6] mb-6 text-[var(--text-secondary)]"
+                className="text-[22px] sm:text-[24px] italic leading-[1.6] mb-6 text-[var(--text-secondary)]"
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 "{focusedProject.question}"
               </p>
 
-              {/* Status block (Guaranteed >= 14px on mobile) */}
-              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[14px] lg:text-[13px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              {/* Status block */}
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 mb-6 text-[16px] lg:text-[15px] uppercase tracking-[0.12em]" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                 {focusedProject.pageCount && (
                   <>
                     <span>{focusedProject.pageCount === '18P' ? '18 PAGES' : focusedProject.pageCount === '9P' ? '9 PAGES' : `${focusedProject.pageCount} PAGES`}</span>
@@ -384,7 +384,7 @@ export function WorkSection() {
                     <span>•</span>
                   </>
                 )}
-                <span className={`${focusedProject.statusStyle} px-2 py-0.5 text-[12px] font-semibold tracking-wider`}>{focusedProject.statusText}</span>
+                <span className={`${focusedProject.statusStyle} px-2.5 py-1 text-[14px] font-semibold tracking-wider`}>{focusedProject.statusText}</span>
               </div>
             </div>
 
@@ -395,11 +395,11 @@ export function WorkSection() {
                 className="flex items-center justify-between w-full group/btn text-left py-2"
                 data-interactive
               >
-                <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
+                <span className="text-[16px] lg:text-[15px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
                   READ SCREENPLAY EXCERPT
                 </span>
                 <span
-                  className="text-[15px] font-light inline-flex items-center justify-center w-[32px] h-[32px] border rounded-full transition-transform duration-300 group-hover/btn:translate-x-1"
+                  className="text-[17px] font-light inline-flex items-center justify-center w-[36px] h-[36px] border rounded-full transition-transform duration-300 group-hover/btn:translate-x-1"
                   style={{
                     fontFamily: 'var(--font-family-mono)',
                     borderColor: 'var(--border)',
@@ -415,11 +415,11 @@ export function WorkSection() {
                   className="flex items-center justify-between w-full group/btn text-left py-2"
                   data-interactive
                 >
-                  <span className="text-[14px] lg:text-[13px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
+                  <span className="text-[16px] lg:text-[15px] uppercase tracking-[0.15em] font-medium" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text)' }}>
                     {openId === focusedProject.id ? 'CLOSE DEVELOPMENT BACKGROUND' : 'READ DEVELOPMENT BACKGROUND'}
                   </span>
                   <span
-                    className="text-[15px] font-light inline-flex items-center justify-center w-[32px] h-[32px] border rounded-full transition-transform duration-300"
+                    className="text-[17px] font-light inline-flex items-center justify-center w-[36px] h-[36px] border rounded-full transition-transform duration-300"
                     style={{
                       transform: openId === focusedProject.id ? 'rotate(45deg)' : 'none',
                       fontFamily: 'var(--font-family-mono)',
@@ -432,29 +432,29 @@ export function WorkSection() {
               </div>
 
               {openId === focusedProject.id && (
-                <div className="mt-4 space-y-5 max-h-[250px] overflow-y-auto pr-2 custom-scrollbar border-l pl-4" style={{ borderColor: 'var(--border)' }}>
+                <div className="mt-4 space-y-6 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar border-l pl-4" style={{ borderColor: 'var(--border)' }}>
                   {works.find(w => w.id === focusedProject.id)?.trail?.map((point, i) => (
                     <div key={i} className="py-1 animate-fadeIn">
-                      <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.12em] mb-1" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <span className="block text-[16px] lg:text-[15px] uppercase tracking-[0.12em] mb-1" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         {point.label}
                       </span>
                       {point.type === 'question' ? (
-                        <blockquote className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+                        <blockquote className="text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
                           "{point.content}"
                         </blockquote>
                       ) : (
-                        <p className="text-[17px] leading-relaxed text-[var(--text-secondary)]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+                        <p className="text-[19px] sm:text-[20px] leading-relaxed text-[var(--text-secondary)]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
                           {point.content}
                         </p>
                       )}
 
                       {point.pullquote && (
-                        <div className="mt-2 border-l-2 pl-4 py-1" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(247, 249, 250, 0.02)' }}>
-                          <p className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+                        <div className="mt-2 border-l-2 pl-4 py-1.5" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(247, 249, 250, 0.02)' }}>
+                          <p className="text-[20px] sm:text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
                             "{point.pullquote}"
                           </p>
                           {point.pullquoteSource && (
-                            <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.1em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                            <span className="block text-[16px] lg:text-[15px] uppercase tracking-[0.1em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                               — {point.pullquoteSource}
                             </span>
                           )}
@@ -462,7 +462,7 @@ export function WorkSection() {
                       )}
 
                       {point.links && (
-                        <div className="mt-3 flex flex-wrap gap-4 text-[14px] lg:text-[13px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                        <div className="mt-3 flex flex-wrap gap-4 text-[16px] lg:text-[15px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                           {point.links.map((link, linkIdx) => (
                             <a
                               key={linkIdx}
@@ -486,7 +486,7 @@ export function WorkSection() {
 
         {/* Additional Projects Index: Flat Editorial Typography Listing */}
         <span
-          className="block mt-12 mb-4 text-[14px] lg:text-[13px] uppercase tracking-[0.18em] select-none border-b pb-2 text-[var(--text-muted)]"
+          className="block mt-12 mb-4 text-[16px] lg:text-[15px] uppercase tracking-[0.18em] select-none border-b pb-2 text-[var(--text-muted)]"
           style={{ fontFamily: 'var(--font-family-mono)', borderColor: 'var(--border)' }}
         >
           ADDITIONAL PROJECTS
@@ -518,19 +518,19 @@ export function WorkSection() {
               >
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
                   <h4
-                    className="text-[22px] sm:text-[26px] font-normal tracking-tight text-[var(--text)] flex items-center gap-3"
+                    className="text-[26px] sm:text-[30px] font-normal tracking-tight text-[var(--text)] flex items-center gap-3"
                     style={{ fontFamily: 'var(--font-family-serif)' }}
                   >
                     {work.title}
                     {work.placeholder && (
-                      <span className="text-[13px] uppercase tracking-[0.1em] border border-[var(--accent)]/40 px-2 py-[2px] ml-1 align-middle text-[var(--accent)] font-mono">
+                      <span className="text-[14px] uppercase tracking-[0.1em] border border-[var(--accent)]/40 px-2.5 py-[2px] ml-1 align-middle text-[var(--accent)] font-mono">
                         coming 2026
                       </span>
                     )}
                   </h4>
 
                   <span
-                    className="text-[14px] lg:text-[13px] font-normal tracking-[0.1em] text-[var(--text-muted)]"
+                    className="text-[16px] lg:text-[15px] font-normal tracking-[0.1em] text-[var(--text-muted)]"
                     style={{ fontFamily: 'var(--font-family-mono)' }}
                   >
                     {work.date}
@@ -538,7 +538,7 @@ export function WorkSection() {
                 </div>
 
                 <p
-                  className="text-[17px] sm:text-[18px] italic leading-relaxed text-[var(--text-secondary)] mb-4 max-w-[700px]"
+                  className="text-[20px] sm:text-[22px] italic leading-relaxed text-[var(--text-secondary)] mb-4 max-w-[750px]"
                   style={{ fontFamily: 'var(--font-family-serif)' }}
                 >
                   {work.question}
@@ -546,7 +546,7 @@ export function WorkSection() {
 
                 <div className="flex justify-between items-center">
                   <span
-                    className="text-[14px] lg:text-[13px] font-normal tracking-[0.12em] text-[var(--text-muted)]"
+                    className="text-[16px] lg:text-[15px] font-normal tracking-[0.12em] text-[var(--text-muted)]"
                     style={{ fontFamily: 'var(--font-family-mono)' }}
                   >
                     {work.format}
@@ -554,7 +554,7 @@ export function WorkSection() {
 
                   {!work.placeholder && (
                     <span
-                      className={`text-[15px] font-light inline-flex items-center justify-center w-[36px] h-[36px] border rounded-full transition-all duration-[300ms] ${
+                      className={`text-[17px] font-light inline-flex items-center justify-center w-[40px] h-[40px] border rounded-full transition-all duration-[300ms] ${
                         openId === work.id ? 'rotate-45' : ''
                       }`}
                       style={{
@@ -574,10 +574,10 @@ export function WorkSection() {
                   {work.trail.map((point, i) => (
                     <div
                       key={i}
-                      className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-3 sm:gap-6 py-4 border-t first:border-0 border-[var(--border)]"
+                      className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-3 sm:gap-6 py-4 border-t first:border-0 border-[var(--border)]"
                     >
                       <span
-                        className="text-[14px] lg:text-[13px] font-normal tracking-[0.1em] text-[var(--text-muted)] pt-[2px]"
+                        className="text-[16px] lg:text-[15px] font-normal tracking-[0.1em] text-[var(--text-muted)] pt-[2px]"
                         style={{ fontFamily: 'var(--font-family-mono)' }}
                       >
                         {point.label}
@@ -585,12 +585,12 @@ export function WorkSection() {
 
                       <div>
                         {point.pullquote && (
-                          <div className="mb-3 border-l-2 pl-4 py-1" style={{ borderColor: 'var(--border-solid)' }}>
-                            <p className="text-[17px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+                          <div className="mb-3 border-l-2 pl-4 py-1.5" style={{ borderColor: 'var(--border-solid)' }}>
+                            <p className="text-[20px] sm:text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
                               "{point.pullquote}"
                             </p>
                             {point.pullquoteSource && (
-                              <span className="block text-[14px] lg:text-[13px] uppercase tracking-[0.08em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                              <span className="block text-[16px] lg:text-[15px] uppercase tracking-[0.08em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                                 — {point.pullquoteSource}
                               </span>
                             )}
@@ -598,7 +598,7 @@ export function WorkSection() {
                         )}
 
                         <p
-                          className={`text-[17px] leading-relaxed ${
+                          className={`text-[19px] sm:text-[20px] leading-relaxed ${
                             point.type === 'question' ? 'italic text-[var(--text)] font-serif' : 'text-[var(--text-secondary)] font-serif'
                           }`}
                         >
@@ -606,7 +606,7 @@ export function WorkSection() {
                         </p>
 
                         {point.links && (
-                          <div className="mt-3 flex flex-wrap gap-4 text-[14px] lg:text-[13px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
+                          <div className="mt-3 flex flex-wrap gap-4 text-[16px] lg:text-[15px]" style={{ fontFamily: 'var(--font-family-mono)' }}>
                             {point.links.map((link, j) => (
                               <a
                                 key={j}
@@ -623,7 +623,7 @@ export function WorkSection() {
 
                         {point.status && (
                           <span
-                            className="inline-block text-[14px] lg:text-[13px] font-normal tracking-[0.1em] border px-2 py-1 mt-3 cursor-pointer transition-colors bg-[var(--text)] text-[var(--bg)] hover:opacity-90 select-none"
+                            className="inline-block text-[16px] lg:text-[15px] font-normal tracking-[0.1em] border px-2.5 py-1 mt-3 cursor-pointer transition-colors bg-[var(--text)] text-[var(--bg)] hover:opacity-90 select-none"
                             style={{ fontFamily: 'var(--font-family-mono)' }}
                             onClick={() => {
                               if (point.status === 'active 2026') {

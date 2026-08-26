@@ -19,7 +19,7 @@ export function AboutSection() {
           <div className="lg:col-span-7 flex flex-col justify-between h-full reveal">
             <div className="space-y-6 max-w-[640px]">
               <p 
-                className="text-[19px] sm:text-[21px] md:text-[23px] not-italic leading-[1.45] tracking-tight text-white/95 font-normal" 
+                className="text-[23px] sm:text-[25px] md:text-[27px] not-italic leading-[1.45] tracking-tight text-white/95 font-normal" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 Most briefs tell me what to make.<br />
@@ -27,7 +27,7 @@ export function AboutSection() {
               </p>
 
               <p 
-                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
+                className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 I work across advertising, branded films, startups, and feature scripts.<br />
@@ -35,14 +35,14 @@ export function AboutSection() {
               </p>
 
               <p 
-                className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
+                className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 I work best with people who ask good questions before paying for expensive answers. If that’s your table, save me a chair.
               </p>
 
               <p 
-                className="text-[15px] sm:text-[16px] leading-[1.7] text-white/60 font-normal pt-2" 
+                className="text-[19px] sm:text-[20px] leading-[1.7] text-white/60 font-normal pt-2" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 I am based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
@@ -51,7 +51,7 @@ export function AboutSection() {
 
             {/* Social Links placed cleanly underneath the biography */}
             <div className="mt-8 md:mt-12 pt-6 border-t border-white/10">
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-[16px] md:text-[14px] select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
+              <div className="flex flex-wrap gap-x-6 gap-y-3 text-[18px] md:text-[16px] select-none" style={{ fontFamily: 'var(--font-family-mono)' }}>
                 <a
                   href="https://www.linkedin.com/in/ivan-lewis/"
                   target="_blank"
@@ -134,9 +134,9 @@ export function AboutSection() {
               />
             </div>
  
-            {/* Micro-editorial description (Guaranteed >= 14px on mobile) */}
+            {/* Micro-editorial description */}
             <div 
-              className="mt-3 flex items-center justify-end text-[14px] lg:text-[13px] uppercase tracking-[0.14em] text-white/40 select-none" 
+              className="mt-3 flex items-center justify-end text-[16px] lg:text-[15px] uppercase tracking-[0.14em] text-white/40 select-none" 
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               <span>25.2702° N, 91.7317° E</span>

@@ -20,7 +20,7 @@ export function InteractiveConnectSection() {
         {/* Monospaced Header */}
         <div className="w-full py-3 mb-8">
           <span 
-            className="text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-normal" 
+            className="text-[15px] sm:text-[16px] uppercase tracking-[0.2em] font-normal" 
             style={{ fontFamily: 'var(--font-family-mono)', color: '#888888' }}
           >
             CONTACT &amp; CONVERSATION
@@ -39,13 +39,13 @@ export function InteractiveConnectSection() {
           >
             <div>
               <h3 
-                className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
+                className="text-[24px] sm:text-[26px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 {links.call.title}
               </h3>
               <p 
-                className="text-[14px] leading-[1.6] mb-8 text-[#AAAAAA]" 
+                className="text-[18px] leading-[1.6] mb-8 text-[#AAAAAA]" 
                 style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
               >
                 {links.call.description}
@@ -53,7 +53,7 @@ export function InteractiveConnectSection() {
             </div>
             
             <div
-              className="w-full inline-flex items-center justify-center text-[12px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
+              className="w-full inline-flex items-center justify-center text-[15px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
             >
               {links.call.cta}
             </div>
@@ -66,13 +66,13 @@ export function InteractiveConnectSection() {
           >
             <div>
               <h3 
-                className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
+                className="text-[24px] sm:text-[26px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 {links.email.title}
               </h3>
               <p 
-                className="text-[14px] leading-[1.6] mb-8 text-[#AAAAAA]" 
+                className="text-[18px] leading-[1.6] mb-8 text-[#AAAAAA]" 
                 style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
               >
                 {links.email.description}
@@ -80,7 +80,7 @@ export function InteractiveConnectSection() {
             </div>
             
             <div
-              className="w-full inline-flex items-center justify-center text-[12px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
+              className="w-full inline-flex items-center justify-center text-[15px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
             >
               {links.email.cta}
             </div>

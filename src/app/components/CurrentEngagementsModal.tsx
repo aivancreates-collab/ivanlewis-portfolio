@@ -67,10 +67,10 @@ export function CurrentEngagementsModal({ isOpen, onClose }: CurrentEngagementsM
         {/* Header bar */}
         <div className="flex items-center justify-between px-6 py-4 border-b z-20" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)' }}>
           <div className="flex flex-col">
-            <span className="text-[10px] tracking-[0.2em] font-medium text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+            <span className="text-[13px] tracking-[0.2em] font-medium text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
               ACTIVE ENGAGEMENTS // CALENDAR YEAR 2026
             </span>
-            <span className="text-[16px] font-normal text-text" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+            <span className="text-[20px] font-normal text-text" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
               Three Clients. Three Objectives.
             </span>
           </div>
@@ -92,10 +92,10 @@ export function CurrentEngagementsModal({ isOpen, onClose }: CurrentEngagementsM
             
             {/* Introductory Statement */}
             <div className="border-b pb-8 mb-8" style={{ borderColor: 'var(--border)' }}>
-              <p className="text-[16px] italic leading-[1.65] text-text-secondary" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}>
+              <p className="text-[20px] sm:text-[22px] italic leading-[1.65] text-text-secondary" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text-secondary)' }}>
                 "Every brand problem is a story problem. I work with founders, directors, and creative bureaus to articulate what they stand for before they start speaking to the world."
               </p>
-              <span className="block mt-4 text-[10px] tracking-[0.15em] uppercase text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+              <span className="block mt-4 text-[13px] tracking-[0.15em] uppercase text-text-muted" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                 — IVAN LEWIS, NARRATIVE ADVISORY
               </span>
             </div>
@@ -108,13 +108,13 @@ export function CurrentEngagementsModal({ isOpen, onClose }: CurrentEngagementsM
                     
                     {/* Left details pane */}
                     <div className="space-y-3">
-                      <span className="inline-block text-[10px] tracking-[0.12em] font-bold" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <span className="inline-block text-[13px] tracking-[0.12em] font-bold" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         0{idx + 1} // {eng.location}
                       </span>
-                      <h3 className="text-[18px] font-medium tracking-tight" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+                      <h3 className="text-[22px] font-medium tracking-tight" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                         {eng.client}
                       </h3>
-                      <div className="space-y-1 text-[11px] uppercase tracking-wider" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
+                      <div className="space-y-1 text-[14px] uppercase tracking-wider" style={{ fontFamily: 'var(--font-family-mono)', color: 'var(--text-muted)' }}>
                         <div className="flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
                           <span className="font-medium" style={{ color: 'var(--text)' }}>{eng.status}</span>
@@ -125,10 +125,10 @@ export function CurrentEngagementsModal({ isOpen, onClose }: CurrentEngagementsM
 
                     {/* Right description pane */}
                     <div className="space-y-4">
-                      <h4 className="text-[15px] font-medium flex items-center gap-1.5" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
+                      <h4 className="text-[19px] font-medium flex items-center gap-1.5" style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--text)' }}>
                         {eng.project} <ArrowUpRight className="w-4 h-4 transition-opacity duration-300 opacity-0 group-hover:opacity-100" style={{ color: 'var(--text-muted)' }} />
                       </h4>
-                      <p className="text-[14px] leading-[1.65]" style={{ color: 'var(--text-secondary)' }}>
+                      <p className="text-[17px] sm:text-[18px] leading-[1.65]" style={{ color: 'var(--text-secondary)' }}>
                         {eng.desc}
                       </p>
                     </div>
@@ -142,7 +142,7 @@ export function CurrentEngagementsModal({ isOpen, onClose }: CurrentEngagementsM
         </div>
 
         {/* Footer bar */}
-        <div className="px-6 py-4 border-t text-center select-none text-[10px] tracking-[0.12em]" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', color: 'var(--text-muted)', fontFamily: 'var(--font-family-mono)' }}>
+        <div className="px-6 py-4 border-t text-center select-none text-[12px] tracking-[0.12em]" style={{ borderColor: 'var(--border)', backgroundColor: 'var(--bg-raised)', color: 'var(--text-muted)', fontFamily: 'var(--font-family-mono)' }}>
           PRESS <span className="font-semibold text-text" style={{ color: 'var(--text)' }}>ESC</span> OR CLICK OUTSIDE TO RETURN
         </div>
       </div>
