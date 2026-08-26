@@ -22,7 +22,7 @@ const cleanKey = (key: string) => {
 
 async function startServer() {
   const app = express();
-  const PORT = Number(process.env.PORT) || 3000;
+  const PORT = 3000;
 
   // JSON parsing middleware
   app.use(express.json());
@@ -127,13 +127,11 @@ async function startServer() {
     }
   });
 
-  // Vite middleware for development vs static file serving for production
-  const isProduction = 
-    process.env.NODE_ENV === "production" || 
-    (typeof __filename !== 'undefined' && __filename.endsWith('.cjs')) ||
-    (!fs.existsSync(path.join(process.cwd(), 'src')) && fs.existsSync(path.join(process.cwd(), 'dist', 'index.html')));
+  const distPath = path.join(process.cwd(), 'dist');
+  const hasDist = fs.existsSync(path.join(distPath, 'index.html'));
 
-  if (!isProduction) {
+  // Vite middleware for development
+  if (process.env.NODE_ENV !== "production" && !hasDist) {
     const { createServer: createViteServer } = await import("vite");
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -141,14 +139,6 @@ async function startServer() {
     });
     app.use(vite.middlewares);
   } else {
-    const candidatePaths = [
-      path.join(process.cwd(), 'dist'),
-      path.resolve(__dirname),
-      path.join(__dirname, '..', 'dist'),
-      process.cwd()
-    ];
-    const distPath = candidatePaths.find(p => fs.existsSync(path.join(p, 'index.html'))) || path.join(process.cwd(), 'dist');
-    
     app.use(express.static(distPath));
     app.get('*', (req, res) => {
       const indexPath = path.join(distPath, 'index.html');

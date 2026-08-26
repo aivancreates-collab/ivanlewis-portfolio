@@ -4,12 +4,11 @@ import { Grain } from './components/Grain';
 import { Navigation } from './components/Navigation';
 import { FloatingNav } from './components/FloatingNav';
 import { Hero } from './components/Hero';
-import { QuotesTicker } from './components/QuotesTicker';
-import { PhilosophySection } from './components/PhilosophySection';
+import { ReelSection } from './components/ReelSection';
+import { ThinkingPreviewSection } from './components/ThinkingPreviewSection';
 import { WorkSection } from './components/WorkSection';
 import { ServicesSection } from './components/ServicesSection';
 import { BrandTickerSection } from './components/BrandTickerSection';
-import { ReelSection } from './components/ReelSection';
 import { AboutSection } from './components/AboutSection';
 import { InteractiveConnectSection } from './components/InteractiveConnectSection';
 
@@ -60,7 +59,7 @@ export default function App() {
     // Section-aware nav theme tracker using IntersectionObserver
     const sectionThemes: Record<string, 'dark' | 'light'> = {
       reel: 'dark',
-      philosophy: 'light',
+      thinking: 'light',
       studio: 'light',
       services: 'light',
       brands: 'dark',
@@ -86,7 +85,7 @@ export default function App() {
       }
     );
 
-    const sections = ['reel', 'philosophy', 'studio', 'services', 'brands', 'about', 'connect'];
+    const sections = ['reel', 'thinking', 'studio', 'services', 'brands', 'about', 'connect'];
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) sectionObserver.observe(el);
@@ -119,22 +118,28 @@ export default function App() {
       <Navigation scrolled={scrolled} theme={navTheme} />
       <FloatingNav />
 
+      {/* 1. HERO */}
       <Hero />
 
-      <QuotesTicker />
-
+      {/* 2. SELECTED WORK / REEL */}
       <ReelSection />
 
-      <PhilosophySection />
+      {/* 3. AUTHORED THINKING / DEVELOPMENT LOGIC PREVIEW */}
+      <ThinkingPreviewSection />
 
+      {/* 4. SELECTED PROJECTS / STUDIO */}
       <WorkSection />
 
+      {/* 5. WHAT I DO */}
       <ServicesSection />
 
+      {/* 6. BRAND CREDIBILITY */}
       <BrandTickerSection />
 
+      {/* 7. ABOUT */}
       <AboutSection />
 
+      {/* 8. CONTACT */}
       <InteractiveConnectSection />
 
       <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-xs flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>

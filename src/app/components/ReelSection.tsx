@@ -97,16 +97,15 @@ export function ReelSection() {
         {/* Section Header */}
         <div className="reveal text-center max-w-[850px] mx-auto">
           <h2
-            className="text-[26px] sm:text-[36px] md:text-[44px] leading-[1.18] font-normal tracking-[-0.01em] text-white/95 uppercase text-balance"
+            className="text-[24px] sm:text-[32px] md:text-[38px] leading-[1.2] font-normal tracking-[-0.01em] text-white/95 uppercase text-balance"
             style={{ fontFamily: 'var(--font-family-serif)' }}
           >
-            TWO WAYS OF MAKING.<br />
-            <span className="italic text-white/75">ONE POINT OF VIEW.</span>
+            Commercial Work
           </h2>
         </div>
 
-        {/* 2 Equal Sized Video Panels - Side-by-Side on Desktop & Tablet, Stacked on Mobile */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 items-start">
+        {/* Focused Single Commercial Showreel Container (balanced, restrained width) */}
+        <div className="max-w-[780px] mx-auto">
           {/* Reel Block 1 */}
           <div className="reveal w-full">
             <div
@@ -149,99 +148,27 @@ export function ReelSection() {
             </div>
 
             {/* Showreel 1 Details */}
-            <div className="mt-5 sm:mt-6 px-1 space-y-2">
-              <div
-                className="text-[11px] sm:text-[12px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)]"
+            <div className="mt-4 sm:mt-5 px-1 space-y-1.5 text-center sm:text-left flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
+              <div>
+                <h3
+                  className="text-[18px] sm:text-[20px] font-normal text-white leading-[1.3] tracking-tight"
+                  style={{ fontFamily: 'var(--font-family-serif)' }}
+                >
+                  Concept. Script. Creative Direction.
+                </h3>
+                <p
+                  className="text-[12px] sm:text-[13px] text-[#A0A0A0] leading-[1.5] mt-1 max-w-[540px]"
+                  style={{ fontFamily: 'var(--font-family-sans)' }}
+                >
+                  A selection of films I have conceptualised, written and directed across live action, CG and VFX — for various brands, categories and audiences.
+                </p>
+              </div>
+              <span
+                className="text-[11px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)] shrink-0 self-start"
                 style={{ fontFamily: 'var(--font-family-mono)' }}
               >
-                SELECTED COMMERCIAL WORK
-              </div>
-              <h3
-                className="text-[20px] sm:text-[22px] md:text-[24px] font-normal text-white leading-[1.25] tracking-tight"
-                style={{ fontFamily: 'var(--font-family-serif)' }}
-              >
-                Concept. Script. Creative Direction.
-              </h3>
-              <p
-                className="text-[12px] sm:text-[13px] lg:text-[14px] text-[#A0A0A0] leading-[1.6]"
-                style={{ fontFamily: 'var(--font-family-sans)' }}
-              >
-                A selection of films created across live action, CG and VFX - for different brands, categories and audiences.
-              </p>
-            </div>
-          </div>
-
-          {/* Reel Block 2 */}
-          <div className="reveal w-full">
-            <div
-              className="relative w-full aspect-video overflow-hidden border p-1 rounded-sm group/player"
-              style={{ backgroundColor: 'var(--dark-surface)', borderColor: 'rgba(247, 249, 250, 0.12)' }}
-            >
-              <video
-                ref={videoRef2}
-                autoPlay
-                loop
-                muted={isMuted2}
-                playsInline
-                poster={thumbnail2}
-                src={shouldLoad ? reelVideo2 : undefined}
-                preload={shouldLoad ? "auto" : "none"}
-                className="w-full h-full object-cover"
-                style={{
-                  filter: 'saturate(0.6)',
-                }}
-              />
-
-              {/* Uploading Soon Badge Overlay */}
-              <div className="absolute top-4 left-4 z-20 pointer-events-none">
-                <span
-                  className="inline-flex items-center gap-1.5 px-3 py-1 bg-black/85 backdrop-blur-md border border-white/20 text-[11px] font-semibold tracking-[0.16em] text-[var(--accent-warm)] uppercase shadow-lg"
-                  style={{ fontFamily: 'var(--font-family-mono)' }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent-warm)] animate-pulse" />
-                  Uploading soon!
-                </span>
-              </div>
-
-              {/* Custom Minimal Controls Overlay */}
-              <div className="absolute top-4 right-4 z-20 flex gap-2 opacity-0 group-hover/player:opacity-100 focus-within:opacity-100 transition-opacity duration-300">
-                <button
-                  onClick={togglePlay2}
-                  className="w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-black/80 text-white rounded-none border border-white/10 transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-                  aria-label={isPlaying2 ? "Pause Video" : "Play Video"}
-                >
-                  {isPlaying2 ? <Pause size={14} /> : <Play size={14} />}
-                </button>
-                <button
-                  onClick={toggleMute2}
-                  className="w-9 h-9 flex items-center justify-center bg-black/60 hover:bg-black/80 text-white rounded-none border border-white/10 transition-colors focus:outline-none focus:ring-1 focus:ring-[var(--accent)]"
-                  aria-label={isMuted2 ? "Unmute Video" : "Mute Video"}
-                >
-                  {isMuted2 ? <VolumeX size={14} /> : <Volume2 size={14} />}
-                </button>
-              </div>
-            </div>
-
-            {/* Showreel 2 Details */}
-            <div className="mt-5 sm:mt-6 px-1 space-y-2">
-              <div
-                className="text-[11px] sm:text-[12px] uppercase font-semibold tracking-[0.2em] text-[var(--accent-warm)]"
-                style={{ fontFamily: 'var(--font-family-mono)' }}
-              >
-                GEN AI FILM
-              </div>
-              <h3
-                className="text-[20px] sm:text-[22px] md:text-[24px] font-normal text-white leading-[1.25] tracking-tight"
-                style={{ fontFamily: 'var(--font-family-serif)' }}
-              >
-                From idea to final frame.
-              </h3>
-              <p
-                className="text-[12px] sm:text-[13px] lg:text-[14px] text-[#A0A0A0] leading-[1.6]"
-                style={{ fontFamily: 'var(--font-family-sans)' }}
-              >
-                A commercial conceptualised, scripted, generated, directed and edited by me with generative AI.
-              </p>
+                LIVE ACTION · CG · VFX
+              </span>
             </div>
           </div>
         </div>

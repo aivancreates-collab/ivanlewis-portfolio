@@ -22,28 +22,30 @@ export function AboutSection() {
                 className="text-[19px] sm:text-[21px] md:text-[23px] not-italic leading-[1.45] tracking-tight text-white/95 font-normal" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                While most creative work is judged by how well it answers the brief, far less time is spent asking whether the brief contains a question worth answering.
+                Most briefs tell me what to make.<br />
+                I usually start by asking why we’re making it.
               </p>
 
               <p 
                 className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I’ve spent years moving between advertising, branded films, startups and feature scripts. More often than not, the solution lies in answering these questions and finding what needs to be said before deciding how to say it. This is critical in turning briefs into campaigns, thoughts into films and modest budgets into ideas that don’t look modest.
+                I work across advertising, branded films, startups, and feature scripts.<br />
+                Different work, same habit: find the idea inside the brief, then turn it into a campaign, a film, an IP, or a launch. My ambition is often bigger than the budget. I like that.
               </p>
 
               <p 
                 className="text-[16px] sm:text-[17px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                The aim isn’t to make more things. It’s to make something harder to ignore.
+                I work best with people who ask good questions before paying for expensive answers. If that’s your table, save me a chair.
               </p>
 
               <p 
                 className="text-[15px] sm:text-[16px] leading-[1.7] text-white/60 font-normal pt-2" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                Based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
+                I am based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
               </p>
             </div>
 

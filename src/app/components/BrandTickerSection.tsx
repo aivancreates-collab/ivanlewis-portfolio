@@ -281,39 +281,27 @@ export function BrandTickerSection() {
       `}</style>
 
       {/* Editorial Header Tag */}
-      <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16 mb-8 text-center sm:text-left">
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16 mb-6 text-center sm:text-left">
         <span 
-          className="inline-block text-[11px] uppercase tracking-[0.25em] font-normal"
+          className="inline-block text-[11px] uppercase tracking-[0.2em] font-normal"
           style={{ fontFamily: 'var(--font-family-mono)', color: '#888888' }}
         >
-          BRAND EXPERIENCE &amp; COLLABORATIONS
+          SELECTED CLIENTS &amp; COLLABORATIONS
         </span>
       </div>
 
-      {/* Fade Edge Gradient Overlays for Seamless Fading */}
-      <div 
-        className="absolute top-0 bottom-0 left-0 w-20 sm:w-36 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to right, #0A0A0A 15%, transparent 100%)' }}
-      />
-      <div 
-        className="absolute top-0 bottom-0 right-0 w-20 sm:w-36 pointer-events-none z-10"
-        style={{ background: 'linear-gradient(to left, #0A0A0A 15%, transparent 100%)' }}
-      />
-
-      {/* Ticker Container */}
-      <div 
-        className="relative z-10 w-full overflow-hidden py-3"
-        tabIndex={0}
-        aria-label="Monochrome brand experience logo ticker. Hover to pause."
-      >
-        <div className="animate-brand-marquee group-hover:[animation-play-state:paused] group-focus-within:[animation-play-state:paused] items-center">
-          {brandLoop.map((brand, idx) => (
+      {/* Restrained Logo Grid/Row with clean modular metadata support */}
+      <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-8 items-center pt-2">
+          {brands.map((brand, idx) => (
             <div
               key={idx}
-              className="flex items-center justify-center px-8 sm:px-12 opacity-60 hover:opacity-100 transition-all duration-300 text-white cursor-pointer transform hover:scale-105"
+              className="flex flex-col items-center justify-center p-2 opacity-50 hover:opacity-80 transition-opacity duration-200 text-white"
               title={brand.name}
             >
-              {brand.svg}
+              <div className="h-7 flex items-center justify-center">
+                {brand.svg}
+              </div>
             </div>
           ))}
         </div>

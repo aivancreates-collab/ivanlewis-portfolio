@@ -46,7 +46,7 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
 
   const navItems = [
     { label: 'Work', href: '#reel' },
-    { label: 'Thinking', href: '#philosophy' },
+    { label: 'Thinking', href: '#thinking' },
     { label: 'Studio', href: '#studio' },
     { label: 'What I Do', href: '#services' },
     { label: 'About', href: '#about' },

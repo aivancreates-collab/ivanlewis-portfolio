@@ -2,41 +2,40 @@ export function InteractiveConnectSection() {
   const links = {
     call: {
       url: 'https://calendly.com/ivanlewis/30min',
-      cta: 'Launch Calendar Sync ↗',
+      cta: 'Book a 30-Min Conversation ↗',
       title: 'LET’S TALK',
-      description: 'For projects, ideas, and problems worth a conversation.',
+      description: 'For projects, ideas, scripts, and problems worth a good conversation.',
     },
-    enquiry: {
-      url: 'https://docs.google.com/forms/d/1a9raKLvtxup6TMqBxU0cJJDh-tk7LHVs3XjM0q6cUTI/viewform',
-      cta: 'Get to the Brief! ↗',
-      title: 'BRIEF ME',
-      description: 'For something you already know you want to make.',
+    email: {
+      url: 'mailto:thelastgoodtaste@gmail.com',
+      cta: 'Send ↗',
+      title: 'DIRECT EMAIL',
+      description: 'Send a note, a thought, a brief, or a draft directly to my inbox.',
     },
   };
 
   return (
     <section className="py-16 sm:py-20 md:py-24" id="connect" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
-        {/* Prominent Monospaced Header Banner */}
-        <div className="w-full py-3 text-center mb-12">
+        {/* Monospaced Header */}
+        <div className="w-full py-3 mb-8">
           <span 
-            className="text-[11px] sm:text-[12px] tracking-[0.15em] font-normal" 
-            style={{ fontFamily: 'var(--font-family-mono)', color: '#A0A0A0' }}
+            className="text-[11px] sm:text-[12px] uppercase tracking-[0.2em] font-normal" 
+            style={{ fontFamily: 'var(--font-family-mono)', color: '#888888' }}
           >
-            For collaborations
+            CONTACT &amp; CONVERSATION
           </span>
         </div>
 
-        {/* Two-Tiered Decision Matrix Grid (1fr 1fr on desktop, 1fr on mobile) */}
+        {/* Direct Two-Card Contact Options */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
           
-          {/* Card A */}
+          {/* Card A: Calendly */}
           <a
             href={links.call.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="clickable-card p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[300px] no-underline group"
-            style={{ borderColor: '#2A2A2A' }}
+            className="p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[260px] no-underline group border border-[#2A2A2A] hover:border-white transition-colors duration-200 bg-[#121212]"
           >
             <div>
               <h3 
@@ -46,51 +45,44 @@ export function InteractiveConnectSection() {
                 {links.call.title}
               </h3>
               <p 
-                className="text-[14px] sm:text-[15px] leading-[1.6] mb-8" 
-                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+                className="text-[14px] leading-[1.6] mb-8 text-[#AAAAAA]" 
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
               >
                 {links.call.description}
               </p>
             </div>
             
-            {/* Ghost Button style */}
             <div
-              className="w-full inline-flex items-center justify-center text-[13px] uppercase tracking-[0.12em] px-6 py-4 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#2A2A2A] text-white bg-transparent group-hover:border-white"
-              style={{ borderRadius: '0px' }}
+              className="w-full inline-flex items-center justify-center text-[12px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
             >
               {links.call.cta}
             </div>
           </a>
 
-          {/* Card B */}
+          {/* Card B: Direct Email */}
           <a
-            href={links.enquiry.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="clickable-card p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[300px] no-underline group"
-            style={{ borderColor: '#2A2A2A' }}
+            href={links.email.url}
+            className="p-8 sm:p-10 flex flex-col justify-between h-auto min-h-[260px] no-underline group border border-[#2A2A2A] hover:border-white transition-colors duration-200 bg-[#121212]"
           >
             <div>
               <h3 
                 className="text-[20px] sm:text-[22px] font-normal leading-[1.3] mb-3 text-white tracking-tight" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                {links.enquiry.title}
+                {links.email.title}
               </h3>
               <p 
-                className="text-[14px] sm:text-[15px] leading-[1.6] mb-8" 
-                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+                className="text-[14px] leading-[1.6] mb-8 text-[#AAAAAA]" 
+                style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}
               >
-                {links.enquiry.description}
+                {links.email.description}
               </p>
             </div>
             
-            {/* Solid White high-contrast button style */}
             <div
-              className="w-full inline-flex items-center justify-center text-[13px] uppercase tracking-[0.12em] px-6 py-4 font-mono font-normal select-none no-underline transition-all duration-300 bg-white text-[#0D0D0D] border border-white hover:bg-opacity-90"
-              style={{ borderRadius: '0px' }}
+              className="w-full inline-flex items-center justify-center text-[12px] uppercase tracking-[0.14em] px-6 py-3.5 font-mono font-normal select-none no-underline transition-all duration-300 border border-[#333333] text-white group-hover:border-white bg-transparent"
             >
-              {links.enquiry.cta}
+              {links.email.cta}
             </div>
           </a>
 

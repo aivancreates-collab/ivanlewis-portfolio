@@ -81,22 +81,11 @@ export function Hero() {
 
       <div className="relative z-10 text-center max-w-4xl px-6 pb-16 md:pb-28 md:px-12 w-full flex flex-col justify-end md:justify-center h-full md:h-auto select-none">
         <h1 
-          className="text-[32px] sm:text-[44px] md:text-[52px] lg:text-[62px] leading-[1.15] font-normal not-italic tracking-[-0.02em] mb-8 sm:mb-12 text-[var(--text)] text-balance" 
+          className="text-[28px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.2] font-normal not-italic tracking-[-0.02em] text-[var(--text)] text-balance" 
           style={{ fontFamily: 'var(--font-family-serif)' }}
         >
-          Tools change.
-          <br />
-          The <span className="italic">human question</span> does not.
+          From pencil to prompt, the work still begins with <span className="italic">a question</span>.
         </h1>
-
-        <div className="flex justify-center items-center mt-6 sm:mt-8">
-          <a
-            href="#connect"
-            className="high-contrast-cta group"
-          >
-            Let's Work <span className="ml-1.5 transition-transform duration-300 transform group-hover:translate-x-1">→</span>
-          </a>
-        </div>
       </div>
     </section>
   );

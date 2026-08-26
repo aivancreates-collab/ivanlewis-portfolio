@@ -152,14 +152,6 @@ const works: WorkEntry[] = [
       },
     ],
   },
-  {
-    id: 'e4',
-    title: 'Something is forming.',
-    question: 'Not ready to be named yet.',
-    format: '—',
-    date: '—',
-    placeholder: true,
-  },
 ];
 
 interface FeaturedProjectDetails {

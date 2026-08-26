@@ -60,29 +60,21 @@ export function ServicesSection() {
     <section className="py-16 sm:py-20 md:py-24" style={{ backgroundColor: 'var(--bg-primary)' }} id="services">
       <div className="max-w-[1000px] mx-auto px-5 sm:px-10 lg:px-16">
         {/* Editorial Section Header */}
-        <div className="mb-10 md:mb-12">
+        <div className="mb-8">
           <span
-            className="block text-[14px] lg:text-[13px] uppercase font-normal tracking-[0.16em] text-[var(--text-muted)]"
+            className="block text-[11px] sm:text-[12px] uppercase font-normal tracking-[0.2em] text-[var(--text-muted)]"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             WHAT I DO
           </span>
-          <p className="text-[17px] sm:text-[18px] italic mt-1.5 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
+          <p className="text-[15px] sm:text-[16px] italic mt-1 text-[var(--text-secondary)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
             available, selectively
           </p>
         </div>
 
-        <div 
-          className="text-[18px] sm:text-[20px] leading-[1.65] text-[var(--text-secondary)] mb-12 md:mb-16 max-w-[700px] reveal" 
-          style={{ fontFamily: 'var(--font-family-serif)' }}
-        >
-          Strategy, writing, direction, film. The work changes. The question doesn’t.
-        </div>
-
-        {/* Asymmetric Numbered Index Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+        {/* Quiet, Single-Tier Discipline Index */}
+        <div className="border-t border-b border-[#222222] divide-y divide-[#222222] reveal">
           {services.map((service, i) => {
-            const isAdvisory = service.isFlagship;
             const isExpanded = !!expanded[i];
 
             return (
@@ -99,68 +91,39 @@ export function ServicesSection() {
                     toggleCard(i);
                   }
                 }}
-                className={`reveal flex flex-col justify-between relative transition-all duration-300 border rounded-none text-left cursor-pointer select-none group ${
-                  isAdvisory 
-                    ? 'md:col-span-2' 
-                    : ''
-                }`}
-                style={{
-                  backgroundColor: isAdvisory ? '#1A1A1A' : '#141414',
-                  borderColor: isExpanded ? '#FFFFFF' : isAdvisory ? '#444444' : '#282828',
-                  padding: '2rem',
-                }}
-                onMouseEnter={(e) => {
-                  if (!isExpanded) e.currentTarget.style.borderColor = '#FFFFFF';
-                }}
-                onMouseLeave={(e) => {
-                  if (!isExpanded) e.currentTarget.style.borderColor = isAdvisory ? '#444444' : '#282828';
-                }}
+                className="py-5 px-1 sm:px-2 transition-colors duration-200 cursor-pointer select-none group"
               >
-                {/* Header Row with Index and Category Badge */}
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-6">
+                {/* Header Row */}
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <div className="flex items-baseline gap-3">
                     <span 
-                      className="text-[12px] sm:text-[11px] uppercase tracking-[0.12em] font-normal" 
-                      style={{ fontFamily: 'var(--font-family-mono)', color: isExpanded ? '#FFFFFF' : '#888888' }}
+                      className="text-[11px] font-mono text-[var(--text-muted)] w-6 shrink-0"
+                      style={{ fontFamily: 'var(--font-family-mono)' }}
                     >
-                      {service.index} // {service.title.toUpperCase()}
+                      {service.index}
                     </span>
-                    
-                    <div className="flex items-center gap-2.5">
-                      <span 
-                        className="text-[10px] uppercase font-mono tracking-wider border text-white"
-                        style={{ 
-                          borderColor: '#333333', 
-                          padding: '4px 8px',
-                          lineHeight: '1',
-                          borderRadius: '0px',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        {service.badge}
-                      </span>
-
-                      <span 
-                        className="w-6 h-6 rounded-full flex items-center justify-center transition-all duration-300 border border-white/10 text-white/60 group-hover:text-white group-hover:border-white/30"
-                        style={{
-                          backgroundColor: isExpanded ? '#2A2A2A' : '#1E1E1E',
-                        }}
-                      >
-                        {isExpanded ? <Minus size={12} /> : <Plus size={12} />}
-                      </span>
-                    </div>
+                    <h3 
+                      className="text-[17px] sm:text-[18px] text-white font-normal leading-[1.3] group-hover:text-[var(--accent-warm)] transition-colors"
+                      style={{ fontFamily: 'var(--font-family-serif)' }}
+                    >
+                      {service.title}
+                    </h3>
                   </div>
 
-                  {/* Headline / Hook */}
-                  <h3 
-                    className="text-[18px] sm:text-[19px] text-white font-normal leading-[1.4] italic"
-                    style={{ fontFamily: 'var(--font-family-serif)' }}
-                  >
-                    {service.hook}
-                  </h3>
+                  <div className="flex items-center gap-3 sm:gap-4 self-start sm:self-auto pl-9 sm:pl-0">
+                    <span 
+                      className="text-[10px] uppercase font-mono tracking-wider text-[var(--text-muted)] border border-[#2A2A2A] px-2 py-0.5"
+                      style={{ fontFamily: 'var(--font-family-mono)' }}
+                    >
+                      {service.badge}
+                    </span>
+                    <span className="text-[12px] font-mono text-[var(--text-muted)] group-hover:text-white transition-colors">
+                      {isExpanded ? '—' : '+'}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Collapsible Details: Description + CTA */}
+                {/* Collapsible Details */}
                 <AnimatePresence initial={false}>
                   {isExpanded && (
                     <motion.div
@@ -168,41 +131,36 @@ export function ServicesSection() {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: 'auto' }}
                       exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                      transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                       onClick={(e) => e.stopPropagation()}
                     >
-                      <div className="pt-5 space-y-5">
+                      <div className="pt-4 pl-9 pr-2 space-y-3">
                         <p 
-                          className="text-[14px] sm:text-[15px] leading-[1.65]"
-                          style={{ fontFamily: 'Plus Jakarta Sans, sans-serif', color: '#CCCCCC' }}
+                          className="text-[14px] text-white/90 italic font-normal"
+                          style={{ fontFamily: 'var(--font-family-serif)' }}
+                        >
+                          "{service.hook}"
+                        </p>
+                        <p 
+                          className="text-[13px] sm:text-[14px] leading-[1.65] text-[#AAAAAA]"
+                          style={{ fontFamily: 'var(--font-family-sans)' }}
                         >
                           {service.description}
                         </p>
-
-                        {/* Card Footer with CTA */}
-                        <div className="pt-4 border-t" style={{ borderColor: isAdvisory ? '#444444' : '#282828' }}>
+                        <div className="pt-2">
                           <a
                             href="#connect"
-                            className="text-[13px] uppercase tracking-[0.12em] font-normal text-[var(--accent-warm)] hover:text-white border-b border-[var(--accent-warm)]/30 hover:border-white pb-0.5 transition-all duration-300 inline-flex items-center gap-1 group/cta"
+                            className="text-[12px] uppercase tracking-[0.14em] text-[var(--accent-warm)] hover:text-white transition-colors inline-flex items-center gap-1 font-mono"
                             style={{ fontFamily: 'var(--font-family-mono)' }}
                           >
-                            {isAdvisory ? 'Inquire' : 'Connect'}{' '}
-                            <ArrowRight size={13} className="inline-block transform transition-transform duration-300 group-hover/cta:translate-x-1" />
+                            Inquire <ArrowRight size={12} />
                           </a>
                         </div>
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-
-                {/* Subtle affordance when collapsed */}
-                {!isExpanded && (
-                  <div className="mt-4 pt-3 flex items-center justify-between text-[11px] font-mono text-[var(--text-muted)] group-hover:text-white/70 transition-colors">
-                    <span>Click to view details</span>
-                    <span>+</span>
-                  </div>
-                )}
               </div>
             );
           })}
