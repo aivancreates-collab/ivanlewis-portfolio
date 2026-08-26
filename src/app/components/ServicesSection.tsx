@@ -16,7 +16,7 @@ export function ServicesSection() {
     {
       index: '01',
       title: 'Creative Concepts',
-      badge: 'STRATEGY',
+      badge: 'IDEATION',
       hook: 'A great execution can’t save a small idea.',
       description: 'So I start where the work should start... with the idea! Campaigns, launches, narratives, formats — finding the thought that makes everything that follows more interesting.',
       hasConnect: true,
@@ -24,7 +24,7 @@ export function ServicesSection() {
     {
       index: '02',
       title: 'Writing & Development',
-      badge: 'DEVELOPMENT',
+      badge: 'NARRATIVE DESIGN & STRUCTURAL BLUEPRINTING',
       hook: 'An idea can only travel as far as its words.',
       description: 'I find the words, structure and voice that let an idea become what it wants to be; whether it’s a line, a script, a film, a series or something that doesn’t have a name yet.',
       hasConnect: true,
@@ -32,7 +32,7 @@ export function ServicesSection() {
     {
       index: '03',
       title: 'Brand Building',
-      badge: 'STRATEGY',
+      badge: 'STRATEGY & POSITIONING',
       hook: 'A brand becomes what it keeps doing.',
       description: 'So I help make those choices count: from positioning and voice to campaigns, launches and the creative decisions that, over time, become the brand.',
       hasConnect: true,
@@ -40,7 +40,7 @@ export function ServicesSection() {
     {
       index: '04',
       title: 'Film Direction',
-      badge: 'PRODUCTION',
+      badge: 'CREATIVE LEADERSHIP & EXECUTION',
       hook: 'We believe stories when we believe the people in them.',
       description: 'Long-form nonfiction taught me to sense the story that’s already there - in people, in behavior, and in the moments you could never have written.',
       hasConnect: true,
@@ -48,7 +48,7 @@ export function ServicesSection() {
     {
       index: '05',
       title: 'Creative Advisory',
-      badge: 'RETAINER',
+      badge: 'CONSULTING & GUIDANCE',
       hook: 'The closer you are to the work, the less you see.',
       description: 'Sometimes what a project needs isn’t more work. It’s another way of seeing it. I bring an experienced outside eye to ideas, writing, brands, campaigns and production, especially when something isn’t quite working and nobody can say why.',
       hasConnect: true,
