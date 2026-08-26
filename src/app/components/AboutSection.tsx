@@ -30,7 +30,6 @@ export function AboutSection() {
                 className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I work across advertising, branded films, startups, and feature scripts.<br />
                 Different work, same habit: find the idea inside the brief, then turn it into a campaign, a film, an IP, or a launch. My ambition is often bigger than the budget. I like that.
               </p>
 
@@ -38,7 +37,7 @@ export function AboutSection() {
                 className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
-                I work best with people who ask good questions before paying for expensive answers. If that’s your table, save me a chair.
+                I work across advertising, branded films, startups, and feature scripts. I work best with people who ask good questions before paying for expensive answers. If that’s your table, save me a chair.
               </p>
 
               <p 
