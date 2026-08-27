@@ -1,0 +1,13 @@
+# robots.txt for ivanlewis.net
+User-agent: *
+Allow: /
+
+# Googlebot specific directives
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+# Sitemap definition
+Sitemap: https://www.ivanlewis.net/sitemap.xml

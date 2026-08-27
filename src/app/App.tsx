@@ -118,29 +118,31 @@ export default function App() {
       <Navigation scrolled={scrolled} theme={navTheme} />
       <FloatingNav />
 
-      {/* 1. HERO */}
-      <Hero />
+      <main id="main-content">
+        {/* 1. HERO */}
+        <Hero />
 
-      {/* 2. SELECTED WORK / REEL */}
-      <ReelSection />
+        {/* 2. SELECTED WORK / REEL */}
+        <ReelSection />
 
-      {/* 3. AUTHORED THINKING / DEVELOPMENT LOGIC PREVIEW */}
-      <ThinkingPreviewSection />
+        {/* 3. AUTHORED THINKING / DEVELOPMENT LOGIC PREVIEW */}
+        <ThinkingPreviewSection />
 
-      {/* 4. SELECTED PROJECTS / STUDIO */}
-      <WorkSection />
+        {/* 4. SELECTED PROJECTS / STUDIO */}
+        <WorkSection />
 
-      {/* 5. WHAT I DO */}
-      <ServicesSection />
+        {/* 5. WHAT I DO */}
+        <ServicesSection />
 
-      {/* 6. BRAND CREDIBILITY */}
-      <BrandTickerSection />
+        {/* 6. BRAND CREDIBILITY */}
+        <BrandTickerSection />
 
-      {/* 7. ABOUT */}
-      <AboutSection />
+        {/* 7. ABOUT */}
+        <AboutSection />
 
-      {/* 8. CONTACT */}
-      <InteractiveConnectSection />
+        {/* 8. CONTACT */}
+        <InteractiveConnectSection />
+      </main>
 
       <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-base flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>
         <span className="block my-2 text-[22px] font-bold text-white tracking-tight" style={{ fontFamily: 'var(--font-family-serif)' }}>Ivan Lewis</span>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.ivanlewis.net/</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://www.ivanlewis.net/og-image.png</image:loc>
+      <image:title>Ivan Lewis — Creative Director, Writer &amp; Filmmaker</image:title>
+      <image:caption>From pencil to prompt, the work still begins with a question.</image:caption>
+    </image:image>
+  </url>
+</urlset>

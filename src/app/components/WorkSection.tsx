@@ -219,28 +219,28 @@ export function WorkSection() {
       updateMetaTags({
         title: 'The Last Message — Ivan Lewis',
         description: 'What happens to the words people were saving for later, and never sent? Registered screenplay. SWA India, Feb 2026.',
-        canonicalUrl: 'https://ivanlewis.net/#the-last-message',
+        canonicalUrl: 'https://www.ivanlewis.net/#the-last-message',
         imageUrl: imgUrl,
       });
     } else if (activeId === 'e2') {
       updateMetaTags({
         title: 'Maati Kona Chi? — Ivan Lewis',
         description: 'Who decides what gets to grow, and what gets cut? Short film screenplay in Marathi.',
-        canonicalUrl: 'https://ivanlewis.net/#maati-kona-chi',
+        canonicalUrl: 'https://www.ivanlewis.net/#maati-kona-chi',
         imageUrl: imgUrl,
       });
     } else if (activeId === 'e3') {
       updateMetaTags({
         title: 'Active Work — Ivan Lewis',
         description: 'What does a brand sound like before it knows what it is? Ongoing creative consulting and story solutions.',
-        canonicalUrl: 'https://ivanlewis.net/#active-work',
+        canonicalUrl: 'https://www.ivanlewis.net/#active-work',
         imageUrl: imgUrl,
       });
     } else {
       updateMetaTags({
-        title: 'Ivan Lewis',
-        description: 'Creative director, writer, and filmmaker. Mumbai.',
-        canonicalUrl: 'https://ivanlewis.net',
+        title: 'Ivan Lewis — Creative Director, Writer & Filmmaker',
+        description: 'Ivan Lewis is a creative director, writer, and filmmaker based in Mumbai. Conceptualizing campaigns, branded films, screenplays, and brand narratives from pencil to prompt.',
+        canonicalUrl: 'https://www.ivanlewis.net/',
         imageUrl: imgUrl,
       });
     }
