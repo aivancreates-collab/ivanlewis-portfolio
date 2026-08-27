@@ -72,10 +72,10 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-[17px] sm:text-[18px] font-semibold no-underline tracking-[-0.2px] transition-colors duration-300 flex items-center select-none"
+            className="text-[24px] sm:text-[26px] md:text-[28px] font-bold no-underline tracking-[-0.02em] transition-colors duration-300 flex items-center select-none text-white"
             style={{
               fontFamily: 'var(--font-family-serif)',
-              color: 'var(--text)',
+              color: '#FFFFFF',
             }}
           >
             Ivan Lewis
@@ -88,12 +88,12 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
             aria-label="Open full-screen menu"
           >
             <span
-              className="w-6 h-[1.5px] transition-all duration-300"
-              style={{ backgroundColor: 'var(--text)' }}
+              className="w-6 h-[1.5px] transition-all duration-300 bg-white"
+              style={{ backgroundColor: '#FFFFFF' }}
             ></span>
             <span
-              className="w-6 h-[1.5px] transition-all duration-300"
-              style={{ backgroundColor: 'var(--text)' }}
+              className="w-6 h-[1.5px] transition-all duration-300 bg-white"
+              style={{ backgroundColor: '#FFFFFF' }}
             ></span>
           </button>
         </div>
@@ -104,17 +104,10 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
             <li key={item.label} className="flex items-center">
               <a
                 href={item.href}
-                className="text-[14px] uppercase no-underline transition-colors duration-300 tracking-[0.1em] font-normal hover:text-opacity-100"
+                className="text-[14px] uppercase no-underline transition-colors duration-300 tracking-[0.12em] font-medium text-white hover:text-[var(--accent)]"
                 style={{
                   fontFamily: 'var(--font-family-mono)',
-                  color: 'var(--text)',
-                  opacity: 0.72,
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.opacity = '1';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.opacity = '0.72';
+                  color: '#FFFFFF',
                 }}
               >
                 {item.label}
@@ -135,16 +128,16 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
             className="fixed inset-0 z-[2000] flex flex-col justify-between px-6 py-6"
             style={{
               backgroundColor: 'var(--dark-bg)',
-              color: 'var(--dark-text)',
+              color: '#FFFFFF',
             }}
           >
             {/* Header Area inside menu */}
             <div className="flex justify-between items-center">
               <span
-                className="text-[17px] font-semibold tracking-[-0.2px] select-none"
+                className="text-[24px] sm:text-[26px] font-bold tracking-[-0.02em] select-none text-white"
                 style={{
                   fontFamily: 'var(--font-family-serif)',
-                  color: 'var(--dark-text)',
+                  color: '#FFFFFF',
                 }}
               >
                 Ivan Lewis
@@ -176,10 +169,10 @@ export function Navigation({ scrolled, theme = 'dark' }: NavigationProps) {
                     <a
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="inline-block py-2 text-[20px] sm:text-[24px] uppercase no-underline transition-colors duration-300 tracking-[0.12em] font-normal"
+                      className="inline-block py-2 text-[20px] sm:text-[24px] uppercase no-underline transition-colors duration-300 tracking-[0.12em] font-normal text-white hover:text-[var(--accent)]"
                       style={{
                         fontFamily: 'var(--font-family-mono)',
-                        color: 'var(--dark-text)',
+                        color: '#FFFFFF',
                       }}
                     >
                       {item.label}

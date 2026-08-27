@@ -364,10 +364,15 @@ export function WorkSection() {
               </h3>
 
               <p
-                className="text-[22px] sm:text-[24px] italic leading-[1.6] mb-6 text-[var(--text-secondary)]"
-                style={{ fontFamily: 'var(--font-family-serif)' }}
+                className="text-[22px] sm:text-[24px] italic leading-[1.6] mb-6"
+                style={{
+                  fontFamily: 'var(--font-family-serif)',
+                  color: (focusedProject.question.includes('What happens to the words') || focusedProject.question.includes('Who decides') || focusedProject.question.includes('What does a brand sound like') || focusedProject.question.includes('Most briefs tell me'))
+                    ? 'var(--accent)'
+                    : 'var(--text-secondary)',
+                }}
               >
-                "{focusedProject.question}"
+                “{focusedProject.question}”
               </p>
 
               {/* Status block */}
@@ -439,8 +444,16 @@ export function WorkSection() {
                         {point.label}
                       </span>
                       {point.type === 'question' ? (
-                        <blockquote className="text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
-                          "{point.content}"
+                        <blockquote
+                          className="text-[21px] italic leading-relaxed"
+                          style={{
+                            fontFamily: 'var(--font-family-serif)',
+                            color: (point.content.includes('What happens to the words') || point.content.includes('Who decides') || point.content.includes('What does a brand sound like') || point.content.includes('Most briefs tell me'))
+                              ? 'var(--accent)'
+                              : 'var(--text)',
+                          }}
+                        >
+                          “{point.content}”
                         </blockquote>
                       ) : (
                         <p className="text-[19px] sm:text-[20px] leading-relaxed text-[var(--text-secondary)]" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
@@ -451,7 +464,7 @@ export function WorkSection() {
                       {point.pullquote && (
                         <div className="mt-2 border-l-2 pl-4 py-1.5" style={{ borderColor: 'var(--border-solid)', backgroundColor: 'rgba(247, 249, 250, 0.02)' }}>
                           <p className="text-[20px] sm:text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
-                            "{point.pullquote}"
+                            “{point.pullquote}”
                           </p>
                           {point.pullquoteSource && (
                             <span className="block text-[16px] lg:text-[15px] uppercase tracking-[0.1em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
@@ -538,10 +551,15 @@ export function WorkSection() {
                 </div>
 
                 <p
-                  className="text-[20px] sm:text-[22px] italic leading-relaxed text-[var(--text-secondary)] mb-4 max-w-[750px]"
-                  style={{ fontFamily: 'var(--font-family-serif)' }}
+                  className="text-[20px] sm:text-[22px] italic leading-relaxed mb-4 max-w-[750px]"
+                  style={{
+                    fontFamily: 'var(--font-family-serif)',
+                    color: (work.question.includes('What happens to the words') || work.question.includes('Who decides') || work.question.includes('What does a brand sound like') || work.question.includes('Most briefs tell me'))
+                      ? 'var(--accent)'
+                      : 'var(--text-secondary)',
+                  }}
                 >
-                  {work.question}
+                  “{work.question}”
                 </p>
 
                 <div className="flex justify-between items-center">
@@ -587,7 +605,7 @@ export function WorkSection() {
                         {point.pullquote && (
                           <div className="mb-3 border-l-2 pl-4 py-1.5" style={{ borderColor: 'var(--border-solid)' }}>
                             <p className="text-[20px] sm:text-[21px] italic leading-relaxed text-[var(--text)]" style={{ fontFamily: 'var(--font-family-serif)' }}>
-                              "{point.pullquote}"
+                              “{point.pullquote}”
                             </p>
                             {point.pullquoteSource && (
                               <span className="block text-[16px] lg:text-[15px] uppercase tracking-[0.08em] mt-1 text-[var(--text-muted)]" style={{ fontFamily: 'var(--font-family-mono)' }}>
@@ -599,10 +617,17 @@ export function WorkSection() {
 
                         <p
                           className={`text-[19px] sm:text-[20px] leading-relaxed ${
-                            point.type === 'question' ? 'italic text-[var(--text)] font-serif' : 'text-[var(--text-secondary)] font-serif'
+                            point.type === 'question' ? 'italic font-serif' : 'text-[var(--text-secondary)] font-serif'
                           }`}
+                          style={{
+                            color: point.type === 'question'
+                              ? ((point.content.includes('What happens to the words') || point.content.includes('Who decides') || point.content.includes('What does a brand sound like') || point.content.includes('Most briefs tell me'))
+                                ? 'var(--accent)'
+                                : 'var(--text)')
+                              : undefined,
+                          }}
                         >
-                          {point.content}
+                          {point.type === 'question' ? `“${point.content}”` : point.content}
                         </p>
 
                         {point.links && (

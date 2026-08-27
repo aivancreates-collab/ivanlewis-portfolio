@@ -19,30 +19,30 @@ export function AboutSection() {
           <div className="lg:col-span-7 flex flex-col justify-between h-full reveal">
             <div className="space-y-6 max-w-[640px]">
               <p 
-                className="text-[23px] sm:text-[25px] md:text-[27px] not-italic leading-[1.45] tracking-tight text-white/95 font-normal" 
-                style={{ fontFamily: 'var(--font-family-serif)' }}
+                className="text-[23px] sm:text-[25px] md:text-[27px] not-italic leading-[1.45] tracking-tight font-normal" 
+                style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--accent)' }}
               >
                 Most briefs tell me what to make.<br />
                 I usually start by asking why we’re making it.
               </p>
 
               <p 
-                className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
-                style={{ fontFamily: 'var(--font-family-serif)' }}
+                className="text-[17px] sm:text-[18px] leading-[1.75] text-white/80 font-normal" 
+                style={{ fontFamily: 'Lato, sans-serif' }}
               >
                 Different work, same habit: find the idea inside the brief, then turn it into a campaign, a film, an IP, or a launch. My ambition is often bigger than the budget. I like that.
               </p>
 
               <p 
-                className="text-[20px] sm:text-[21px] leading-[1.75] text-white/80 font-light" 
-                style={{ fontFamily: 'var(--font-family-serif)' }}
+                className="text-[17px] sm:text-[18px] leading-[1.75] text-white/80 font-normal" 
+                style={{ fontFamily: 'Lato, sans-serif' }}
               >
                 I work across advertising, branded films, startups, and feature scripts. I work best with people who ask good questions before paying for expensive answers. If that’s your table, save me a chair.
               </p>
 
               <p 
-                className="text-[19px] sm:text-[20px] leading-[1.7] text-white/60 font-normal pt-2" 
-                style={{ fontFamily: 'var(--font-family-serif)' }}
+                className="text-[16px] sm:text-[17px] leading-[1.7] text-white/70 font-normal pt-2" 
+                style={{ fontFamily: 'Lato, sans-serif' }}
               >
                 I am based in <span className="text-[var(--accent)] font-medium">Mumbai</span>. Working everywhere.
               </p>
@@ -135,7 +135,7 @@ export function AboutSection() {
  
             {/* Micro-editorial description */}
             <div 
-              className="mt-3 flex items-center justify-end text-[16px] lg:text-[15px] uppercase tracking-[0.14em] text-white/40 select-none" 
+              className="mt-3 flex items-center justify-end text-[13px] lg:text-[12px] uppercase tracking-[0.14em] text-white/40 select-none" 
               style={{ fontFamily: 'var(--font-family-mono)' }}
             >
               <span>25.2702° N, 91.7317° E</span>

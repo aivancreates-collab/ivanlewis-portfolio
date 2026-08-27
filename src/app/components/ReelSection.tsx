@@ -97,8 +97,8 @@ export function ReelSection() {
         {/* Section Header */}
         <div className="reveal text-center max-w-[850px] mx-auto">
           <h2
-            className="text-[24px] sm:text-[32px] md:text-[38px] leading-[1.2] font-normal tracking-[-0.01em] text-white/95 uppercase text-balance"
-            style={{ fontFamily: 'var(--font-family-serif)' }}
+            className="text-[17px] sm:text-[22px] md:text-[26px] leading-[1.2] font-light tracking-[0.14em] text-white/95 uppercase text-balance"
+            style={{ fontFamily: 'var(--font-family-serif)', fontWeight: 300 }}
           >
             Commercial Work
           </h2>
@@ -157,10 +157,10 @@ export function ReelSection() {
                   Concept. Script. Creative Direction.
                 </h3>
                 <p
-                  className="text-[15px] sm:text-[16px] text-[#A0A0A0] leading-[1.5] mt-1 max-w-[580px]"
-                  style={{ fontFamily: 'var(--font-family-sans)' }}
+                  className="text-[15px] sm:text-[16px] text-white leading-[1.6] mt-1 max-w-[580px]"
+                  style={{ fontFamily: 'Lato, sans-serif' }}
                 >
-                  A selection of films I have conceptualised, written and directed across live action, CG and VFX — for various brands, categories and audiences.
+                  Some work that I have conceptualized, written and directed across brands, categories, platforms and audiences, using live action, CG and VFX.
                 </p>
               </div>
               <span

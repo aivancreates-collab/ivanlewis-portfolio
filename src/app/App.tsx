@@ -143,7 +143,7 @@ export default function App() {
       <InteractiveConnectSection />
 
       <footer className="px-12 py-12 text-center border-t border-border text-text-secondary text-base flex flex-col items-center justify-center" style={{ fontFamily: 'var(--font-family-mono)' }}>
-        <span className="block my-2 text-[18px] text-[var(--text)]">Ivan Lewis</span>
+        <span className="block my-2 text-[22px] font-bold text-white tracking-tight" style={{ fontFamily: 'var(--font-family-serif)' }}>Ivan Lewis</span>
         
         <div className="flex gap-6 items-center justify-center my-4 text-[15px]">
           <a

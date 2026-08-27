@@ -84,7 +84,7 @@ export function Hero() {
           className="text-[28px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[1.2] font-normal not-italic tracking-[-0.02em] text-[var(--text)] text-balance" 
           style={{ fontFamily: 'var(--font-family-serif)' }}
         >
-          From pencil to prompt, the work still begins with <span className="italic">a question</span>.
+          From pencil to prompt, the work still begins with <span className="italic" style={{ color: 'var(--accent)' }}>a question</span>.
         </h1>
       </div>
     </section>

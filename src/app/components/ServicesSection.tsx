@@ -140,11 +140,11 @@ export function ServicesSection() {
                           className="text-[18px] text-white/90 italic font-normal"
                           style={{ fontFamily: 'var(--font-family-serif)' }}
                         >
-                          "{service.hook}"
+                          “{service.hook}”
                         </p>
                         <p 
                           className="text-[17px] sm:text-[18px] leading-[1.65] text-[#AAAAAA]"
-                          style={{ fontFamily: 'var(--font-family-sans)' }}
+                          style={{ fontFamily: 'Lato, sans-serif' }}
                         >
                           {service.description}
                         </p>

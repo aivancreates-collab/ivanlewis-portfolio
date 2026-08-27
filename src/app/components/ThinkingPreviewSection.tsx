@@ -75,10 +75,10 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
         {/* Supporting Editorial Voice Signal (Restrained, not oversized) */}
         <div className="mb-12 md:mb-14 pb-8 border-b border-[#222222]">
           <p 
-            className="text-[20px] sm:text-[22px] md:text-[24px] leading-[1.6] text-white/90 font-normal italic max-w-[820px]"
-            style={{ fontFamily: 'var(--font-family-serif)' }}
+            className="text-[20px] sm:text-[22px] md:text-[24px] leading-[1.6] font-normal italic max-w-[820px]"
+            style={{ fontFamily: 'var(--font-family-serif)', color: 'var(--accent)' }}
           >
-            "{data.voiceQuote}"
+            “{data.voiceQuote}”
           </p>
         </div>
 
@@ -109,16 +109,16 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
         {/* Lead Question Anchor */}
         <div className="mb-8 p-6 sm:p-7 bg-[#141414] border border-[#222222]">
           <span 
-            className="block text-[12px] uppercase tracking-[0.2em] text-[var(--accent-warm)] mb-2"
+            className="block text-[12px] uppercase tracking-[0.2em] text-white/70 mb-2"
             style={{ fontFamily: 'var(--font-family-mono)' }}
           >
             THE QUESTION UNDERNEATH
           </span>
           <p 
-            className="text-[21px] sm:text-[24px] leading-[1.4] text-white/95 font-normal"
+            className="text-[21px] sm:text-[24px] leading-[1.4] text-white font-normal italic"
             style={{ fontFamily: 'var(--font-family-serif)' }}
           >
-            "{data.leadQuestion}"
+            “{data.leadQuestion}”
           </p>
         </div>
 
@@ -141,7 +141,7 @@ export function ThinkingPreviewSection({ data = defaultPreviewData }: ThinkingPr
                 className={`text-[17px] sm:text-[18px] md:text-[19px] leading-[1.6] ${
                   step.isKeyPivot ? 'text-white font-normal' : 'text-white/80'
                 }`}
-                style={{ fontFamily: 'var(--font-family-sans)' }}
+                style={{ fontFamily: 'Lato, sans-serif' }}
               >
                 {step.content}
               </p>

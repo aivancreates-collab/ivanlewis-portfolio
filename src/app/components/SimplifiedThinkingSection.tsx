@@ -164,7 +164,7 @@ export function SimplifiedThinkingSection() {
 
               {/* Exact Quote (Editorial Serif Italic) */}
               <span 
-                className="text-[16px] sm:text-[18px] md:text-[20px] font-light italic text-white/90 select-none tracking-tight"
+                className="text-[16px] sm:text-[18px] md:text-[20px] font-normal italic text-white/90 select-none tracking-tight"
                 style={{ fontFamily: 'var(--font-family-serif)' }}
               >
                 {item.quote}
